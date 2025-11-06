@@ -1,0 +1,33 @@
+# ===========================================
+# Fortepiano Academy – Git Ignore Rules
+# ===========================================
+
+# Node / tooling (if used)
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Sass cache / temporary build files
+.sass-cache/
+*.sass-cache
+
+# Compiled CSS (keep only source SCSS in repo)
+scss/*.css
+scss/*.css.map
+
+# Optional: if you start exporting to a /dist or /build folder
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# Other
+.env
+*.log
