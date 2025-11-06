@@ -714,3 +714,110 @@ textarea {
     will-change: transform;
     transform: translate3d(0, 0, 0);
 }
+
+/* ===== Program Icons (tuned) ===== */
+.program-icons {
+    align-items: start;
+    text-align: center;
+    /* center all text */
+
+    .program__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3);
+        will-change: transform, box-shadow;
+        animation: floatCard 8s ease-in-out infinite;
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    /* desync the float a bit so they don't move together */
+    .program__item:nth-child(2) {
+        animation-duration: 9s;
+        animation-delay: .4s;
+    }
+
+    .program__item:nth-child(3) {
+        animation-duration: 7.5s;
+        animation-delay: .8s;
+    }
+
+    .program__item:nth-child(4) {
+        animation-duration: 10s;
+        animation-delay: .2s;
+    }
+
+    .program__icon {
+        width: clamp(72px, 12vw, 110px);
+        /* smaller than before */
+        height: clamp(72px, 12vw, 110px);
+        display: grid;
+        place-items: center;
+
+        img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 16px rgba(236, 26, 72, .22));
+            transition: transform .25s ease, filter .25s ease;
+        }
+
+        /* tiny lift on hover, nothing dramatic */
+        .program__item:hover & img {
+            transform: translateY(-2px) scale(1.01);
+            filter: drop-shadow(0 0 28px rgba(236, 26, 72, .34));
+        }
+    }
+
+    h3 {
+        font-family: 'BluuNext', serif;
+        font-weight: 700;
+        font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+        margin: .25rem 0 0;
+    }
+
+    p {
+        font-size: .98rem;
+        opacity: .9;
+        max-width: 28ch;
+        /* keeps copy tidy under the icon */
+    }
+}
+
+/* gentle float keyframes */
+@keyframes floatCard {
+    0% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-6px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+/* Reduce motion for sensitive users */
+@media (prefers-reduced-motion: reduce) {
+    .program-icons .program__item {
+        animation: none;
+    }
+}
+
+/* Mobile: two-up grid and slightly smaller icons */
+@media (max-width: 720px) {
+    .program-icons {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-5);
+
+        .program__icon {
+            width: 86px;
+            height: 86px;
+        }
+
+        p {
+            max-width: 32ch;
+        }
+    }
+}
