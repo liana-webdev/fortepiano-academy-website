@@ -1,0 +1,36 @@
+# ============================================================
+# Fortepiano Academy Website – Git Ignore Rules
+# ============================================================
+
+# --- OS / Editor junk ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+# --- Sass / SCSS sources ---
+scss/**/*.scss
+
+# --- Node / build tools (if used later) ---
+node_modules/
+npm-debug.log*
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
+
+# --- Temporary / cache files ---
+.sass-cache/
+*.sass-cache
+*.log
+
+# --- Build artifacts (if you ever add these) ---
+dist/
+build/
+
+# --- Map files (optional: ignore if you don’t want them in repo) ---
+*.map
+
+# --- Environment / secrets ---
+.env
+.env.*

@@ -626,7 +626,8 @@ textarea {
 .stars span {
   letter-spacing: 0.08em;
   font-weight: 800;
-  color: #f5c451; /* gold */
+  color: #f5c451;
+  /* gold */
   text-shadow: 0 0 10px rgba(245, 196, 81, 0.25);
 }
 
@@ -634,4 +635,26 @@ textarea {
   content: "↗";
   margin-left: 0.35rem;
   opacity: 0.8;
+}
+
+/* Full-bleed utility: makes a child span the viewport, centered
+   regardless of the parent container width */
+.full-bleed {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Optional: some side air so items don’t kiss the edges */
+.full-bleed .ribbon {
+  padding-inline: clamp(12px, 4vw, 32px);
+}
+
+/* Smoother ribbon animation and no layout overflow jitter */
+.ribbon__track {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }/*# sourceMappingURL=main.css.map */

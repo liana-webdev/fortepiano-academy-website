@@ -613,15 +613,60 @@ textarea {
 }
 
 /* Reviews */
-.review-card { display: grid; gap: var(--space-4); }
-.review-card__head { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); }
-.review-card__name { margin:0; font-size:1.05rem; font-weight:700; }
-.review-card__text { opacity:.95; }
-
-.stars span {
-  letter-spacing:.08em; font-weight:800;
-  color:#f5c451; /* gold */
-  text-shadow:0 0 10px rgba(245,196,81,.25);
+.review-card {
+    display: grid;
+    gap: var(--space-4);
 }
 
-.btn--google::after { content:"↗"; margin-left:.35rem; opacity:.8; }
+.review-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.review-card__name {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.review-card__text {
+    opacity: .95;
+}
+
+.stars span {
+    letter-spacing: .08em;
+    font-weight: 800;
+    color: #f5c451;
+    /* gold */
+    text-shadow: 0 0 10px rgba(245, 196, 81, .25);
+}
+
+.btn--google::after {
+    content: "↗";
+    margin-left: .35rem;
+    opacity: .8;
+}
+
+/* Full-bleed utility: makes a child span the viewport, centered
+   regardless of the parent container width */
+.full-bleed {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Optional: some side air so items don’t kiss the edges */
+.full-bleed .ribbon {
+    padding-inline: clamp(12px, 4vw, 32px);
+}
+
+/* Smoother ribbon animation and no layout overflow jitter */
+.ribbon__track {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
