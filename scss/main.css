@@ -598,4 +598,40 @@ textarea {
 /* Keep theme-dark selector for future theming */
 .theme-dark {
   color-scheme: dark;
+}
+
+/* Reviews */
+.review-card {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.review-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.review-card__name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.review-card__text {
+  opacity: 0.95;
+}
+
+.stars span {
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: #f5c451; /* gold */
+  text-shadow: 0 0 10px rgba(245, 196, 81, 0.25);
+}
+
+.btn--google::after {
+  content: "↗";
+  margin-left: 0.35rem;
+  opacity: 0.8;
 }/*# sourceMappingURL=main.css.map */
