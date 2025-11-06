@@ -1,4 +1,31 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "BluuNext";
+  src: url("/fonts/bluunext-bold-webfont.woff2") format("woff2"), url("/fonts/bluunext-bold-webfont.woff") format("woff"), url("/fonts/bluunext-bold.ttf") format("truetype"), url("/fonts/bluunext-bold-webfont.svg#BluuNext-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-synthesis: none;
+}
+@font-face {
+  font-family: "BluuNext";
+  src: url("/fonts/bluunext-bolditalic-webfont.woff2") format("woff2"), url("/fonts/bluunext-bolditalic-webfont.woff") format("woff"), url("/fonts/bluunext-bolditalic.ttf") format("truetype"), url("/fonts/bluunext-bolditalic-webfont.svg#BluuNext-BoldItalic") format("svg");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  font-synthesis: none;
+}
+/* Titling cut (for big display words) */
+@font-face {
+  font-family: "BluuNext Titling";
+  src: url("/fonts/bluunext-titling.woff2") format("woff2"), url("/fonts/bluunext-titling.woff") format("woff"), url("/fonts/BluuNext-Titling.ttf") format("truetype");
+  font-weight: 400;
+  /* important: use 400 when you set it */
+  font-style: normal;
+  font-display: swap;
+  font-synthesis: none;
+}
+/* Darker Grotesque (Google) – load via <link> in HTML for reliability */
 /* ====== TOKENS (keep i t tiny) ====== */
 :root {
   --bg: #0e0d11;
@@ -38,16 +65,39 @@
 html,
 body {
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  touch-action: pan-y;
+  /* iOS: only vertical panning */
+  overscroll-behavior-x: contain;
+  /* no horizontal scroll chaining */
 }
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Darker Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   color: var(--text);
   background: radial-gradient(1200px 600px at 50% -10%, rgba(236, 26, 72, 0.12), transparent 60%), var(--bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+.hero__title,
+.section__header h2 {
+  font-family: "BluuNext", serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h1.titling,
+.titling {
+  font-family: "BluuNext Titling", serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 img {
@@ -118,11 +168,17 @@ p {
   pointer-events: none;
 }
 
+@supports not (overflow: clip) {
+  .section__bg {
+    overflow: hidden;
+  }
+}
 /* BG pieces you can reuse; position via CSS vars for independence */
 .bg-piece {
   position: absolute;
   transform: translate(var(--x, 0), var(--y, 0));
   filter: blur(0px);
+  contain: layout paint;
 }
 
 .bg-orb {
@@ -646,6 +702,9 @@ textarea {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  width: 100vw;
+  overflow-x: clip;
+  /* stops horizontal rubber-band area */
 }
 
 /* Optional: some side air so items don’t kiss the edges */

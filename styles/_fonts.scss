@@ -1,0 +1,45 @@
+// Adjust this to match your build. Examples:
+// "/fonts" if fonts folder is in the web root,
+// "/assets/fonts" if you serve from /assets/fonts,
+// "../fonts" if your compiled CSS ends up in /css/style.css
+$font-path: "/fonts";
+
+// ===== Local fonts: BluuNext =====
+@font-face {
+    font-family: "BluuNext";
+    src: url("#{$font-path}/bluunext-bold-webfont.woff2") format("woff2"),
+    url("#{$font-path}/bluunext-bold-webfont.woff") format("woff"),
+    url("#{$font-path}/bluunext-bold.ttf") format("truetype"),
+    url("#{$font-path}/bluunext-bold-webfont.svg#BluuNext-Bold") format("svg");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    font-synthesis: none;
+}
+
+@font-face {
+    font-family: "BluuNext";
+    src: url("#{$font-path}/bluunext-bolditalic-webfont.woff2") format("woff2"),
+    url("#{$font-path}/bluunext-bolditalic-webfont.woff") format("woff"),
+    url("#{$font-path}/bluunext-bolditalic.ttf") format("truetype"),
+    url("#{$font-path}/bluunext-bolditalic-webfont.svg#BluuNext-BoldItalic") format("svg");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+    font-synthesis: none;
+}
+
+/* Titling cut (for big display words) */
+@font-face {
+    font-family: "BluuNext Titling";
+    src: url("#{$font-path}/bluunext-titling.woff2") format("woff2"),
+    url("#{$font-path}/bluunext-titling.woff") format("woff"),
+    url("#{$font-path}/BluuNext-Titling.ttf") format("truetype");
+    font-weight: 400;
+    /* important: use 400 when you set it */
+    font-style: normal;
+    font-display: swap;
+    font-synthesis: none;
+}
+
+/* Darker Grotesque (Google) – load via <link> in HTML for reliability */
