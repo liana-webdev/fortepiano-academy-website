@@ -279,18 +279,12 @@ p {
 }
 
 .brand__mark {
-    width: 28px;
-    height: 28px;
+    width: 4rem;
+    height: 4rem;
     display: grid;
     place-items: center;
-    background: var(--primary);
-    border-radius: 999px;
-    box-shadow: var(--shadow-glass);
 }
 
-.brand__text {
-    letter-spacing: .2px;
-}
 
 .nav__toggle {
     display: inline-flex;
@@ -559,7 +553,20 @@ p {
 
 /* ====== PLANS ====== */
 .plan {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* stack content vertically */
+    justify-content: space-between;
+
+    /* space between content & footer actions */
+    .actions {
+        margin-top: auto;
+        /* pushes .actions to bottom */
+        display: flex;
+        place-self: center;
+        flex-wrap: wrap;
+        gap: .6rem;
+    }
 }
 
 .plan--featured {
@@ -640,12 +647,6 @@ textarea {
     border-top: 1px solid rgba(255, 255, 255, .08);
 }
 
-/* ====== UTIL ====== */
-.actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .6rem;
-}
 
 /* Keep theme-dark selector for future theming */
 .theme-dark {
