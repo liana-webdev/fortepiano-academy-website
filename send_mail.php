@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Compose email
-    $to      = "contact@fortepianoacademy.net";
+    $to      = "contact@fortepianoacademy.au";
     $subject = "New Fortepiano Academy enquiry from $name";
     $body = "
     Name: $name
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     ";
 
     $headers = [
-        "From: Fortepiano Academy <contact@fortepianoacademy.net>",
+        "From: Fortepiano Academy <contact@fortepianoacademy.au>",
         "Reply-To: $name <$contact>",
         "Content-Type: text/plain; charset=UTF-8"
     ];

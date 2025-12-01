@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="scss/main.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles/main.css?v=<?php echo time(); ?>">
 </head>
 
 <body class="theme-dark">
@@ -36,6 +36,19 @@
     </header>
 
     <main>
+        <button id="themeToggle" class="btn btn--ghost">Theme</button>
+        <script>
+            const btn = document.getElementById('themeToggle');
+            const set = m => { document.body.classList.remove('theme-light', 'theme-dark'); if (m) document.body.classList.add(m); localStorage.setItem('theme', m || ''); };
+            // on load
+            set(localStorage.getItem('theme') || '');
+            // click to cycle: auto -> dark -> light -> auto
+            btn?.addEventListener('click', () => {
+                const cur = localStorage.getItem('theme');
+                set(cur === 'theme-dark' ? 'theme-light' : cur === 'theme-light' ? '' : 'theme-dark');
+            });
+        </script>
+        <!--  -->
         <!-- =========== HHERO =========== -->
         <section id="hero" class="section hero">
             <div class="section__bg">
@@ -539,7 +552,7 @@
                 <address>5 Verona Drive, Wentworth Point NSW 2127</address>
             </div>
             <div class="stack gap-xs">
-                <a href="mailto:contact@fortepianoacademy.net">contact@fortepianoacademy.net</a>
+                <a href="mailto:contact@fortepianoacademy.au">contact@fortepianoacademy.au</a>
                 <a href="tel:+61482176777">+61 482 176 777</a>
             </div>
             <div class="stack gap-xs">
