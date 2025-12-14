@@ -1,0 +1,67 @@
+/* ================================
+   LOGO SWAP (dark logo vs light logo)
+================================= */
+.logo--light {
+    display: none;
+}
+
+body.theme-light .logo--light {
+    display: block;
+}
+
+body.theme-light .logo--dark {
+    display: none;
+}
+
+
+/* ===== Theme toggle (icon button) ===== */
+.theme-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 1px solid var(--border-soft);
+    background: transparent;
+    display: inline-grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background .15s ease, border-color .15s ease, transform .08s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--hover);
+    border-color: var(--border);
+}
+
+.theme-toggle:active {
+    transform: translateY(1px);
+}
+
+.theme-toggle__icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+/* Moon (default when dark) */
+body.theme-dark .theme-toggle__icon {
+    background:
+        radial-gradient(circle at 30% 30%, transparent 55%, var(--text) 56% 100%);
+    border-radius: 50%;
+    opacity: .85;
+}
+
+/* Sun (when light) */
+body.theme-light .theme-toggle__icon {
+    background: var(--text);
+    border-radius: 50%;
+    box-shadow:
+        0 -10px 0 -8px var(--text),
+        0 10px 0 -8px var(--text),
+        10px 0 0 -8px var(--text),
+        -10px 0 0 -8px var(--text),
+        7px 7px 0 -8px var(--text),
+        -7px 7px 0 -8px var(--text),
+        7px -7px 0 -8px var(--text),
+        -7px -7px 0 -8px var(--text);
+    opacity: .75;
+}

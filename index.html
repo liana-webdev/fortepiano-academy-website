@@ -15,13 +15,16 @@
     <!-- =========== Header  / Nav =========== -->
     <header class="site-header">
         <div class="container header__row">
-            <a href="#" class="brand">
-                <span class="brand__mark" aria-hidden="true"><img src="img/Logo.svg"></span>
-            </a>
+            <span class="brand__mark" aria-hidden="true">
+                <img src="img/Logo.svg" class="logo logo--dark" alt="Fortepiano Academy logo dark">
+                <img src="img/Logo 4.svg" class="logo logo--light" alt="Fortepiano Academy logo light">
+            </span>
+
 
             <nav class="nav" aria-label="Primary">
                 <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
                 <ul id="navMenu" class="nav__list">
+
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#lessons">Lessons</a></li>
@@ -30,26 +33,19 @@
                     <li><a href="#program">Programs</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <!-- <li><a href="#faq">FAQ</a></li> -->
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme"
+                        aria-pressed="false">
+                        <span class="theme-toggle__icon" aria-hidden="true"></span>
+                    </button>
+
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- <button id="themeToggle" class="btn btn--ghost">Theme</button> -->
-        <script>
-            const btn = document.getElementById('themeToggle');
-            const set = m => { document.body.classList.remove('theme-light', 'theme-dark'); if (m) document.body.classList.add(m); localStorage.setItem('theme', m || ''); };
-            // on load
-            set(localStorage.getItem('theme') || '');
-            // click to cycle: auto -> dark -> light -> auto
-            btn?.addEventListener('click', () => {
-                const cur = localStorage.getItem('theme');
-                set(cur === 'theme-dark' ? 'theme-light' : cur === 'theme-light' ? '' : 'theme-dark');
-            });
-        </script>
-        <!--  -->
-        <!-- =========== HHERO =========== -->
+
+        <!-- =========== HERO =========== -->
         <section id="hero" class="section hero">
             <div class="section__bg">
                 <!-- Decorative bg pieces live here, independent of container -->
@@ -615,7 +611,7 @@
         </div>
     </footer>
 
-    <script src="/scripts/script.js">
+    <script src="scripts/script.js">
 
     </script>
 </body>

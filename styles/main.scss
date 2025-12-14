@@ -6,76 +6,6 @@
 @import 'backgrounds';
 
 
-/* ====== TOKENS (keep i t tiny) ====== */
-:root {
-    --bg: #0e0d11;
-    --bg-soft: #15141a;
-    --surface: #1b1922;
-    --text: #e8e6ee;
-    --muted: #a7a4b0;
-    --primary: #EC1A48;
-    --primary-600: #d1153f;
-    --gutter: 1.2rem;
-    /* side padding for container */
-    --container: 1120px;
-
-    --space-1: .25rem;
-    --space-2: .5rem;
-    --space-3: .75rem;
-    --space-4: 1rem;
-    --space-5: 1.5rem;
-    --space-6: 2rem;
-    --space-7: 3rem;
-    --space-8: 4rem;
-
-    --radius-1: .5rem;
-    --radius-2: .9rem;
-    --radius-3: 1.25rem;
-
-    --shadow-1: 0 6px 24px rgba(0, 0, 0, .25);
-    --shadow-glass: 0 8px 30px rgba(236, 26, 72, .25);
-
-    --z-bg: 0;
-    --z-content: 1;
-    --z-overlay: 10;
-}
-
-/* Light (default) */
-:root {
-    color-scheme: light;
-
-    --bg: #d7d7d7;
-    --bg-soft: #f7f7f9;
-    --surface: #ffffff;
-    --text: #111216;
-    --muted: #5b5e66;
-
-    --primary: #EC1A48;
-    --primary-600: #d1153f;
-
-    --gutter: 1.2rem;
-    --container: 1120px;
-
-    --space-1: .25rem;
-    --space-2: .5rem;
-    --space-3: .75rem;
-    --space-4: 1rem;
-    --space-5: 1.5rem;
-    --space-6: 2rem;
-    --space-7: 3rem;
-    --space-8: 4rem;
-
-    --radius-1: .5rem;
-    --radius-2: .9rem;
-    --radius-3: 1.25rem;
-
-    --shadow-1: 0 6px 24px rgba(16, 18, 24, .08);
-    --shadow-glass: 0 8px 30px rgba(236, 26, 72, .18);
-
-    --z-bg: 0;
-    --z-content: 1;
-    --z-overlay: 10;
-}
 
 /* Dark (auto when device prefers dark mode) */
 @media (prefers-color-scheme: dark) {
@@ -95,6 +25,22 @@
         --shadow-glass: 0 8px 30px rgba(236, 26, 72, .25);
     }
 }
+
+
+
+/* Auto light (no manual theme chosen) */
+body:not(.theme-dark):not(.theme-light) {
+    @media (prefers-color-scheme: light) {
+        .logo--light {
+            display: block;
+        }
+
+        .logo--dark {
+            display: none;
+        }
+    }
+}
+
 
 /* ====== MIXINS ====== */
 $bp-md: 720px;
@@ -312,13 +258,11 @@ p {
 
 /* ====== HEADER / NAV ====== */
 .site-header {
-    position: sticky;
-    top: 0;
-    z-index: var(--z-overlay);
     background: color-mix(in oklab, var(--bg) 90%, black 10%);
     border-bottom: 1px solid var(--border-soft);
     backdrop-filter: blur(8px);
 }
+
 
 .header__row {
     display: flex;
@@ -343,12 +287,9 @@ p {
 
 
 .nav__toggle {
-    display: inline-flex;
     background: var(--surface);
     color: var(--text);
     border: 1px solid var(--border);
-    padding: .5rem .75rem;
-    border-radius: .6rem;
 }
 
 .nav__list {
@@ -359,15 +300,8 @@ p {
 }
 
 .nav__list.is-open {
-    display: grid;
-    gap: .5rem;
-    position: absolute;
-    right: var(--gutter);
-    top: 52px;
     background: var(--surface);
     border: 1px solid var(--border-soft);
-    padding: .75rem;
-    border-radius: var(--radius-2);
 }
 
 .nav__list a {
@@ -377,7 +311,7 @@ p {
 }
 
 .nav__list a:hover {
-    background: rgba(255, 255, 255, .06);
+    background: var(--hover);
 }
 
 @include mq($bp-md) {
@@ -397,6 +331,65 @@ p {
     .nav__list a {
         padding: .4rem .5rem;
     }
+}
+
+/* ===== Theme toggle (icon button) ===== */
+.theme-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 1px solid var(--border-soft);
+    background: transparent;
+    display: inline-grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background .15s ease, border-color .15s ease, transform .08s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--hover);
+    border-color: var(--border);
+}
+
+.theme-toggle:active {
+    transform: translateY(1px);
+}
+
+.theme-toggle__icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+/* Moon (default when dark) */
+body.theme-dark .theme-toggle__icon {
+    background:
+        radial-gradient(circle at 30% 30%, transparent 55%, var(--text) 56% 100%);
+    border-radius: 50%;
+    opacity: .85;
+}
+
+/* Sun (when light) */
+body.theme-light .theme-toggle__icon {
+    background: var(--text);
+    border-radius: 50%;
+    box-shadow:
+        0 -10px 0 -8px var(--text),
+        0 10px 0 -8px var(--text),
+        10px 0 0 -8px var(--text),
+        -10px 0 0 -8px var(--text),
+        7px 7px 0 -8px var(--text),
+        -7px 7px 0 -8px var(--text),
+        7px -7px 0 -8px var(--text),
+        -7px -7px 0 -8px var(--text);
+    opacity: .75;
+}
+
+/* place it nicely in the header row */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
 }
 
 /* ====== UI PARTS ====== */
@@ -430,12 +423,12 @@ p {
 
 .btn--ghost {
     background: transparent;
-    border-color: rgba(255, 255, 255, .14);
+    border-color: var(--border);
     color: var(--text);
 }
 
 .btn--ghost:hover {
-    background: rgba(255, 255, 255, .06);
+    background: var(--hover);
 }
 
 .badge {
@@ -444,8 +437,8 @@ p {
     gap: .4rem;
     padding: .35rem .6rem;
     border-radius: 999px;
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .08);
+    background: var(--hover);
+    border: 1px solid var(--border-soft);
     font-size: .9rem;
     color: var(--text);
 }
@@ -458,7 +451,7 @@ p {
 
 .card {
     background: var(--surface);
-    border: 1px solid rgba(255, 255, 255, .08);
+    border: 1px solid var(--border-soft);
     border-radius: var(--radius-3);
     padding: var(--space-5);
     box-shadow: var(--shadow-1);
@@ -512,7 +505,7 @@ p {
 
 .timeline__rail {
     height: 2px;
-    background: rgba(255, 255, 255, .12);
+    background: var(--border);
     position: absolute;
     left: 0;
     right: 0;
@@ -562,8 +555,8 @@ p {
 }
 
 .tags li {
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .08);
+    background: var(--hover);
+    border: 1px solid var(--border-soft);
     padding: .35rem .6rem;
     border-radius: 999px;
 }
@@ -692,7 +685,6 @@ textarea {
     background: var(--bg-soft);
     color: var(--text);
     border: 1px solid var(--border);
-    color: var(--text);
     padding: .7rem .8rem;
     border-radius: .6rem;
 }
@@ -707,9 +699,10 @@ textarea {
 /* ====== FOOTER ====== */
 .site-footer {
     padding-block: var(--space-7);
-    background: #0c0b10;
-    border-top: 1px solid rgba(255, 255, 255, .08);
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border-soft);
 }
+
 
 
 /* Keep theme-dark selector for future theming */
@@ -912,7 +905,6 @@ textarea {
         /* centered cards */
     }
 }
-
 /* ===== Programs: content-aware layout ===== */
 #program {
     .program-row {
