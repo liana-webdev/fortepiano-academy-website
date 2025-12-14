@@ -7,4 +7,4 @@
                 btn.setAttribute('aria-expanded', String(!open));
                 list.classList.toggle('is-open');
             });
-        }
+        } 

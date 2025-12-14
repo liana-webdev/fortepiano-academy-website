@@ -880,4 +880,31 @@ textarea {
     margin-inline: auto;
     /* centered cards */
   }
+}
+/* ===== Programs: content-aware layout ===== */
+#program {
+  /* Mobile stacking */
+}
+#program .program-row {
+  display: grid;
+  grid-template-columns: clamp(90px, 14%, 120px) 1fr;
+  gap: clamp(14px, 2vw, 28px);
+  margin-top: 22px;
+  align-items: start;
+}
+#program .program-label {
+  display: flex;
+  align-items: flex-start;
+}
+#program .program-body {
+  min-width: 0;
+}
+@media (max-width: 680px) {
+  #program .grid.grid--2 {
+    grid-template-columns: 1fr;
+  }
+  #program .program-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }/*# sourceMappingURL=main.css.map */
