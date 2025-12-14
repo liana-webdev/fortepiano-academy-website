@@ -44,7 +44,7 @@
 :root {
     color-scheme: light;
 
-    --bg: #ffffff;
+    --bg: #d7d7d7;
     --bg-soft: #f7f7f9;
     --surface: #ffffff;
     --text: #111216;
@@ -316,7 +316,7 @@ p {
     top: 0;
     z-index: var(--z-overlay);
     background: color-mix(in oklab, var(--bg) 90%, black 10%);
-    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    border-bottom: 1px solid var(--border-soft);
     backdrop-filter: blur(8px);
 }
 
@@ -346,7 +346,7 @@ p {
     display: inline-flex;
     background: var(--surface);
     color: var(--text);
-    border: 1px solid rgba(255, 255, 255, .1);
+    border: 1px solid var(--border);
     padding: .5rem .75rem;
     border-radius: .6rem;
 }
@@ -365,7 +365,7 @@ p {
     right: var(--gutter);
     top: 52px;
     background: var(--surface);
-    border: 1px solid rgba(255, 255, 255, .08);
+    border: 1px solid var(--border-soft);
     padding: .75rem;
     border-radius: var(--radius-2);
 }
@@ -689,9 +689,10 @@ p {
 input,
 textarea {
     width: 100%;
-    background: #0f0e13;
+    background: var(--bg-soft);
     color: var(--text);
-    border: 1px solid rgba(255, 255, 255, .12);
+    border: 1px solid var(--border);
+    color: var(--text);
     padding: .7rem .8rem;
     border-radius: .6rem;
 }
