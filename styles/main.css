@@ -385,13 +385,19 @@ p {
 
 /* ====== HEADER / NAV ====== */
 .site-header {
-  background: color-mix(in oklab, var(--bg) 90%, black 10%);
+  background: var(--surface);
   border-bottom: 1px solid var(--border-soft);
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
   z-index: calc(var(--z-overlay) + 1);
+}
+
+body.theme-light .site-header {
+  background: #ffffff;
+  border-bottom-color: rgba(16, 18, 24, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
 }
 
 .header__row {
@@ -684,6 +690,40 @@ body.nav-open::after {
 
 .card--flat {
   padding: 0.5rem;
+}
+
+.program-card {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 96%, #ffffff 4%), color-mix(in srgb, var(--surface) 90%, #000000 10%));
+  border: 1px solid color-mix(in srgb, var(--border) 70%, rgba(0, 0, 0, 0.08));
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-dark .program-card {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 90%, #ffffff 8%), color-mix(in srgb, var(--surface) 92%, #000000 12%));
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.32);
+}
+
+.program-card--recommended h3 {
+  color: var(--text);
+}
+
+body.theme-light .program-card--recommended h3 {
+  color: #0f1014;
+}
+
+.program-reco {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--hover) 70%, #fff 30%);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, var(--border) 80%);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 /* icon container */
