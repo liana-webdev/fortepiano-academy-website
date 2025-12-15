@@ -148,9 +148,9 @@ body.theme-light .theme-toggle__icon {
   opacity: 0.75;
 }
 
-/* Dark (auto when device prefers dark mode) */
+/* Dark (auto when device prefers dark mode and no manual theme chosen) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  body:not(.theme-dark):not(.theme-light) {
     color-scheme: dark;
     --bg: #0e0d11;
     --bg-soft: #15141a;
@@ -163,7 +163,7 @@ body.theme-light .theme-toggle__icon {
     --shadow-glass: 0 8px 30px rgba(236, 26, 72, .25);
   }
 }
-/* Auto light (no manual theme chosen) */
+/* Auto light logos (no manual theme chosen) */
 @media (prefers-color-scheme: light) {
   body:not(.theme-dark):not(.theme-light) .logo--light {
     display: block;
@@ -184,10 +184,6 @@ body {
   height: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  touch-action: pan-y;
-  /* iOS: only vertical panning */
-  overscroll-behavior-x: contain;
-  /* no horizontal scroll chaining */
 }
 
 body {

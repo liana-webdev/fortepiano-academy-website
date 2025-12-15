@@ -48,6 +48,7 @@
   if (!btn) return;
 
   const KEY = "theme"; // stores: "light" or "dark"
+  let userSet = false;
 
   const apply = (mode) => {
     document.body.classList.remove("theme-dark", "theme-light");
@@ -62,6 +63,7 @@
 
   // initial mode: saved > system preference
   const saved = localStorage.getItem(KEY);
+  userSet = saved === "light" || saved === "dark";
   const systemDark =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -75,8 +77,18 @@
 
   apply(initial);
 
+  // react to system changes if user hasn't set a manual preference yet
+  if (!userSet && window.matchMedia) {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    mq.addEventListener("change", (e) => {
+      if (userSet) return;
+      apply(e.matches ? "dark" : "light");
+    });
+  }
+
   btn.addEventListener("click", () => {
     const next = document.body.classList.contains("theme-dark") ? "light" : "dark";
+    userSet = true;
     localStorage.setItem(KEY, next);
     apply(next);
   });
