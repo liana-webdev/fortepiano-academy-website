@@ -8,12 +8,16 @@
 
   const close = () => {
     menu.classList.remove("is-open");
+    btn.classList.remove("is-open");
     btn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
   };
 
   const toggle = () => {
     const open = menu.classList.toggle("is-open");
+    btn.classList.toggle("is-open", open);
     btn.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("nav-open", open);
   };
 
   btn.addEventListener("click", (e) => {

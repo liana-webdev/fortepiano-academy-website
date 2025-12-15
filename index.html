@@ -22,7 +22,15 @@
 
 
             <nav class="nav" aria-label="Primary">
-                <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+                <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu"
+                    aria-label="Toggle navigation">
+                    <span class="sr-only">Menu</span>
+                    <span class="nav__toggle-box" aria-hidden="true">
+                        <span class="nav__toggle-line"></span>
+                        <span class="nav__toggle-line"></span>
+                        <span class="nav__toggle-line"></span>
+                    </span>
+                </button>
                 <ul id="navMenu" class="nav__list">
 
                     <li><a href="#hero">Home</a></li>
@@ -33,10 +41,12 @@
                     <li><a href="#program">Programs</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <!-- <li><a href="#faq">FAQ</a></li> -->
-                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme"
-                        aria-pressed="false">
-                        <span class="theme-toggle__icon" aria-hidden="true"></span>
-                    </button>
+                    <li class="nav__theme">
+                        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme"
+                            aria-pressed="false">
+                            <span class="theme-toggle__icon" aria-hidden="true"></span>
+                        </button>
+                    </li>
 
                 </ul>
             </nav>
