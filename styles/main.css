@@ -986,6 +986,152 @@ textarea {
   opacity: 0.95;
 }
 
+.success-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+.story-card {
+  flex: 1 1 min(100%, 30rem);
+  min-width: 280px;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.story-card--brothers {
+  min-width: 100%;
+}
+
+@media (min-width: 900px) {
+  .story-card--brothers {
+    min-width: calc(50% - var(--space-5) / 2);
+  }
+}
+
+.story-card summary {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.story-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.story-card__summary {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.story-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.story-card__tag {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.story-card[open] {
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
+}
+
+.story-card summary::after {
+  content: "+";
+  justify-self: end;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding-top: 0.25rem;
+  color: var(--muted);
+}
+
+.story-card[open] summary::after {
+  content: "−";
+}
+
+.story-card__body {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.story-card__body p {
+  margin: 0;
+}
+
+.story-card__group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.story-card__image {
+  width: 100%;
+  display: block;
+  border: 0;
+  background: transparent;
+  border-radius: var(--radius-2);
+}
+
+.story-card__image-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.story-card__image-row img {
+  flex: 1 1 min(100%, 14rem);
+}
+
+.story-card__image + .story-card__image {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 660px) {
+  .story-card {
+    min-width: 100%;
+  }
+}
+
+.story-card__head {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.story-card__tag {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.story-card__body {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.story-card__quote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--primary);
+  color: var(--text);
+  opacity: 0.92;
+  font-style: italic;
+}
+
+.story-card__media {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  background: var(--bg-soft);
+  border: 1px dashed var(--border-soft);
+  border-radius: var(--radius-2);
+  text-align: center;
+  padding: var(--space-4);
+  font-size: 0.95rem;
+}
+
 .stars span {
   letter-spacing: 0.08em;
   font-weight: 800;
