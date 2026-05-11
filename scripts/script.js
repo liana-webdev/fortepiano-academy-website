@@ -42,6 +42,99 @@
   });
 })();
 
+// Scroll-to-reveal blocks
+(() => {
+  const autoRevealSelector = [
+    "main .section__header",
+    "main .hero .stack",
+    "main .hero__media",
+    "main .blog-hero .stack",
+    "main .blog-hero__media",
+    "main .article-header",
+    "main .article-hero",
+    "main .article-body > h2",
+    "main .article-body > h3",
+    "main .article-body > p",
+    "main .article-cta",
+    "main .card",
+    "main .timeline__item",
+    "main .tags",
+    "main .program__item",
+    "main .ribbon__item",
+    "main .center.pad-top-m",
+    ".reveal-block",
+  ].join(",");
+
+  let didInitRevealBlocks = false;
+
+  const initRevealBlocks = () => {
+    if (didInitRevealBlocks) return;
+
+    const blocks = Array.from(new Set(document.querySelectorAll(autoRevealSelector)))
+      .filter((block) => !block.closest(".site-header, .site-footer"));
+
+    if (!blocks.length) return;
+    didInitRevealBlocks = true;
+
+    if (!("IntersectionObserver" in window)) {
+      blocks.forEach((block) => block.classList.add("is-revealed"));
+      return;
+    }
+
+    blocks.forEach((block) => block.classList.add("reveal-block", "is-reveal-ready"));
+
+    const revealQueue = [];
+    const queuedBlocks = new Set();
+    let revealFrame = null;
+
+    const flushRevealQueue = () => {
+      revealFrame = null;
+
+      const visibleBlocks = revealQueue
+        .splice(0)
+        .sort(
+          (a, b) =>
+            a.getBoundingClientRect().top - b.getBoundingClientRect().top ||
+            a.getBoundingClientRect().left - b.getBoundingClientRect().left
+        );
+
+      visibleBlocks.forEach((block, index) => {
+        queuedBlocks.delete(block);
+        block.style.setProperty("--reveal-delay", `${index * 0.1}s`);
+        block.classList.add("is-revealed");
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const block = entry.target;
+          if (!queuedBlocks.has(block)) {
+            queuedBlocks.add(block);
+            revealQueue.push(block);
+          }
+          currentObserver.unobserve(block);
+        });
+
+        if (revealQueue.length && !revealFrame) {
+          revealFrame = window.requestAnimationFrame(flushRevealQueue);
+        }
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -8% 0px",
+      }
+    );
+
+    blocks.forEach((block) => observer.observe(block));
+  };
+
+  initRevealBlocks();
+  document.addEventListener("DOMContentLoaded", initRevealBlocks, { once: true });
+})();
+
 // Theme toggle (2-state: light <-> dark)
 (() => {
   const btn = document.getElementById("themeToggle");

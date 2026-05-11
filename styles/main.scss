@@ -1385,3 +1385,26 @@ textarea {
     font-weight: 700;
     line-height: 1.18;
 }
+
+.reveal-block.is-reveal-ready {
+    opacity: 0;
+    transform: translateY(20px) scale(.95);
+    transform-origin: center;
+    transition:
+        opacity 1.2s ease-out var(--reveal-delay, 0s),
+        transform 1.2s ease-out var(--reveal-delay, 0s);
+    will-change: opacity, transform;
+}
+
+.reveal-block.is-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-block.is-reveal-ready {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
