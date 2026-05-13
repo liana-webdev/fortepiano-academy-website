@@ -56,8 +56,13 @@ img {
 }
 
 a {
-    color: --primary;
+    color: var(--primary);
+    font-weight: 700;
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 p {
@@ -331,12 +336,15 @@ p {
 
 .nav__list a {
     display: block;
+    color: var(--text);
+    font-weight: 600;
     padding: .55rem .75rem;
     border-radius: .4rem;
 }
 
 .nav__list a:hover {
     background: var(--hover);
+    text-decoration: none;
 }
 
 .nav__theme {
@@ -427,6 +435,7 @@ body.nav-open::after {
     border-radius: .7rem;
     border: 1px solid transparent;
     font-weight: 600;
+    text-decoration: none;
     transition: transform .08s ease, background .15s ease, border-color .15s ease;
     cursor: pointer;
 }
@@ -1234,13 +1243,300 @@ textarea {
     line-height: 1.18;
 }
 
+.teacher-feature {
+    display: grid;
+    gap: var(--space-4);
+    margin: var(--space-6) 0;
+    padding: var(--space-5);
+    background:
+        linear-gradient(135deg, rgba(236, 26, 72, .12), transparent 42%),
+        var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-1);
+}
+
+.teacher-feature--founder {
+    background:
+        linear-gradient(135deg, rgba(47, 155, 124, .14), transparent 44%),
+        var(--surface);
+}
+
+.teacher-feature__label {
+    align-self: start;
+    width: max-content;
+    padding: .3rem .7rem;
+    color: var(--primary);
+    border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
+    border-radius: 999px;
+    font-size: .92rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.teacher-feature__body {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.teacher-feature__body h2,
+.pathway-card h2,
+.pathway-card h3 {
+    margin-top: 0;
+}
+
+.teacher-feature__body p:last-child,
+.pathway-card p:last-child,
+.expectation-strip p:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 760px) {
+    .teacher-feature {
+        grid-template-columns: 150px 1fr;
+    }
+}
+
+.subject-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+    margin: var(--space-5) 0 var(--space-6);
+}
+
+.subject-card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: start;
+    min-height: 100%;
+    padding: var(--space-5);
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 46%),
+        var(--surface);
+    border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--border-soft));
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-1);
+}
+
+.subject-card::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 3px;
+    background: var(--accent);
+}
+
+.subject-card--wide {
+    grid-column: span 2;
+}
+
+.subject-card__icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+    border-radius: .7rem;
+}
+
+.subject-card__icon svg {
+    width: 27px;
+    height: 27px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.subject-card h3 {
+    margin: 0 0 .35rem;
+    color: var(--text);
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+}
+
+.subject-card p {
+    margin: 0;
+    color: var(--text);
+    opacity: .9;
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+@media (max-width: 640px) {
+    .subject-card,
+    .subject-card--wide {
+        grid-column: auto;
+    }
+
+    .subject-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.diploma-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-4);
+    margin: var(--space-5) 0 var(--space-6);
+}
+
+.diploma-card {
+    margin: 0;
+    display: grid;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-1);
+}
+
+.diploma-card img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: .45rem;
+}
+
+.diploma-card figcaption {
+    color: var(--text);
+    font-size: .98rem;
+    line-height: 1.35;
+}
+
+.achievement-list {
+    display: grid;
+    gap: var(--space-4);
+    margin: var(--space-5) 0;
+}
+
+.achievement-card {
+    position: relative;
+    padding: var(--space-4) var(--space-4) var(--space-4) calc(var(--space-5) + .7rem);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-1);
+}
+
+.achievement-card::before {
+    content: "";
+    position: absolute;
+    left: var(--space-4);
+    top: var(--space-4);
+    bottom: var(--space-4);
+    width: 3px;
+    background: var(--primary);
+    border-radius: 999px;
+}
+
+.achievement-card__year {
+    display: inline-flex;
+    margin-bottom: .4rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.achievement-card h3 {
+    margin: 0 0 .35rem;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+}
+
+.achievement-card p {
+    margin: 0;
+}
+
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: var(--space-3);
+    margin: var(--space-5) 0 var(--space-6);
+}
+
+.method-card {
+    min-height: 92px;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-4);
+    color: var(--text);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, .08), transparent 52%),
+        var(--surface);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-1);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.student-pathways {
+    display: grid;
+    gap: var(--space-4);
+    margin: var(--space-5) 0 var(--space-6);
+}
+
+.pathway-card {
+    padding: var(--space-5);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-1);
+}
+
+.pathway-card--large {
+    background:
+        linear-gradient(135deg, rgba(109, 99, 217, .14), transparent 48%),
+        var(--surface);
+}
+
+@media (min-width: 820px) {
+    .student-pathways {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pathway-card--large {
+        grid-column: 1 / -1;
+    }
+}
+
+.expectation-strip {
+    display: grid;
+    gap: var(--space-4);
+    margin: var(--space-5) 0 var(--space-6);
+}
+
+.expectation-strip p {
+    margin: 0;
+    padding: var(--space-4);
+    background: color-mix(in srgb, var(--surface) 86%, var(--primary) 14%);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-1);
+}
+
+@media (min-width: 820px) {
+    .expectation-strip {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 .reveal-block.is-reveal-ready {
     opacity: 0;
     transform: translateY(20px) scale(.95);
     transform-origin: center;
     transition:
-        opacity 1.2s ease-out var(--reveal-delay, 0s),
-        transform 1.2s ease-out var(--reveal-delay, 0s);
+        opacity 1.2s cubic-bezier(.05, .06, 0, 1) var(--reveal-delay, 0s),
+        transform 1.2s cubic-bezier(.05, .06, 0, 1) var(--reveal-delay, 0s);
     will-change: opacity, transform;
 }
 
