@@ -1370,6 +1370,7 @@ textarea {
 }
 
 @media (max-width: 640px) {
+
     .subject-card,
     .subject-card--wide {
         grid-column: auto;
@@ -1535,8 +1536,8 @@ textarea {
     transform: translateY(20px) scale(.95);
     transform-origin: center;
     transition:
-        opacity 1.2s cubic-bezier(.05, .06, 0, 1) var(--reveal-delay, 0s),
-        transform 1.2s cubic-bezier(.05, .06, 0, 1) var(--reveal-delay, 0s);
+        opacity 0.5s cubic-bezier(.05, .06, 0, 1) var(--reveal-delay, 0s),
+        transform 0.5s cubic-bezier(.05, .06, 0, 1) var(--reveal-delay, 0s);
     will-change: opacity, transform;
 }
 
