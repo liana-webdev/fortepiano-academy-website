@@ -187,10 +187,10 @@
   });
 })();
 
-// Language preference and Vietnamese localisation
+// Language preference and multilingual localisation
 (() => {
-  const STORAGE_KEY = "languagePreference"; // stores: "auto", "en", or "vi"
-  const SUPPORTED = new Set(["auto", "en", "vi"]);
+  const STORAGE_KEY = "languagePreference"; // stores: "auto", "en", "vi", or "zh"
+  const SUPPORTED = new Set(["auto", "en", "vi", "zh"]);
 
   const translations = {
     vi: {
@@ -383,6 +383,197 @@
         "Best Age to Start Piano Lessons for Kids | Fortepiano Academy": "Độ tuổi tốt nhất để trẻ bắt đầu học piano | Fortepiano Academy",
         "Structured one-on-one piano lessons for children and teens in Wentworth Point. Build confidence, technique, musical understanding, and AMEB-ready progress through guided private lessons.": "Lớp piano một-kèm-một có cấu trúc cho trẻ em và thiếu niên tại Wentworth Point. Xây dựng sự tự tin, kỹ thuật, hiểu biết âm nhạc và tiến bộ sẵn sàng cho AMEB qua các buổi học riêng có hướng dẫn."
       }
+    },
+    zh: {
+          "strings": {
+                "Menu": "菜单",
+                "Home": "首页",
+                "About": "关于",
+                "Teacher": "教师",
+                "Lessons": "课程",
+                "Results": "成果",
+                "Initial Assessment": "初次评估",
+                "Programs": "课程方案",
+                "Blog": "博客",
+                "Contact": "联系",
+                "FAQ": "常见问题",
+                "Privacy Policy": "隐私政策",
+                "Book Initial Assessment": "预约初次评估",
+                "View Programs": "查看课程方案",
+                "Read more about the teacher": "了解教师详情",
+                "Structured piano lessons": "系统化钢琴课程",
+                "Developing confidence, discipline, musical understanding, and long-term progress through guided one-on-one learning. Suitable for beginners, experienced, and exam-focused students who need clear direction and caring support.": "通过有指导的一对一学习，培养自信、自律、音乐理解力和长期进步。适合初学者、有经验的学生，以及需要清晰方向和细心支持的备考学生。",
+                "Piano for the Ambitious": "为有目标的学生而设的钢琴学习",
+                "Structured One-on-One Learning": "系统化一对一学习",
+                "5.0 ★ on Google": "Google 5.0 ★ 评分",
+                "Meet Liana, Your Teacher": "认识您的教师 Liana",
+                "Origins": "起点",
+                "Liana trained through a structured Russian conservatory pathway, building deep technical and musical foundations from an early stage. She has participated in and won multiple local and international competitions in Moscow, achieving titles like laureate and diplomant.": "Liana 接受过系统的俄罗斯音乐学院式训练，从早期开始建立深厚的技巧与音乐基础。她曾在莫斯科参加并赢得多项本地及国际比赛，获得获奖者和荣誉证书等称号。",
+                "Sydney Chapter": "悉尼篇章",
+                "She now teaches children, teens, and adults in Wentworth Point, combining AMEB-aligned structure with warm, child-responsive teaching.": "她现在在 Wentworth Point 教授儿童、青少年和成人，将符合 AMEB 方向的系统训练与温暖、回应孩子需求的教学结合起来。",
+                "Today": "今天",
+                "Today, Fortepiano Academy supports families from Wentworth Point, Rhodes, Sydney Olympic Park, Newington, Homebush, Lidcombe, and surrounding suburbs with clear plans, progress tracking, and performance culture.": "如今，Fortepiano Academy 通过清晰计划、进度跟踪和表演文化，支持来自 Wentworth Point、Rhodes、Sydney Olympic Park、Newington、Homebush、Lidcombe 及周边社区的家庭。",
+                "Posture · Technique · Rhythm · Reading": "姿势 · 技巧 · 节奏 · 读谱",
+                "AMEB-aligned progression": "符合 AMEB 方向的进阶路径",
+                "WWCC / child-safe professionalism": "WWCC / 儿童安全专业标准",
+                "Inside the lessons": "课程内容",
+                "A proven system for growth.": "经过验证的成长体系。",
+                "Structured Term Plans": "系统化学期计划",
+                "Each grade achievable in half a year.": "每个级别可在半年内达成。",
+                "Diaries & Reports": "练习日记与报告",
+                "Detailed diary entries and progress tracking.": "详细练习记录和进度跟踪。",
+                "Exam Pathways": "考试路径",
+                "AMEB preparation with mock exams & milestones.": "通过模拟考试和阶段目标准备 AMEB。",
+                "Performances & Community": "表演与社区",
+                "Recitals and workshops for shared learning.": "通过音乐会和工作坊共同学习。",
+                "Fortepiano Academy is a good fit if your child…": "如果您的孩子符合以下情况，Fortepiano Academy 会很适合…",
+                "enjoys music but needs structure and weekly direction": "喜欢音乐，但需要结构和每周指导",
+                "is shy, thoughtful, or needs patient one-on-one guidance": "性格害羞、细腻，或需要耐心的一对一指导",
+                "struggles to stay focused in group lesson settings": "在小组课环境中难以保持专注",
+                "benefits from a calm, consistent teacher relationship": "能从平静、稳定的师生关系中受益",
+                "wants strong foundations in posture, rhythm, reading, and technique": "希望在姿势、节奏、读谱和技巧方面打下坚实基础",
+                "is preparing for AMEB exams or future graded progress": "正在准备 AMEB 考试或未来级别进阶",
+                "needs accountability with practice diaries and progress tracking": "需要通过练习日记和进度跟踪建立责任感",
+                "is ready for serious progress without losing the joy of music": "准备认真进步，同时不失去音乐的乐趣",
+                "Gallery": "相册",
+                "Recitals · Lessons · Progress Moments": "音乐会 · 课程 · 进步瞬间",
+                "Focused and guided learning": "专注且有指导的学习",
+                "Extensive exam preparation": "全面考试准备",
+                "Supportive and friendly environment for all": "面向所有学生的支持性友好环境",
+                "Student Success Stories": "学生成功故事",
+                "Achievements shaped by clarity, consistency and structured growth.": "成就来自清晰、持续和系统化成长。",
+                "Starting is simple": "开始很简单",
+                "1) Book an Initial Assessment ($40).": "1）预约初次评估（$40）。",
+                "2) We gently evaluate": "2）我们会温和地评估",
+                "level, learning style, focus, rhythm, reading, posture, and readiness.": "水平、学习方式、专注力、节奏、读谱、姿势和准备程度。",
+                "3) You receive a suitable program recommendation": "3）您会收到适合的课程方案建议",
+                "based on your child’s needs and goals.": "基于您孩子的需求和目标。",
+                "4) Lessons begin with a clear plan": "4）课程以清晰计划开始",
+                ", weekly guidance, and ongoing progress tracking.": "，配合每周指导和持续进度跟踪。",
+                "Program Setup ($80) applies only if continuing, when an individual term plan is prepared.": "仅在继续学习并制定个人学期计划时，才收取课程设置费（$80）。",
+                "How the Fortepiano System Works": "Fortepiano 体系如何运作",
+                "Assessment → Term Planning → Progress Tracking → Exam/Recital": "评估 → 学期计划 → 进度跟踪 → 考试/音乐会",
+                "Every journey begins with an assessment lesson to evaluate skills and goals. The teacher then recommends the most suitable program pathway.": "每段学习旅程都从评估课开始，用于了解技能和目标。随后教师会推荐最适合的课程路径。",
+                "Download the guide and discover how Fortepiano Academy turns lessons into lasting success — built upon years of teaching and student achievement.": "下载指南，了解 Fortepiano Academy 如何基于多年教学经验和学生成就，将课程转化为持久成功。",
+                "Some students begin with one lesson per week, while others follow a more supported pathway with stronger accountability and AMEB preparation. All students begin with an Initial Assessment and are placed into the program best suited to their goals.": "有些学生从每周一节课开始，另一些学生则选择支持更充分、责任感更强并包含 AMEB 准备的路径。所有学生都从初次评估开始，并被安排到最适合其目标的方案中。",
+                "Tuition is billed monthly in advance. Standard lesson rates are reference only; lessons are offered through structured programs rather than casual bookings.": "学费按月预付。标准课时费仅供参考；课程以系统化方案提供，而不是零散预约。",
+                "Foundation": "基础方案",
+                "A steady pathway for families who can support regular practice at home.": "适合能在家支持规律练习的家庭的稳定路径。",
+                "FORMAT": "形式",
+                "1 lesson per week": "每周 1 节课",
+                "BEST FOR": "最适合",
+                "Casual learners": "轻松学习者",
+                "Families with tighter schedules": "时间安排较紧的家庭",
+                "Students progressing at a relaxed pace": "以较轻松节奏进步的学生",
+                "INCLUDES": "包含",
+                "Weekly practice diary": "每周练习日记",
+                "Term-based learning plan": "按学期制定的学习计划",
+                "Participation in studio recitals": "参加工作室音乐会",
+                "Limited support outside lesson hours": "课外有限支持",
+                "SUMMARY": "总结",
+                "A stable entry point into piano study, ideal for families seeking steadiness. Maximum flexibility, but much greater reliance on consistent home practice.": "进入钢琴学习的稳定起点，适合追求稳步学习的家庭。灵活性最高，但更依赖在家的持续练习。",
+                "Development": "发展方案",
+                "Recommended": "推荐",
+                "The core structured pathway for stronger progress, regular guidance, and AMEB readiness.": "核心系统化路径，帮助学生取得更强进步、获得规律指导并为 AMEB 做好准备。",
+                "2 lessons per week": "每周 2 节课",
+                "Exam-oriented students": "以考试为目标的学生",
+                "Families seeking predictable, measurable progress": "希望进步可预测、可衡量的家庭",
+                "Students aiming to complete grades efficiently": "希望高效完成级别的学生",
+                "Everything in Foundation, plus:": "包含基础方案全部内容，另加：",
+                "Two weekly lessons (with frequency-based value)": "每周两节课（基于频率的价值）",
+                "Monthly progress reports": "每月进度报告",
+                "Structured AMEB exam preparation": "系统化 AMEB 考试准备",
+                "Mock exams and readiness checks": "模拟考试和准备度检查",
+                "Teacher-managed AMEB enrolments and exam fees covered by the academy": "由教师管理 AMEB 报名，考试费用由学院承担",
+                "Outside-lesson support on demand (text/video support upon discussion and availability)": "按需提供课外支持（文字/视频支持，视沟通和时间安排而定）",
+                "The most comprehensive and recommended pathway for serious students and families who value structure, oversight, and consistency.": "最全面且推荐的路径，适合认真学习并重视结构、监督和持续性的学生与家庭。",
+                "Start Your Journey": "开始您的学习旅程",
+                "Fill in the form and we’ll arrange your first lesson.": "填写表格，我们会安排您的第一节课。",
+                "Name": "姓名",
+                "Phone / Email": "电话 / 邮箱",
+                "Child’s Age / Level": "孩子年龄 / 水平",
+                "Message": "留言",
+                "Send": "发送",
+                "By submitting this form, you agree to our": "提交此表格即表示您同意我们的",
+                ".": "。",
+                "Frequently Asked Questions": "常见问题",
+                "When can students start lessons?": "学生什么时候可以开始上课？",
+                "Students can start at any time during the year. Fortepiano Academy operates on rolling enrolment rather than fixed school terms. Each student is placed into the appropriate level and program cycle based on their ability and goals.": "学生全年任何时间都可以开始。Fortepiano Academy 采用滚动招生，而非固定校历学期。每位学生会根据能力和目标被安排到合适的级别和课程周期。",
+                "Is the program tied to school terms?": "课程是否与学校学期绑定？",
+                "No. Programs are grade-based rather than calendar-based. This allows students to begin when they are ready and progress without being restricted by school term dates.": "不是。课程按级别而非日历安排。这让学生能在准备好时开始，并不受学校学期日期限制地进步。",
+                "How do AMEB exams fit into the program?": "AMEB 考试如何融入课程？",
+                "AMEB exam preparation is integrated into the curriculum for students following an examination pathway. Preparation begins well in advance, ensuring students are confident and ready regardless of the final exam date allocated by AMEB.": "对于走考试路径的学生，AMEB 备考会融入课程。准备会提前开始，确保无论 AMEB 最终安排的考试日期如何，学生都能自信并准备充分。",
+                "Does my child have to do an exam?": "我的孩子必须参加考试吗？",
+                "No. AMEB exams are optional. Students may follow an exam pathway or focus on musicianship, technique, repertoire, and performance without sitting formal examinations.": "不需要。AMEB 考试是可选的。学生可以选择考试路径，也可以不参加正式考试，专注于音乐素养、技巧、曲目和表演。",
+                "How is lesson length decided?": "课时长度如何决定？",
+                "Lesson length is determined after an initial assessment, based on the student’s age, level, learning pace, and goals. As students progress, lesson length may increase to ensure sufficient time for technical work and repertoire.": "课时长度会在初次评估后，根据学生年龄、水平、学习速度和目标确定。随着学生进步，课时可能增加，以确保有足够时间进行技术训练和曲目学习。",
+                "What makes Fortepiano Academy different?": "Fortepiano Academy 有什么不同？",
+                "Fortepiano Academy offers structured programs with clear progression, disciplined technical training influenced by Russian pedagogy, regular progress tracking, and a supportive learning environment combined with the flexibility of the AMEB syllabus.": "Fortepiano Academy 提供系统化课程、清晰进阶路径、受俄罗斯教学法影响的严谨技术训练、规律进度跟踪，以及支持性的学习环境，并结合 AMEB 大纲的灵活性。",
+                "How do I enrol myself or my child in piano lessons?": "我如何为自己或孩子报名钢琴课？",
+                "Enrolment begins with a short conversation via call or message to discuss the student’s age, experience, goals, and availability. An initial assessment lesson is then booked.": "报名从一次简短电话或消息沟通开始，用于了解学生年龄、经验、目标和可用时间。随后会预约初次评估课。",
+                "At what age can my child start piano lessons?": "孩子几岁可以开始学钢琴？",
+                "Children can begin lessons from around 4 years old, depending on their focus, coordination, and readiness. Piano lessons also support the development of concentration, listening skills, and fine motor control.": "孩子大约 4 岁起可以开始，具体取决于专注力、协调能力和准备程度。钢琴课也有助于培养专注力、听觉能力和精细动作控制。",
+                "Do you prepare students for performances and exams?": "你们会为表演和考试做准备吗？",
+                "Yes. Students are encouraged to participate in studio performances, recitals, and AMEB examinations.": "会。我们鼓励学生参加工作室演出、音乐会和 AMEB 考试。",
+                "What if my child has a busy schedule with other activities?": "如果孩子还有其他活动、日程很忙怎么办？",
+                "Flexible scheduling is available where possible. For busy students, more frequent lessons are often recommended, as they reduce reliance on long independent practice sessions and help maintain steady progress.": "在可行情况下可灵活安排时间。对于忙碌的学生，通常建议更频繁的课程，因为这能减少对长时间独立练习的依赖，并帮助保持稳定进步。",
+                "How often should lessons be scheduled, and how much practice is required?": "课程应该多久一次，需要练习多少？",
+                "Twice-weekly lessons are recommended for optimal progress. Practice expectations vary by level:": "为了达到最佳进步，建议每周两节课。练习要求因水平而异：",
+                "Beginners: approximately 10–20 minutes per day": "初学者：每天约 10–20 分钟",
+                "Intermediate to advanced students: approximately 40–60 minutes per day": "中高级学生：每天约 40–60 分钟",
+                "Consistent practice is essential for meaningful progress.": "持续练习是取得实质进步的关键。",
+                "What is your cancellation policy?": "你们的取消政策是什么？",
+                "Cancellations are requested with at least 24 hours’ notice wherever possible. Each student has one charge-free cancellation per term, usable even with late notice. After this is used, cancellations with 24 hours’ notice are eligible for a make-up lesson or credit (subject to availability). Day-of cancellations and no-shows are forfeited. Make-ups and credits must be used within the same term and cannot be carried over.": "如需取消，请尽可能至少提前 24 小时通知。每位学生每学期有一次免收费取消机会，即使临时通知也可使用。使用后，提前 24 小时取消的课程可获得补课或课时抵扣（视可用时间而定）。当天取消和未到课将视为放弃。补课和抵扣必须在同一学期内使用，不能顺延。",
+                "Fortepiano Academy": "Fortepiano Academy",
+                "WWCC · Public Liability · Creative Kids Provider": "WWCC · 公共责任保险 · Creative Kids 提供方",
+                "Principal Teacher": "首席教师",
+                "Meet Liana": "认识 Liana",
+                "Russian-trained piano teacher in Wentworth Point": "在 Wentworth Point 任教、受俄罗斯训练的钢琴教师",
+                "Read Full Profile": "阅读完整简介",
+                "Founder and Principal Piano Teacher of Fortepiano Academy": "Fortepiano Academy 创始人兼首席钢琴教师",
+                "Moscow Training": "莫斯科训练",
+                "A Russian Music-School Foundation": "俄罗斯音乐学校基础",
+                "Music Subjects Completed": "已完成音乐科目",
+                "Piano": "钢琴",
+                "Piano Performance": "钢琴演奏",
+                "Solfeggio": "视唱练耳",
+                "Music Literature": "音乐文献",
+                "Choir": "合唱",
+                "Early Achievement and Performance Background": "早期成就与表演背景",
+                "Her award records include:": "她的获奖记录包括：",
+                "Teaching Philosophy": "教学理念",
+                "Structured, Warm, and Serious About Progress": "系统、温暖，并认真关注进步",
+                "What Students Learn": "学生学习内容",
+                "Why Families Choose This Approach": "家庭选择这种方法的原因",
+                "Ready to begin?": "准备开始了吗？",
+                "Blog posts, handwritten, sourced from years of experience": "源自多年经验、亲手撰写的博客文章",
+                "Dive deeper into the topics of piano lessons and music.": "深入了解钢琴课程和音乐相关主题。",
+                "Latest Articles": "最新文章",
+                "What Is the Best Age to Start Piano Lessons for Your Child?": "孩子几岁开始学钢琴最好？",
+                "A practical guide for families deciding whether their child is ready for structured piano lessons.": "一份实用指南，帮助家庭判断孩子是否已准备好开始系统化钢琴课程。",
+                "Read Article": "阅读文章",
+                "Piano lesson advice for families in Wentworth Point and surrounding Sydney suburbs.": "为 Wentworth Point 及悉尼周边社区家庭提供钢琴课程建议。",
+                "Thinking about piano lessons for your child?": "正在考虑让孩子学钢琴吗？",
+                "An initial assessment can help decide whether your child is ready and what lesson structure will suit them best.": "初次评估可以帮助判断孩子是否准备好，以及哪种课程结构最适合他们。",
+                "Privacy Policy for Fortepiano Academy": "Fortepiano Academy 隐私政策",
+                "Last updated: 2025": "最后更新：2025",
+                "Information We Collect": "我们收集的信息",
+                "How We Use Information": "我们如何使用信息",
+                "Contact Us": "联系我们"
+          },
+          "attrs": {
+                "Toggle navigation": "切换导航菜单",
+                "Toggle theme": "切换主题",
+                "Fortepiano Academy home": "Fortepiano Academy 首页",
+                "Fortepiano Academy logo dark": "Fortepiano Academy 深色标志",
+                "Fortepiano Academy logo light": "Fortepiano Academy 浅色标志",
+                "Teacher and student at the piano": "教师和学生在钢琴旁",
+                "Piano Lessons Wentworth Point | Fortepiano Academy": "Wentworth Point 钢琴课程 | Fortepiano Academy",
+                "Principal Piano Teacher | Liana | Fortepiano Academy": "首席钢琴教师 | Liana | Fortepiano Academy",
+                "Piano Lessons Blog | Fortepiano Academy Wentworth Point": "钢琴课程博客 | Fortepiano Academy Wentworth Point",
+                "Best Age to Start Piano Lessons for Kids | Fortepiano Academy": "孩子开始学钢琴的最佳年龄 | Fortepiano Academy",
+                "Structured one-on-one piano lessons for children and teens in Wentworth Point. Build confidence, technique, musical understanding, and AMEB-ready progress through guided private lessons.": "位于 Wentworth Point 的儿童和青少年系统化一对一钢琴课程。通过有指导的私人课程培养自信、技巧、音乐理解力，并为 AMEB 做好准备。"
+          }
     }
   };
 
@@ -401,12 +592,14 @@
       // Ignore storage failures so language switching still works for this page view.
     }
   };
-  const isVietnamese = (locale) => /^vi(?:-|$)/i.test(locale || "");
+  const localeMatches = (locale, language) => new RegExp(`^${language}(?:-|$)`, "i").test(locale || "");
   const systemLanguage = () => {
     const languages = Array.isArray(navigator.languages) && navigator.languages.length
       ? navigator.languages
       : [navigator.language || navigator.userLanguage || "en"];
-    return languages.some(isVietnamese) ? "vi" : "en";
+    if (languages.some((locale) => localeMatches(locale, "zh"))) return "zh";
+    if (languages.some((locale) => localeMatches(locale, "vi"))) return "vi";
+    return "en";
   };
   const savedPreference = () => {
     const saved = readPreference();
@@ -454,12 +647,22 @@
     const label = document.querySelector(".language-select__label");
     const auto = document.querySelector('#languageSelect option[value="auto"]');
     const english = document.querySelector('#languageSelect option[value="en"]');
+    const vietnamese = document.querySelector('#languageSelect option[value="vi"]');
+    const chinese = document.querySelector('#languageSelect option[value="zh"]');
     const select = document.getElementById("languageSelect");
 
-    if (label) label.textContent = language === "vi" ? "Ngôn ngữ" : "Language";
-    if (auto) auto.textContent = language === "vi" ? "Tự động" : "Auto";
-    if (english) english.textContent = language === "vi" ? "Tiếng Anh" : "English";
-    if (select) select.setAttribute("aria-label", language === "vi" ? "Chọn ngôn ngữ" : "Choose language");
+    const labels = {
+      en: { label: "Language", auto: "Auto", english: "English", vietnamese: "Tiếng Việt", chinese: "中文", aria: "Choose language" },
+      vi: { label: "Ngôn ngữ", auto: "Tự động", english: "Tiếng Anh", vietnamese: "Tiếng Việt", chinese: "Tiếng Trung", aria: "Chọn ngôn ngữ" },
+      zh: { label: "语言", auto: "自动", english: "英语", vietnamese: "越南语", chinese: "中文", aria: "选择语言" },
+    }[language] || { label: "Language", auto: "Auto", english: "English", vietnamese: "Tiếng Việt", chinese: "中文", aria: "Choose language" };
+
+    if (label) label.textContent = labels.label;
+    if (auto) auto.textContent = labels.auto;
+    if (english) english.textContent = labels.english;
+    if (vietnamese) vietnamese.textContent = labels.vietnamese;
+    if (chinese) chinese.textContent = labels.chinese;
+    if (select) select.setAttribute("aria-label", labels.aria);
   };
 
   const applyLanguage = (preference = savedPreference()) => {
@@ -483,7 +686,7 @@
     translateAttributes(language);
     updateLanguageControlLabels(language);
 
-    document.documentElement.lang = language === "vi" ? "vi" : "en";
+    document.documentElement.lang = language === "zh" ? "zh-Hans" : language === "vi" ? "vi" : "en";
     document.documentElement.dataset.language = language;
     document.documentElement.dataset.languagePreference = preference;
 
@@ -491,32 +694,55 @@
     if (select) select.value = preference;
   };
 
-  const addLanguageControl = () => {
-    const menu = document.getElementById("navMenu");
-    if (!menu || document.getElementById("languageSelect")) return;
+  const languageOptions = [
+    ["auto", "Auto"],
+    ["en", "English"],
+    ["vi", "Tiếng Việt"],
+    ["zh", "中文"],
+  ];
 
-    const item = document.createElement("li");
-    item.className = "nav__language";
-    item.innerHTML = `
-      <label class="language-select" for="languageSelect">
-        <span class="language-select__label">Language</span>
-        <select id="languageSelect" class="language-select__control" aria-label="Choose language">
-          <option value="auto">Auto</option>
-          <option value="en">English</option>
-          <option value="vi">Tiếng Việt</option>
-        </select>
-      </label>`;
+  const ensureLanguageOptions = (select) => {
+    languageOptions.forEach(([value, label]) => {
+      if (select.querySelector(`option[value="${value}"]`)) return;
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      select.appendChild(option);
+    });
+  };
 
-    const themeItem = menu.querySelector(".nav__theme");
-    menu.insertBefore(item, themeItem || null);
-
-    const select = item.querySelector("select");
+  const bindLanguageSelect = (select) => {
+    if (!select || select.dataset.languageBound === "true") return;
+    select.dataset.languageBound = "true";
     select.value = savedPreference();
     select.addEventListener("change", () => {
       const preference = SUPPORTED.has(select.value) ? select.value : "auto";
       savePreference(preference);
       applyLanguage(preference);
     });
+  };
+
+  const addLanguageControl = () => {
+    const menu = document.getElementById("navMenu");
+    if (!menu) return;
+
+    let select = document.getElementById("languageSelect");
+    if (!select) {
+      const item = document.createElement("li");
+      item.className = "nav__language";
+      item.innerHTML = `
+        <label class="language-select" for="languageSelect">
+          <span class="language-select__label">Language</span>
+          <select id="languageSelect" class="language-select__control" aria-label="Choose language"></select>
+        </label>`;
+
+      const themeItem = menu.querySelector(".nav__theme");
+      menu.insertBefore(item, themeItem || null);
+      select = item.querySelector("select");
+    }
+
+    ensureLanguageOptions(select);
+    bindLanguageSelect(select);
   };
 
   const init = () => {
