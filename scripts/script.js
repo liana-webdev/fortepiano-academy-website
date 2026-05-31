@@ -694,33 +694,55 @@
     if (select) select.value = preference;
   };
 
-  const addLanguageControl = () => {
-    const menu = document.getElementById("navMenu");
-    if (!menu || document.getElementById("languageSelect")) return;
+  const languageOptions = [
+    ["auto", "Auto"],
+    ["en", "English"],
+    ["vi", "Tiếng Việt"],
+    ["zh", "中文"],
+  ];
 
-    const item = document.createElement("li");
-    item.className = "nav__language";
-    item.innerHTML = `
-      <label class="language-select" for="languageSelect">
-        <span class="language-select__label">Language</span>
-        <select id="languageSelect" class="language-select__control" aria-label="Choose language">
-          <option value="auto">Auto</option>
-          <option value="en">English</option>
-          <option value="vi">Tiếng Việt</option>
-          <option value="zh">中文</option>
-        </select>
-      </label>`;
+  const ensureLanguageOptions = (select) => {
+    languageOptions.forEach(([value, label]) => {
+      if (select.querySelector(`option[value="${value}"]`)) return;
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      select.appendChild(option);
+    });
+  };
 
-    const themeItem = menu.querySelector(".nav__theme");
-    menu.insertBefore(item, themeItem || null);
-
-    const select = item.querySelector("select");
+  const bindLanguageSelect = (select) => {
+    if (!select || select.dataset.languageBound === "true") return;
+    select.dataset.languageBound = "true";
     select.value = savedPreference();
     select.addEventListener("change", () => {
       const preference = SUPPORTED.has(select.value) ? select.value : "auto";
       savePreference(preference);
       applyLanguage(preference);
     });
+  };
+
+  const addLanguageControl = () => {
+    const menu = document.getElementById("navMenu");
+    if (!menu) return;
+
+    let select = document.getElementById("languageSelect");
+    if (!select) {
+      const item = document.createElement("li");
+      item.className = "nav__language";
+      item.innerHTML = `
+        <label class="language-select" for="languageSelect">
+          <span class="language-select__label">Language</span>
+          <select id="languageSelect" class="language-select__control" aria-label="Choose language"></select>
+        </label>`;
+
+      const themeItem = menu.querySelector(".nav__theme");
+      menu.insertBefore(item, themeItem || null);
+      select = item.querySelector("select");
+    }
+
+    ensureLanguageOptions(select);
+    bindLanguageSelect(select);
   };
 
   const init = () => {
