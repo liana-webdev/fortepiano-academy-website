@@ -1854,3 +1854,81 @@ textarea {
   }
 }
 /*# sourceMappingURL=main.css.map */
+
+.section--compact {
+  padding-block: var(--space-5);
+}
+
+.form select {
+  width: 100%;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-1);
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  background: var(--surface);
+  font: inherit;
+}
+
+.form-note {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.proof-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.proof-strip span {
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  padding: 0.5rem 0.85rem;
+  color: var(--muted);
+  background: color-mix(in oklab, var(--surface) 88%, transparent);
+}
+
+.cta-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.cta-band h2,
+.cta-band p {
+  margin: 0;
+}
+
+.price-line {
+  font-family: "BluuNext", serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1;
+  color: var(--primary);
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: var(--space-4);
+}
+
+.pricing-table th,
+.pricing-table td {
+  border-bottom: 1px solid var(--border-soft);
+  padding: 0.85rem 0;
+  text-align: left;
+}
+
+.pricing-table td {
+  text-align: right;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .cta-band {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

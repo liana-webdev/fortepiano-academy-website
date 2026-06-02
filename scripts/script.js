@@ -1,5 +1,57 @@
 // scripts/script.js
 
+// GA4 interaction hooks
+(() => {
+  const sendEvent = (eventName, params = {}) => {
+    if (!eventName || typeof window.gtag !== "function") return;
+    window.gtag("event", eventName, params);
+  };
+
+  const datasetParams = (element) => {
+    const params = {};
+    Object.entries(element.dataset).forEach(([key, value]) => {
+      if (!key.startsWith("analytics") || key === "analyticsEvent") return;
+      const normalised = key
+        .replace(/^analytics/, "")
+        .replace(/^[A-Z]/, (letter) => letter.toLowerCase())
+        .replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
+      params[normalised] = value;
+    });
+    return params;
+  };
+
+  document.addEventListener("click", (event) => {
+    const target = event.target.closest("[data-analytics-event]");
+    if (!target) return;
+    sendEvent(target.dataset.analyticsEvent, datasetParams(target));
+  });
+
+  document.querySelectorAll("form[data-form-type]").forEach((form) => {
+    let started = false;
+    const params = { form_type: form.dataset.formType || "contact", page_type: form.querySelector('[name="page_type"]')?.value || "" };
+    form.addEventListener("input", () => {
+      if (started) return;
+      started = true;
+      sendEvent("form_start", params);
+    }, { once: true });
+    form.addEventListener("submit", () => {
+      sendEvent("form_submit", params);
+    });
+  });
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const target = entry.target;
+        sendEvent(target.dataset.analyticsView, datasetParams(target));
+        currentObserver.unobserve(target);
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll("[data-analytics-view]").forEach((target) => observer.observe(target));
+  }
+})();
+
 // Mobile nav toggle
 (() => {
   const btn = document.querySelector(".nav__toggle");

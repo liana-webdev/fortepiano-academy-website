@@ -1,0 +1,26 @@
+DirectoryIndex index.php index.html
+RewriteEngine On
+
+# Legacy URL redirects
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^teacher\.html$ /teacher [R=301,L]
+RewriteRule ^blog\.html$ /blog [R=301,L]
+
+# Allow existing files and directories through untouched
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Core clean URLs
+RewriteRule ^initial-assessment/?$ initial-assessment.php [L,QSA]
+RewriteRule ^programs/?$ programs.php [L,QSA]
+RewriteRule ^pricing/?$ pricing.php [L,QSA]
+RewriteRule ^teacher/?$ teacher.php [L,QSA]
+RewriteRule ^results/?$ results.php [L,QSA]
+RewriteRule ^contact/?$ contact.php [L,QSA]
+RewriteRule ^blog/?$ blog.php [L,QSA]
+
+# Local pages
+RewriteRule ^(piano-lessons-wentworth-point|piano-lessons-rhodes|piano-lessons-sydney-olympic-park)/?$ local.php?page=$1 [L,QSA]
+
+ErrorDocument 404 /404.php

@@ -5,8 +5,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Basic sanitation
     $name    = trim($_POST["name"] ?? '');
     $contact = trim($_POST["contact"] ?? '');
-    $age     = trim($_POST["age"] ?? '');
-    $message = trim($_POST["message"] ?? '');
+    $age          = trim($_POST["age"] ?? '');
+    $message      = trim($_POST["message"] ?? '');
+    $pageType     = trim($_POST["page_type"] ?? '');
+    $enquiryType  = trim($_POST["enquiry_type"] ?? '');
+    $suburb       = trim($_POST["suburb"] ?? '');
+    $goals        = trim($_POST["goals"] ?? '');
+    $availability = trim($_POST["availability"] ?? '');
 
     if ($name === '' || $contact === '' || $message === '') {
         http_response_code(400);
@@ -20,7 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $body = "
     Name: $name
     Contact: $contact
-    Child's Age/Level: $age
+    Page Type: $pageType
+    Enquiry Type: $enquiryType
+    Suburb Context: $suburb
+    Student Age/Level: $age
+    Goals: $goals
+    Availability: $availability
 
     Message:
     $message
