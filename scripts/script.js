@@ -114,14 +114,6 @@
     "main .program__item",
     "main .ribbon__item",
     "main .center.pad-top-m",
-    "main .home-label",
-    "main .pathway-visual",
-    "main .alignment-visual",
-    "main .system-card",
-    "main .program-pathway",
-    "main .price-snapshot",
-    "main .proof-card",
-    "main .teacher-preview",
     ".reveal-block",
   ].join(",");
 
