@@ -1071,6 +1071,19 @@ textarea {
   margin: 0;
 }
 
+.story-card__body h3 {
+  margin: var(--space-2) 0 0;
+  color: var(--primary);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+}
+
+.story-card__body .story-card__image,
+.story-card__group .story-card__image {
+  max-height: 420px;
+  object-fit: contain;
+  object-position: center;
+}
+
 .story-card__group {
   display: grid;
   gap: 0.5rem;
