@@ -21,6 +21,6 @@ RewriteRule ^contact/?$ contact.php [L,QSA]
 RewriteRule ^blog/?$ blog.php [L,QSA]
 
 # Local pages
-RewriteRule ^(piano-lessons-wentworth-point|piano-lessons-rhodes|piano-lessons-sydney-olympic-park)/?$ local.php?page=$1 [L,QSA]
+RewriteRule ^(piano-lessons-[a-z0-9-]+)/?$ local.php?page=$1 [L,QSA]
 
 ErrorDocument 404 /404.php
