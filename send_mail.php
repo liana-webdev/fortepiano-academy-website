@@ -12,6 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $suburb       = trim($_POST["suburb"] ?? '');
     $goals        = trim($_POST["goals"] ?? '');
     $availability = trim($_POST["availability"] ?? '');
+    $lessonLocation = trim($_POST["lesson_location"] ?? '');
+    $homeLocation   = trim($_POST["home_location"] ?? '');
+    $homePiano      = trim($_POST["home_piano"] ?? '');
 
     if ($name === '' || $contact === '' || $message === '') {
         http_response_code(400);
@@ -31,6 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     Student Age/Level: $age
     Goals: $goals
     Availability: $availability
+    Preferred Lesson Location: $lessonLocation
+    Home Suburb / Cross Street: $homeLocation
+    Piano Available at Home: $homePiano
 
     Message:
     $message

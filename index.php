@@ -4,8 +4,8 @@ global $pricing;
 
 $page = [
     'path' => '/',
-    'title' => 'Piano Lessons in Wentworth Point | Fortepiano Academy',
-    'description' => 'Structured one-to-one piano lessons for children and teens in Wentworth Point. AMEB-aligned pathways, clear progress and a guided first assessment.',
+    'title' => 'Structured Piano Lessons at the Studio or Your Home | Fortepiano Academy',
+    'description' => 'Structured one-to-one piano lessons at the Wentworth Point studio or in your home across selected surrounding suburbs.',
     'image' => '/img/DSC04361.jpg',
     'schema' => [
         business_schema(),
@@ -21,7 +21,8 @@ $faqs = [
     ['q' => 'What age can my child start?', 'a' => 'Most students begin from around age four, or when they are ready to focus, follow directions and coordinate comfortably.'],
     ['q' => 'Do students prepare for AMEB exams?', 'a' => 'Yes. AMEB-aligned preparation is available where it suits the student goals and readiness.'],
     ['q' => 'How do we begin?', 'a' => 'Start with the Initial Assessment so the right program and lesson length can be recommended.'],
-    ['q' => 'Are lessons taught in Wentworth Point?', 'a' => 'Yes. Fortepiano Academy is based in Wentworth Point and serves nearby families.'],
+    ['q' => 'Where are lessons taught?', 'a' => 'Choose lessons at the Wentworth Point studio or at your home in a listed surrounding suburb, subject to availability.'],
+    ['q' => 'How much do at-home lessons cost?', 'a' => 'At-home lessons include a travel fee starting from $15 per visit, including the Initial Assessment. The exact fee is based on the return journey from Wentworth Point and is confirmed before booking.'],
 ];
 render_head($page);
 render_header('/');
@@ -31,9 +32,9 @@ render_header('/');
         <div class="section__content container">
             <div class="grid grid--2 grid--gap-xl align-center">
                 <div class="stack gap-m">
-                    <p class="article-meta">Structured piano education in Wentworth Point</p>
-                    <h1 class="hero__title">Structured piano lessons in Wentworth Point with a clear pathway for long-term progress</h1>
-                    <p class="lead">Fortepiano Academy offers one-to-one piano lessons for children and teens who need clear direction, strong fundamentals and calm, consistent teaching.</p>
+                    <p class="article-meta">Studio and at-home piano lessons</p>
+                    <h1 class="hero__title">Structured piano lessons at the studio or in the comfort of your home</h1>
+                    <p class="lead">Fortepiano Academy offers one-to-one piano lessons at the Wentworth Point studio and at students' homes across selected surrounding suburbs.</p>
                     <div class="actions">
                         <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'home', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
                         <a class="btn btn--ghost" href="/programs">View Programs</a>
@@ -42,6 +43,7 @@ render_header('/');
                         <span class="badge">AMEB-aligned</span>
                         <span class="badge">Practice diaries</span>
                         <span class="badge">Progress reports</span>
+                        <span class="badge">At-home lessons available</span>
                         <span class="badge">WWCC professional</span>
                         <a class="badge badge--link" href="<?= e(GOOGLE_REVIEW_URL) ?>" target="_blank" rel="noopener">5.0 Google rating</a>
                     </div>
@@ -60,7 +62,28 @@ render_header('/');
                 <span>Russian training influence</span>
                 <span>AMEB pathway</span>
                 <span>Recital culture</span>
-                <span>Wentworth Point studio</span>
+                <span>Studio or at-home lessons</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__content container">
+            <header class="section__header stack gap-xs center">
+                <p class="article-meta">Choose your lesson location</p>
+                <h2>The same structured teaching, at the studio or your home</h2>
+                <p class="muted">Home visits are available across listed surrounding suburbs, subject to schedule and travel availability.</p>
+            </header>
+            <div class="grid grid--2 grid--gap-l">
+                <article class="card card--glass">
+                    <h3>Wentworth Point studio</h3>
+                    <p>Attend lessons in a focused studio environment with the piano and teaching setup ready for each session.</p>
+                </article>
+                <article class="card card--glass">
+                    <h3>Lessons at your home</h3>
+                    <p>Liana travels to your home and teaches on your piano. Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit and are quoted for the return journey from Wentworth Point.</p>
+                    <p class="muted">A suitable piano, the student's own books, a quiet lesson space and timely access to the home are required.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -114,7 +137,7 @@ render_header('/');
                 <div class="stack gap-s">
                     <p class="article-meta">Pricing snapshot</p>
                     <h2>A clear first step before program placement</h2>
-                    <p>Initial Assessment is <?= e(money($pricing['assessment'])) ?>. Program Setup is <?= e(money($pricing['setup'])) ?> only if continuing, when an individual term plan is prepared.</p>
+                    <p>Initial Assessment is <?= e(money($pricing['assessment'])) ?>. Program Setup is <?= e(money($pricing['setup'])) ?> only if continuing. At-home visits include a travel fee starting from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit.</p>
                     <div class="actions">
                         <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'home', 'cta_position' => 'pricing_snapshot', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
                         <a class="btn btn--ghost" href="/pricing"<?= tracking_attrs('view_pricing', ['page_type' => 'home']) ?>>See Pricing</a>

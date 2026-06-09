@@ -8,6 +8,8 @@ const SITE_PHONE = '+61 482 176 777';
 const SITE_PHONE_LINK = '+61482176777';
 const SITE_ADDRESS = '5 Verona Drive, Wentworth Point NSW 2127';
 const SITE_ABN = '98117712543';
+const HOME_LESSON_TRAVEL_FROM = 'Wentworth Point';
+const HOME_LESSON_TRAVEL_FEE = 15;
 const GOOGLE_REVIEW_URL = 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN0LXR1TlRBEAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgICt-tuNTA%7CCgwIqIiUtwYQ4MbrywE%7C?hl=en-AU';
 
 $pricing = [
@@ -114,6 +116,23 @@ function service_schema(string $name, string $url, string $area = 'Wentworth Poi
         'name' => $name,
         'serviceType' => 'Private piano lessons',
         'areaServed' => $area,
+        'availableChannel' => [
+            [
+                '@type' => 'ServiceChannel',
+                'serviceLocation' => [
+                    '@type' => 'Place',
+                    'name' => 'Fortepiano Academy Wentworth Point studio',
+                    'address' => SITE_ADDRESS,
+                ],
+            ],
+            [
+                '@type' => 'ServiceChannel',
+                'serviceLocation' => [
+                    '@type' => 'Place',
+                    'name' => 'Student home in selected surrounding suburbs',
+                ],
+            ],
+        ],
         'provider' => [
             '@id' => SITE_URL . '/#business',
         ],

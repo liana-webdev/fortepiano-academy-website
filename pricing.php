@@ -4,7 +4,7 @@ global $pricing;
 $page = [
     'path' => '/pricing',
     'title' => 'Piano Lesson Pricing | Fortepiano Academy',
-    'description' => 'View Fortepiano Academy assessment, setup and monthly piano program pricing for Foundation and Development pathways.',
+    'description' => 'View studio and at-home piano lesson pricing, including assessment, monthly programs and home-visit travel fees.',
     'schema' => [business_schema(), service_schema('Fortepiano Academy Piano Lesson Pricing', '/pricing'), breadcrumb_schema([['label' => 'Home', 'href' => '/'], ['label' => 'Pricing', 'href' => '/pricing']])],
 ];
 render_head($page);
@@ -17,9 +17,20 @@ render_header('/pricing');
             <div class="stack gap-m">
                 <p class="article-meta">Monthly structured tuition</p>
                 <h1>Piano lesson pricing</h1>
-                <p class="lead">Pricing reflects structured program placement, lesson length and the level of support needed for each student.</p>
+                <p class="lead">Pricing reflects structured program placement, lesson length and support. Choose studio lessons or at-home lessons with an additional travel fee.</p>
                 <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'pricing', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
             </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section__content container">
+            <article class="card card--glass">
+                <p class="article-meta">At-home lessons</p>
+                <h2>Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit</h2>
+                <p>At-home lessons, including an at-home Initial Assessment, include a separate travel fee. The fee covers Liana travelling from Wentworth Point to your home and returning from the visit.</p>
+                <p>The starting fee applies to nearby addresses with an estimated total return journey of up to approximately 20 minutes. Longer travel times, tolls, parking requirements or difficult access may increase the fee. Your exact fee is confirmed before booking and is subject to availability.</p>
+                <p class="muted">The travel fee is charged for each home visit and is separate from assessment, setup and monthly tuition fees.</p>
+            </article>
         </div>
     </section>
     <section class="section">
@@ -49,7 +60,7 @@ render_header('/pricing');
             </article>
         </div>
     </section>
-    <section class="section section--compact"><div class="section__content container"><p class="lead center">Tuition is billed monthly in advance. Lessons are offered through structured programs rather than casual single bookings.</p></div></section>
+    <section class="section section--compact"><div class="section__content container"><p class="lead center">Tuition is billed monthly in advance. Lessons are offered through structured programs at the Wentworth Point studio or at your home, subject to travel availability.</p></div></section>
     <?php render_cta_band('Begin with assessment first', 'The assessment is the cleanest way to confirm the right lesson length and monthly program.', 'Book Initial Assessment', '/initial-assessment#book', 'Contact Fortepiano Academy', '/contact', 'pricing'); ?>
 </main>
 <?php render_footer(); ?>

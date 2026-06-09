@@ -101,6 +101,7 @@ function render_footer(): void
         <div class="stack gap-xs">
             <strong><?= e(SITE_NAME) ?></strong>
             <address><?= e(SITE_ADDRESS) ?></address>
+            <span>Studio and at-home piano lessons available</span>
         </div>
         <div class="stack gap-xs">
             <a href="mailto:<?= e(SITE_EMAIL) ?>"<?= tracking_attrs('email_click', ['page_type' => 'footer', 'cta_position' => 'footer']) ?>><?= e(SITE_EMAIL) ?></a>
@@ -199,6 +200,29 @@ function render_contact_form(string $pageType, string $submitLabel = 'Send Enqui
             <option>Program enquiry</option>
             <option>Pricing question</option>
             <option>General contact</option>
+        </select>
+    </label>
+    <label class="field">
+        <span>Preferred Lesson Location</span>
+        <select name="lesson_location" required>
+            <option value="">Choose one</option>
+            <option>Wentworth Point studio</option>
+            <option>At my home</option>
+            <option>Not sure yet</option>
+        </select>
+    </label>
+    <label class="field">
+        <span>Home Suburb / Nearest Cross Street</span>
+        <input type="text" name="home_location" placeholder="For an at-home lesson travel quote">
+    </label>
+    <label class="field">
+        <span>Piano Available at Home</span>
+        <select name="home_piano">
+            <option value="">Choose one</option>
+            <option>Acoustic piano</option>
+            <option>Digital piano</option>
+            <option>Not yet - I need advice</option>
+            <option>Not applicable - studio lessons</option>
         </select>
     </label>
     <label class="field">

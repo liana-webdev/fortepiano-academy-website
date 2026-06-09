@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/layout.php';
 $page = [
     'path' => '/programs',
     'title' => 'Piano Programs | Foundation and Development | Fortepiano Academy',
-    'description' => 'Compare the Foundation and Development piano programs at Fortepiano Academy and understand which pathway best suits your child.',
+    'description' => 'Compare Foundation and Development piano programs available at the Wentworth Point studio or in your home.',
     'schema' => [business_schema(), service_schema('Fortepiano Academy Piano Programs', '/programs'), breadcrumb_schema([['label' => 'Home', 'href' => '/'], ['label' => 'Programs', 'href' => '/programs']])],
 ];
 render_head($page);
@@ -16,11 +16,19 @@ render_header('/programs');
             <div class="stack gap-m">
                 <p class="article-meta">Foundation and Development</p>
                 <h1>Programs built for structured progress</h1>
-                <p class="lead">Fortepiano Academy uses programs because meaningful piano progress needs a pathway, not random casual bookings.</p>
+                <p class="lead">Fortepiano Academy uses programs because meaningful piano progress needs a pathway, whether lessons take place at the studio or in your home.</p>
                 <div class="actions">
                     <a class="btn btn--primary" href="/pricing"<?= tracking_attrs('view_pricing', ['page_type' => 'programs']) ?>>See Pricing</a>
                     <a class="btn btn--ghost" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'programs', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section--compact">
+        <div class="section__content container">
+            <div class="card card--glass">
+                <h2>Choose studio or at-home lessons</h2>
+                <p>Both programs are available at the Wentworth Point studio or at your home in a listed surrounding suburb, subject to availability. At-home lessons include a travel fee starting from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit.</p>
             </div>
         </div>
     </section>

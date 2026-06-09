@@ -202,6 +202,6 @@ render_header('/results');
         </div>
     </section>
 
-    <?php render_cta_band('Start building visible progress', 'The first step is an assessment that places your child into the right structure.', 'Book Initial Assessment', '/initial-assessment#book', 'View Programs', '/programs', 'results'); ?>
+    <?php render_cta_band('Start building visible progress', 'Book an assessment at the Wentworth Point studio or in your home and receive the right structured pathway.', 'Book Initial Assessment', '/initial-assessment#book', 'View Programs', '/programs', 'results'); ?>
 </main>
 <?php render_footer(); ?>

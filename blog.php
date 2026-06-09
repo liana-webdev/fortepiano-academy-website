@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/layout.php';
 $page = [
     'path' => '/blog',
     'title' => 'Piano Lessons Blog | Fortepiano Academy Wentworth Point',
-    'description' => 'Piano learning advice from Fortepiano Academy in Wentworth Point, including parent guidance and structured lesson resources.',
+    'description' => 'Piano learning advice from Fortepiano Academy, offering structured lessons at the Wentworth Point studio or in your home.',
     'image' => '/images/beginner-piano-lesson.jpg',
     'schema' => [
         business_schema(),
@@ -28,7 +28,7 @@ render_header('/blog');
                 <div class="stack gap-m">
                     <p class="article-meta">Resources</p>
                     <h1>Piano lesson advice for families</h1>
-                    <p class="lead">Practical guidance for parents choosing structured piano lessons, assessment timing and long-term pathways.</p>
+                    <p class="lead">Practical guidance for parents choosing structured piano lessons at the Wentworth Point studio or in the comfort of home.</p>
                     <div class="actions">
                         <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'blog', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
                         <a class="btn btn--ghost" href="/">Explore Fortepiano Academy</a>
@@ -54,6 +54,7 @@ render_header('/blog');
                     <p>A downloadable parent guide is planned for a later release. For now, start with assessment or explore the program structure.</p>
                     <a class="btn btn--primary" href="/initial-assessment#book">Book Initial Assessment</a>
                     <a class="btn btn--ghost" href="/programs">View Programs</a>
+                    <p class="muted">At-home lessons are available in listed surrounding suburbs, subject to availability and a travel fee starting from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit.</p>
                 </div>
             </aside>
         </div>

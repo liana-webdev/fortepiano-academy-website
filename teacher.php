@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/layout.php';
 $page = [
     'path' => '/teacher',
     'title' => 'Principal Piano Teacher | Liana | Fortepiano Academy',
-    'description' => 'Meet Liana, founder and principal piano teacher of Fortepiano Academy in Wentworth Point. Russian-trained teaching with AMEB-aligned structure.',
+    'description' => 'Meet Liana, a Russian-trained piano teacher offering structured lessons at the Wentworth Point studio and in students\' homes.',
     'image' => '/img/Liana little at one of her performances.jpeg',
     'og_type' => 'profile',
     'schema' => [
@@ -32,7 +32,7 @@ render_header('/teacher');
                 <div class="stack gap-m">
                     <p class="article-meta">Principal Teacher</p>
                     <h1>Meet Liana</h1>
-                    <p class="lead">Russian-trained piano teacher in Wentworth Point.</p>
+                    <p class="lead">Russian-trained piano teacher offering lessons at the Wentworth Point studio and in students' homes.</p>
                     <p>Liana is the founder and principal teacher of Fortepiano Academy. Her teaching combines disciplined musical foundations, AMEB-aligned structure, individual attention and a calm professional environment.</p>
                     <div class="actions">
                         <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'teacher', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment with Liana']) ?>>Book Initial Assessment with Liana</a>
@@ -48,7 +48,7 @@ render_header('/teacher');
     <section class="section">
         <div class="section__content container grid grid--3 grid--gap-l">
             <article class="card"><h2>Training and background</h2><p>Liana completed a full Russian music-school pathway in Moscow, including piano, performance, solfeggio, music literature and choir.</p></article>
-            <article class="card"><h2>Teaching philosophy</h2><p>Lessons are structured, warm and serious about progress. Students build technique, listening, reading, rhythm and confidence through consistent work.</p></article>
+            <article class="card"><h2>Teaching philosophy</h2><p>Lessons are structured, warm and serious about progress, whether taught at the studio or on the student's piano at home.</p></article>
             <article class="card"><h2>AMEB preparation</h2><p>Exam preparation is available where it supports the student goals, readiness and long-term musical development.</p></article>
         </div>
     </section>

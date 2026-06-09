@@ -4,7 +4,7 @@ global $pricing;
 $page = [
     'path' => '/initial-assessment',
     'title' => 'Initial Piano Assessment | Fortepiano Academy',
-    'description' => 'Book an Initial Piano Assessment to understand your child level, readiness and recommended program pathway at Fortepiano Academy.',
+    'description' => 'Book an Initial Piano Assessment at the Wentworth Point studio or in your home to receive a recommended piano program pathway.',
     'schema' => [business_schema(), service_schema('Initial Piano Assessment', '/initial-assessment'), breadcrumb_schema([['label' => 'Home', 'href' => '/'], ['label' => 'Initial Assessment', 'href' => '/initial-assessment']])],
 ];
 $faqs = [
@@ -12,6 +12,7 @@ $faqs = [
     ['q' => 'Do we need prior experience?', 'a' => 'No. Beginners are welcome.'],
     ['q' => 'Will we get a recommendation afterwards?', 'a' => 'Yes. You receive a recommended program, lesson length and next step within 24 hours.'],
     ['q' => 'Do we need to enrol on the day?', 'a' => 'No. The assessment comes first so you can decide with clarity.'],
+    ['q' => 'Can the Initial Assessment take place at our home?', 'a' => 'Yes, subject to availability. An at-home assessment includes a travel fee starting from $15, quoted for the return journey from Wentworth Point.'],
 ];
 render_head($page);
 render_header('/initial-assessment');
@@ -24,7 +25,7 @@ render_header('/initial-assessment');
                 <div class="stack gap-m">
                     <p class="article-meta">First step</p>
                     <h1>Initial Piano Assessment</h1>
-                    <p class="lead"><?= e(money($pricing['assessment'])) ?> assessment lesson for placement, readiness and pathway recommendation.</p>
+                    <p class="lead"><?= e(money($pricing['assessment'])) ?> assessment lesson at the Wentworth Point studio or in your home for placement, readiness and pathway recommendation.</p>
                     <p>The Initial Assessment is a combined trial lesson and assessment, not a casual try-and-see lesson. It helps determine current level, learning style, readiness, goals and the most suitable starting pathway.</p>
                     <a class="btn btn--primary" href="#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'assessment', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
                 </div>
@@ -49,6 +50,7 @@ render_header('/initial-assessment');
                     <h2>Program Setup and enrolment</h2>
                     <p>Program Setup is <?= e(money($pricing['setup'])) ?> only if you continue. It covers enrolment setup, terms, and preparation of an individual term plan.</p>
                     <p>A clear beginning makes everything easier: enquiry, Initial Assessment, recommendation, Program Setup, individual term plan, then lessons begin.</p>
+                    <p>For an at-home assessment, provide your suburb and nearest cross street for a travel quote. Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> and apply to the assessment visit.</p>
                 </div>
                 <?php render_contact_form('assessment', 'Book Initial Assessment'); ?>
             </div>
