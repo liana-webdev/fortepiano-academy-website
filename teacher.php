@@ -4,7 +4,7 @@ $page = [
     'path' => '/teacher',
     'title' => 'Principal Piano Teacher | Liana | Fortepiano Academy',
     'description' => 'Meet Liana, a Russian-trained piano teacher offering structured lessons at the Wentworth Point studio and in students\' homes.',
-    'image' => '/img/Liana little at one of her performances.jpeg',
+    'image' => '/img/Aveena%20February%202022.jpg',
     'og_type' => 'profile',
     'schema' => [
         business_schema(),
@@ -40,7 +40,7 @@ render_header('/teacher');
                     </div>
                 </div>
                 <figure class="blog-hero__media card card--glass">
-                    <img src="/img/Liana little at one of her performances.jpeg" alt="Liana during an early piano performance" loading="eager">
+                    <img src="/img/Aveena%20February%202022.jpg" alt="Liana guiding a young student at the piano" loading="eager">
                 </figure>
             </div>
         </div>
@@ -50,6 +50,19 @@ render_header('/teacher');
             <article class="card"><h2>Training and background</h2><p>Liana completed a full Russian music-school pathway in Moscow, including piano, performance, solfeggio, music literature and choir.</p></article>
             <article class="card"><h2>Teaching philosophy</h2><p>Lessons are structured, warm and serious about progress, whether taught at the studio or on the student's piano at home.</p></article>
             <article class="card"><h2>AMEB preparation</h2><p>Exam preparation is available where it supports the student goals, readiness and long-term musical development.</p></article>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section__content container grid grid--2 grid--gap-xl align-center">
+            <div class="stack gap-s">
+                <p class="article-meta">Early piano foundation</p>
+                <h2>The teacher as a young pianist</h2>
+                <p>Before founding Fortepiano Academy, Liana grew up inside a serious music-learning environment. Her own childhood training in piano performance, discipline and musical culture now informs the way she teaches young students.</p>
+            </div>
+            <figure class="teacher-memory card card--glass">
+                <img src="/img/Liana little at one of her performances.jpeg" alt="Liana as a young pianist during an early performance" loading="lazy">
+                <figcaption>Little Liana during her own early piano journey.</figcaption>
+            </figure>
         </div>
     </section>
     <section class="section">

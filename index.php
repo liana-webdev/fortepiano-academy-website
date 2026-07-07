@@ -6,7 +6,7 @@ $page = [
     'path' => '/',
     'title' => 'Structured Piano Lessons at the Studio or Your Home | Fortepiano Academy',
     'description' => 'Structured one-to-one piano lessons at the Wentworth Point studio or in your home across selected surrounding suburbs.',
-    'image' => '/img/DSC04361.jpg',
+    'image' => '/img/Aveena%20February%202022.jpg',
     'schema' => [
         business_schema(),
         [
@@ -173,14 +173,31 @@ render_header('/');
         <div class="section__content container">
             <div class="grid grid--2 grid--gap-xl align-center">
                 <figure class="card card--glass">
-                    <img src="/img/Liana little at one of her performances.jpeg" alt="Liana during an early piano performance" loading="lazy">
+                    <img src="/img/Aveena%20February%202022.jpg" alt="Liana guiding a young student at the piano" loading="lazy">
                 </figure>
                 <div class="stack gap-s">
                     <p class="article-meta">Principal teacher</p>
                     <h2>Structured teaching with warmth and high standards</h2>
                     <p>Liana brings Russian music-school training, AMEB experience and years of Fortepiano Academy teaching into a serious, safe and steady learning environment.</p>
+                    <p class="muted">Her own piano training began early, and that childhood foundation shapes the patient, structured way she now guides young learners.</p>
                     <a class="btn btn--ghost" href="/teacher">Meet Liana</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__content container">
+            <div class="grid grid--2 grid--gap-xl align-center">
+                <div class="stack gap-s">
+                    <p class="article-meta">Early piano foundation</p>
+                    <h2>The teacher as a young pianist</h2>
+                    <p>Before founding Fortepiano Academy, Liana grew up inside a serious music-learning environment, with piano performance, discipline and musical culture forming part of everyday training.</p>
+                </div>
+                <figure class="teacher-memory card card--glass">
+                    <img src="/img/Liana little at one of her performances.jpeg" alt="Liana as a young pianist during an early performance" loading="lazy">
+                    <figcaption>Little Liana during her own early piano journey.</figcaption>
+                </figure>
             </div>
         </div>
     </section>
