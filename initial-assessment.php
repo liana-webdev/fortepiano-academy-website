@@ -5,6 +5,11 @@ $page = [
     'path' => '/initial-assessment',
     'title' => 'Initial Piano Assessment | Fortepiano Academy',
     'description' => 'Book an Initial Piano Assessment at the Wentworth Point studio or in your home to receive a recommended piano program pathway.',
+    'preload_image' => [
+        'base' => '/images/responsive/beginner-lesson',
+        'widths' => [480, 768, 1200, 1600],
+        'sizes' => '(max-width: 760px) calc(100vw - 36px), 42vw',
+    ],
     'schema' => [business_schema(), service_schema('Initial Piano Assessment', '/initial-assessment'), breadcrumb_schema([['label' => 'Home', 'href' => '/'], ['label' => 'Initial Assessment', 'href' => '/initial-assessment']])],
 ];
 $faqs = [
@@ -30,7 +35,17 @@ render_header('/initial-assessment');
                     <a class="btn btn--primary" href="#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'assessment', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
                 </div>
                 <figure class="blog-hero__media card card--glass">
-                    <img src="/images/beginner-piano-lesson.jpg" alt="Beginner piano student in a structured lesson" loading="eager">
+                    <?php render_responsive_picture([
+                        'base' => '/images/responsive/beginner-lesson',
+                        'widths' => [480, 768, 1200, 1600],
+                        'fallback_width' => 1200,
+                        'width' => 3024,
+                        'height' => 4032,
+                        'alt' => 'Beginner piano student in a structured lesson',
+                        'sizes' => '(max-width: 760px) calc(100vw - 36px), 42vw',
+                        'loading' => 'eager',
+                        'fetchpriority' => 'high',
+                    ]); ?>
                 </figure>
             </div>
         </div>

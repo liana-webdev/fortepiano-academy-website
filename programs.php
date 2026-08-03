@@ -51,10 +51,12 @@ render_header('/programs');
                 <p>The default pathway for stronger progress, regular guidance, AMEB readiness and more teacher involvement.</p>
                 <ul class="tick-list">
                     <li>Two lessons per week</li>
-                    <li>More detailed term planning</li>
-                    <li>Stronger accountability and reporting</li>
-                    <li>AMEB preparation where appropriate</li>
-                    <li>Better fit for serious graded progress</li>
+                    <li>Everything in Foundation</li>
+                    <li>Monthly progress reports</li>
+                    <li>Structured AMEB preparation where appropriate</li>
+                    <li>Mock exams and readiness checks</li>
+                    <li>Teacher-managed AMEB enrolment and exam fees covered</li>
+                    <li>Outside-lesson support by arrangement and availability</li>
                 </ul>
             </article>
         </div>
@@ -66,6 +68,6 @@ render_header('/programs');
             <article class="card"><h2>AMEB pathway</h2><p>AMEB work is recommended when it supports the student rather than becoming pressure for its own sake.</p></article>
         </div>
     </section>
-    <?php render_cta_band('Start with the right pathway', 'The assessment allows Liana to recommend the program and lesson length that actually fits.', 'Book Initial Assessment', '/initial-assessment#book', 'See Pricing', '/pricing', 'programs'); ?>
+    <?php render_cta_band('Start with the right pathway', 'The assessment allows the academy to recommend the program and lesson length that actually fits.', 'Book Initial Assessment', '/initial-assessment#book', 'See Pricing', '/pricing', 'programs'); ?>
 </main>
 <?php render_footer(); ?>

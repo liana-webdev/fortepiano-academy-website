@@ -27,7 +27,7 @@ render_header('/pricing');
             <article class="card card--glass">
                 <p class="article-meta">At-home lessons</p>
                 <h2>Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit</h2>
-                <p>At-home lessons, including an at-home Initial Assessment, include a separate travel fee. The fee covers Liana travelling from Wentworth Point to your home and returning from the visit.</p>
+                <p>At-home lessons, including an at-home Initial Assessment, include a separate travel fee. The fee covers the allocated teacher travelling from Wentworth Point to your home and returning from the visit.</p>
                 <p>The starting fee applies to nearby addresses with an estimated total return journey of up to approximately 20 minutes. Longer travel times, tolls, parking requirements or difficult access may increase the fee. Your exact fee is confirmed before booking and is subject to availability.</p>
                 <p class="muted">The travel fee is charged for each home visit and is separate from assessment, setup and monthly tuition fees.</p>
             </article>
