@@ -5,6 +5,11 @@ $page = [
     'title' => 'Piano Lessons Blog | Fortepiano Academy Wentworth Point',
     'description' => 'Piano learning advice from Fortepiano Academy, offering structured lessons at the Wentworth Point studio or in your home.',
     'image' => '/images/beginner-piano-lesson.jpg',
+    'preload_image' => [
+        'base' => '/images/responsive/beginner-lesson',
+        'widths' => [480, 768, 1200, 1600],
+        'sizes' => '(max-width: 760px) calc(100vw - 36px), 42vw',
+    ],
     'schema' => [
         business_schema(),
         [
@@ -34,7 +39,19 @@ render_header('/blog');
                         <a class="btn btn--ghost" href="/">Explore Fortepiano Academy</a>
                     </div>
                 </div>
-                <figure class="blog-hero__media card card--glass"><img src="/images/beginner-piano-lesson.jpg" alt="Young piano student practising during a structured lesson" loading="eager"></figure>
+                <figure class="blog-hero__media card card--glass">
+                    <?php render_responsive_picture([
+                        'base' => '/images/responsive/beginner-lesson',
+                        'widths' => [480, 768, 1200, 1600],
+                        'fallback_width' => 1200,
+                        'width' => 3024,
+                        'height' => 4032,
+                        'alt' => 'Young piano student practising during a structured lesson',
+                        'sizes' => '(max-width: 760px) calc(100vw - 36px), 42vw',
+                        'loading' => 'eager',
+                        'fetchpriority' => 'high',
+                    ]); ?>
+                </figure>
             </div>
         </div>
     </section>

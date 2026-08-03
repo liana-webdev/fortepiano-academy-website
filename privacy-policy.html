@@ -9,17 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css?v=3">
+    <link rel="stylesheet" href="/styles/main.css?v=5">
+    <link rel="stylesheet" href="/styles/editorial.css?v=1">
 </head>
 
 <body>
-    <!-- =========== Header  / Nav =========== -->
+    <canvas id="top" class="living-staff" data-fa-living-staff aria-hidden="true"></canvas>
+    <div class="site-service-line">
+        <div class="container service-line__row">
+            <span>Sydney piano school</span>
+            <div class="service-line__links"><a href="/pricing">Pricing</a><a href="/piano-lessons-wentworth-point">Wentworth Point studio</a><span>At-home lessons available</span></div>
+        </div>
+    </div>
     <header class="site-header">
         <div class="container header__row">
-            <span class="brand__mark" aria-hidden="true">
-                <img src="img/Logo.svg" class="logo logo--dark" alt="Fortepiano Academy logo dark">
-                <img src="img/Logo 4.svg" class="logo logo--light" alt="Fortepiano Academy logo light">
-            </span>
+            <a class="brand__mark" href="/" aria-label="Fortepiano Academy home">
+                <span class="brand__logo"><img src="/img/Logo.svg" class="logo logo--dark" alt="" width="200" height="178"><img src="/img/Logo 4.svg" class="logo logo--light" alt="" width="200" height="178"></span>
+                <span class="brand__identity"><strong>Fortepiano Academy</strong><small>Piano School &middot; Sydney</small></span>
+            </a>
 
 
             <nav class="nav" aria-label="Primary">
@@ -34,16 +41,12 @@
                 </button>
                 <ul id="navMenu" class="nav__list">
 
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="teacher.html">Teacher</a></li>
-                    <li><a href="index.html#lessons">Lessons</a></li>
-                    <li><a href="index.html#results">Results</a></li>
-                    <li><a href="index.html#trial">Initial Assessment</a></li>
-                    <li><a href="index.html#program">Programs</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="/#academy">Academy</a></li>
+                    <li><a href="/programs">Programs</a></li>
+                    <li><a href="/faculty">Faculty</a></li>
+                    <li><a href="/results">Results</a></li>
+                    <li><a href="/blog">Journal</a></li>
+                    <li><a href="/initial-assessment">Admissions</a></li>
                     <li class="nav__language">
                         <label class="language-select" for="languageSelect">
                             <span class="language-select__label">Language</span>
@@ -64,6 +67,7 @@
 
                 </ul>
             </nav>
+            <a class="header__admissions" href="/initial-assessment#book"><span>Book Assessment</span><span aria-hidden="true">&rarr;</span></a>
         </div>
     </header>
 
@@ -145,8 +149,6 @@
                             request corrections if necessary. If you would like to update or remove your information,
                             please contact us using the details below.</p>
                         <p>Requests to delete personal data apply to identifiable information such as enquiry details.
-                            Non-identifiable analytics data cannot be individually accessed or removed.Requests to
-                            delete personal data apply to identifiable information such as enquiry details.
                             Non-identifiable analytics data cannot be individually accessed or removed.</p>
                     </section>
 
@@ -155,7 +157,7 @@
                         <p>If you have any questions about this Privacy Policy or how your information is handled, you
                             may contact:</p>
                         <p><strong>Fortepiano Academy</strong><br>
-                            Email: <a href="mailto:info@fortepianoacademy.au">info@fortepianoacademy.au</a><br>
+                            Email: <a href="mailto:contact@fortepianoacademy.au">contact@fortepianoacademy.au</a><br>
                             Location: Wentworth Point, NSW, Australia</p>
                     </section>
 
@@ -169,33 +171,20 @@
         </section>
     </main>
 
-    <!-- =========== FOOTER =========== -->
     <footer class="site-footer">
-        <div class="container grid grid--4 grid--gap-m">
-            <div class="stack gap-xs">
-                <strong>Fortepiano Academy</strong>
-                <address>5 Verona Drive, Wentworth Point NSW 2127</address>
-                <span>Studio and at-home piano lessons available</span>
-            </div>
-            <div class="stack gap-xs">
+        <div class="container editorial-footer">
+            <div class="footer__brand"><img src="/img/Logo.svg" alt="" width="200" height="178"><div><strong>Fortepiano<br>Academy</strong><span>Piano School &middot; Sydney</span></div></div>
+            <div class="footer__contact"><span>Admissions &amp; enquiries</span>
                 <a href="mailto:contact@fortepianoacademy.au">contact@fortepianoacademy.au</a>
                 <a href="tel:+61482176777">+61 482 176 777</a>
-            </div>
-            <div class="stack gap-xs">
-                <span>ABN 98117712543</span>
-                <span>WWCC · Public Liability · Creative Kids Provider</span>
-            </div>
-            <div class="stack gap-xs">
-                <span>© 2025 Fortepiano Academy</span>
-                <a href="blog.html">Blog</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-            </div>
+                <address>5 Verona Drive, Wentworth Point NSW 2127</address></div>
+            <nav class="footer__nav" aria-label="Footer"><a href="/programs">Programs</a><a href="/pricing">Pricing</a><a href="/faculty">Faculty</a><a href="/results">Results</a><a href="/blog">Journal</a><a href="/contact">Contact</a></nav>
+            <div class="footer__standards"><span>ABN 98117712543</span><span>WWCC &middot; Public Liability &middot; Creative Kids Provider</span></div>
+            <div class="footer__bottom"><span>&copy; 2026 Fortepiano Academy</span><a href="/privacy-policy.html">Privacy Policy</a><a href="#top">Back to top &uarr;</a></div>
         </div>
     </footer>
 
-    <script src="scripts/script.js?v=4"></script>
+    <script src="/scripts/script.js?v=6"></script>
 </body>
 
 </html>
-</content>
-<!-- <parameter name="filePath">/workspaces/fortepiano-academy-website/privacy-policy.html -->

@@ -20,7 +20,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="/styles/main.css?v=5">
+    <link rel="stylesheet" href="/styles/editorial.css?v=1">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -45,11 +46,18 @@
 </head>
 
 <body>
+    <canvas id="top" class="living-staff" data-fa-living-staff aria-hidden="true"></canvas>
+    <div class="site-service-line">
+        <div class="container service-line__row">
+            <span>Sydney piano school</span>
+            <div class="service-line__links"><a href="/pricing">Pricing</a><a href="/piano-lessons-wentworth-point">Wentworth Point studio</a><span>At-home lessons available</span></div>
+        </div>
+    </div>
     <header class="site-header">
         <div class="container header__row">
-            <a class="brand__mark" href="../index.html" aria-label="Fortepiano Academy home">
-                <img src="../img/Logo.svg" class="logo logo--dark" alt="Fortepiano Academy logo dark">
-                <img src="../img/Logo 4.svg" class="logo logo--light" alt="Fortepiano Academy logo light">
+            <a class="brand__mark" href="/" aria-label="Fortepiano Academy home">
+                <span class="brand__logo"><img src="/img/Logo.svg" class="logo logo--dark" alt="" width="200" height="178"><img src="/img/Logo 4.svg" class="logo logo--light" alt="" width="200" height="178"></span>
+                <span class="brand__identity"><strong>Fortepiano Academy</strong><small>Piano School &middot; Sydney</small></span>
             </a>
 
             <nav class="nav" aria-label="Primary">
@@ -63,16 +71,12 @@
                     </span>
                 </button>
                 <ul id="navMenu" class="nav__list">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about">About</a></li>
-                    <li><a href="../teacher.html">Teacher</a></li>
-                    <li><a href="../index.html#lessons">Lessons</a></li>
-                    <li><a href="../index.html#results">Results</a></li>
-                    <li><a href="../index.html#trial">Initial Assessment</a></li>
-                    <li><a href="../index.html#program">Programs</a></li>
-                    <li><a href="../blog.html" aria-current="page">Blog</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
-                    <li><a href="../index.html#faq">FAQ</a></li>
+                    <li><a href="/#academy">Academy</a></li>
+                    <li><a href="/programs">Programs</a></li>
+                    <li><a href="/faculty">Faculty</a></li>
+                    <li><a href="/results">Results</a></li>
+                    <li><a href="/blog" aria-current="page">Journal</a></li>
+                    <li><a href="/initial-assessment">Admissions</a></li>
                     <li class="nav__language">
                         <label class="language-select" for="languageSelect">
                             <span class="language-select__label">Language</span>
@@ -92,6 +96,7 @@
                     </li>
                 </ul>
             </nav>
+            <a class="header__admissions" href="/initial-assessment#book"><span>Book Assessment</span><span aria-hidden="true">&rarr;</span></a>
         </div>
     </header>
 
@@ -99,9 +104,9 @@
         <article class="section article-page">
             <div class="section__content container">
                 <nav class="breadcrumb" aria-label="Breadcrumb">
-                    <a href="../index.html">Home</a>
+                    <a href="/">Home</a>
                     <span aria-hidden="true">/</span>
-                    <a href="../blog.html">Blog</a>
+                    <a href="/blog">Journal</a>
                     <span aria-hidden="true">/</span>
                     <span>Best age to start piano lessons</span>
                 </nav>
@@ -116,8 +121,11 @@
                 </header>
 
                 <figure class="article-hero card card--glass reveal-block">
-                    <img src="../images/beginner-piano-lesson.jpg"
-                        alt="Young child learning piano during a beginner lesson" loading="eager" decoding="async">
+                    <picture>
+                        <source type="image/avif" srcset="/images/responsive/beginner-lesson-480.avif 480w, /images/responsive/beginner-lesson-768.avif 768w, /images/responsive/beginner-lesson-1200.avif 1200w, /images/responsive/beginner-lesson-1600.avif 1600w" sizes="(max-width: 760px) calc(100vw - 36px), 900px">
+                        <source type="image/webp" srcset="/images/responsive/beginner-lesson-480.webp 480w, /images/responsive/beginner-lesson-768.webp 768w, /images/responsive/beginner-lesson-1200.webp 1200w, /images/responsive/beginner-lesson-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 36px), 900px">
+                        <img src="/images/responsive/beginner-lesson-1200.webp" alt="Young child learning piano during a beginner lesson" width="3024" height="4032" loading="eager" decoding="async" fetchpriority="high">
+                    </picture>
                 </figure>
 
                 <div class="article-body">
@@ -221,7 +229,7 @@
                         <p class="article-cta__title">Thinking about piano lessons for your child?</p>
                         <p>An initial assessment can help decide whether your child is ready and what lesson structure
                             will suit them best.</p>
-                        <a class="btn btn--primary" href="../index.html#trial">Book Initial Assessment</a>
+                        <a class="btn btn--primary" href="/initial-assessment#book">Book Initial Assessment</a>
                     </div>
                 </div>
             </div>
@@ -229,29 +237,19 @@
     </main>
 
     <footer class="site-footer">
-        <div class="container grid grid--4 grid--gap-m">
-            <div class="stack gap-xs">
-                <strong>Fortepiano Academy</strong>
-                <address>5 Verona Drive, Wentworth Point NSW 2127</address>
-                <span>Studio and at-home piano lessons available</span>
-            </div>
-            <div class="stack gap-xs">
+        <div class="container editorial-footer">
+            <div class="footer__brand"><img src="/img/Logo.svg" alt="" width="200" height="178"><div><strong>Fortepiano<br>Academy</strong><span>Piano School &middot; Sydney</span></div></div>
+            <div class="footer__contact"><span>Admissions &amp; enquiries</span>
                 <a href="mailto:contact@fortepianoacademy.au">contact@fortepianoacademy.au</a>
                 <a href="tel:+61482176777">+61 482 176 777</a>
-            </div>
-            <div class="stack gap-xs">
-                <span>ABN 98117712543</span>
-                <span>WWCC &middot; Public Liability &middot; Creative Kids Provider</span>
-            </div>
-            <div class="stack gap-xs">
-                <span>&copy; 2026 Fortepiano Academy</span>
-                <a href="../blog.html">Blog</a>
-                <a href="../privacy-policy.html">Privacy Policy</a>
-            </div>
+                <address>5 Verona Drive, Wentworth Point NSW 2127</address></div>
+            <nav class="footer__nav" aria-label="Footer"><a href="/programs">Programs</a><a href="/pricing">Pricing</a><a href="/faculty">Faculty</a><a href="/results">Results</a><a href="/blog">Journal</a><a href="/contact">Contact</a></nav>
+            <div class="footer__standards"><span>ABN 98117712543</span><span>WWCC &middot; Public Liability &middot; Creative Kids Provider</span></div>
+            <div class="footer__bottom"><span>&copy; 2026 Fortepiano Academy</span><a href="/privacy-policy.html">Privacy Policy</a><a href="#top">Back to top &uarr;</a></div>
         </div>
     </footer>
 
-    <script src="../scripts/script.js?v=4"></script>
+    <script src="/scripts/script.js?v=6"></script>
 </body>
 
 </html>

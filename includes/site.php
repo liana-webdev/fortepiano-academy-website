@@ -28,14 +28,12 @@ $pricing = [
 ];
 
 $navItems = [
-    ['label' => 'Home', 'href' => '/'],
-    ['label' => 'Assessment', 'href' => '/initial-assessment'],
+    ['label' => 'Academy', 'href' => '/#academy', 'active' => '/'],
     ['label' => 'Programs', 'href' => '/programs'],
-    ['label' => 'Pricing', 'href' => '/pricing'],
-    ['label' => 'Teacher', 'href' => '/teacher'],
+    ['label' => 'Faculty', 'href' => '/faculty'],
     ['label' => 'Results', 'href' => '/results'],
-    ['label' => 'Blog', 'href' => '/blog'],
-    ['label' => 'Contact', 'href' => '/contact'],
+    ['label' => 'Journal', 'href' => '/blog'],
+    ['label' => 'Admissions', 'href' => '/initial-assessment'],
 ];
 
 function e(string|int|float|null $value): string

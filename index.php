@@ -4,9 +4,15 @@ global $pricing;
 
 $page = [
     'path' => '/',
-    'title' => 'Structured Piano Lessons at the Studio or Your Home | Fortepiano Academy',
-    'description' => 'Structured one-to-one piano lessons at the Wentworth Point studio or in your home across selected surrounding suburbs.',
+    'title' => 'Fortepiano Academy | Piano School in Wentworth Point, Sydney',
+    'description' => 'Serious one-to-one piano education at the Wentworth Point studio and in selected Sydney suburbs through the Foundation and Development programs.',
     'image' => '/img/Aveena%20February%202022.jpg',
+    'body_class' => 'home-editorial',
+    'preload_image' => [
+        'base' => '/images/responsive/hero-lesson',
+        'widths' => [480, 768, 1200, 1600],
+        'sizes' => '(max-width: 760px) calc(100vw - 36px), 40vw',
+    ],
     'schema' => [
         business_schema(),
         [
@@ -17,201 +23,271 @@ $page = [
         ],
     ],
 ];
-$faqs = [
-    ['q' => 'What age can my child start?', 'a' => 'Most students begin from around age four, or when they are ready to focus, follow directions and coordinate comfortably.'],
-    ['q' => 'Do students prepare for AMEB exams?', 'a' => 'Yes. AMEB-aligned preparation is available where it suits the student goals and readiness.'],
-    ['q' => 'How do we begin?', 'a' => 'Start with the Initial Assessment so the right program and lesson length can be recommended.'],
-    ['q' => 'Where are lessons taught?', 'a' => 'Choose lessons at the Wentworth Point studio or at your home in a listed surrounding suburb, subject to availability.'],
-    ['q' => 'How much do at-home lessons cost?', 'a' => 'At-home lessons include a travel fee starting from $15 per visit, including the Initial Assessment. The exact fee is based on the return journey from Wentworth Point and is confirmed before booking.'],
+
+$homeFaqs = [
+    ['q' => 'How do we begin?', 'a' => 'Begin with the $40 Initial Assessment. It is a real teaching session used to understand level, readiness, goals and the most suitable program and lesson length.'],
+    ['q' => 'What is the difference between Foundation and Development?', 'a' => 'Foundation provides one lesson each week and relies more heavily on independent home practice. Development provides two lessons each week, closer accountability, more reporting and stronger support for exam preparation.'],
+    ['q' => 'Are AMEB exams compulsory?', 'a' => 'No. AMEB preparation is available where it suits the student\'s goals and readiness. Recitals, musicianship, technique and repertoire remain meaningful forms of progress without a fixed examination timeline.'],
+    ['q' => 'Where are lessons taught?', 'a' => 'Lessons are available at the Wentworth Point studio and at students\' homes across selected surrounding suburbs, subject to teacher, schedule and travel availability. Travel fees start from $15 per visit.'],
 ];
+
 render_head($page);
 render_header('/');
 ?>
-<main>
-    <section class="section hero">
-        <div class="section__content container">
-            <div class="grid grid--2 grid--gap-xl align-center">
-                <div class="stack gap-m">
-                    <p class="article-meta">Studio and at-home piano lessons</p>
-                    <h1 class="hero__title">Structured piano lessons at the studio or in the comfort of your home</h1>
-                    <p class="lead">Fortepiano Academy offers one-to-one piano lessons at the Wentworth Point studio and at students' homes across selected surrounding suburbs.</p>
-                    <div class="actions">
-                        <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'home', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
-                        <a class="btn btn--ghost" href="/programs">View Programs</a>
-                    </div>
-                    <div class="badges">
-                        <span class="badge">AMEB-aligned</span>
-                        <span class="badge">Practice diaries</span>
-                        <span class="badge">Progress reports</span>
-                        <span class="badge">At-home lessons available</span>
-                        <span class="badge">WWCC professional</span>
-                        <a class="badge badge--link" href="<?= e(GOOGLE_REVIEW_URL) ?>" target="_blank" rel="noopener">5.0 Google rating</a>
-                    </div>
+<main class="fa-home">
+    <section class="fa-hero" aria-labelledby="home-title">
+        <div class="editorial-inner fa-hero__grid">
+            <div class="fa-hero__copy">
+                <p class="fa-eyebrow">Piano education &middot; Children, teenagers and adults</p>
+                <h1 id="home-title">A serious piano education, made <em>clear.</em></h1>
+                <p class="fa-hero__intro">One-to-one piano lessons at the Wentworth Point studio and in students' homes across selected Sydney suburbs. Begin with an Initial Assessment, then enter Foundation or Development according to goals, readiness and support needed.</p>
+                <div class="fa-actions">
+                    <a class="fa-button fa-button--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'home', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>
+                        <span>Book Initial Assessment</span><span aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="fa-button fa-button--secondary" href="#programs">Compare Programs</a>
                 </div>
-                <figure class="hero__media card card--glass">
-                    <img src="/img/DSC04361.jpg" alt="Teacher and student at the piano" loading="eager" decoding="async">
-                </figure>
+                <div class="fa-score-motif" aria-hidden="true"></div>
             </div>
+            <figure class="fa-hero__media fa-iridescent-frame">
+                <?php render_responsive_picture([
+                    'base' => '/images/responsive/hero-lesson',
+                    'widths' => [480, 768, 1200, 1600],
+                    'fallback_width' => 1200,
+                    'width' => 3024,
+                    'height' => 4032,
+                    'alt' => 'Liana guiding a young Fortepiano Academy student at the piano',
+                    'sizes' => '(max-width: 760px) calc(100vw - 36px), 40vw',
+                    'loading' => 'eager',
+                    'fetchpriority' => 'high',
+                ]); ?>
+                <figcaption><span>Fortepiano Academy</span><span>Lesson study &middot; Wentworth Point</span></figcaption>
+            </figure>
         </div>
     </section>
 
-    <section class="section section--compact">
-        <div class="section__content container">
-            <div class="proof-strip">
-                <span>Structured programs</span>
-                <span>Russian training influence</span>
-                <span>AMEB pathway</span>
-                <span>Recital culture</span>
-                <span>Studio or at-home lessons</span>
-            </div>
-        </div>
-    </section>
+    <div class="fa-trust-strip editorial-inner" aria-label="Academy trust markers">
+        <span>AMEB-aligned</span>
+        <span>Practice diaries</span>
+        <span>Progress reports</span>
+        <span>Recital culture</span>
+        <span>WWCC professional</span>
+        <a href="<?= e(GOOGLE_REVIEW_URL) ?>" target="_blank" rel="noopener">5.0 Google rating</a>
+    </div>
 
-    <section class="section">
-        <div class="section__content container">
-            <header class="section__header stack gap-xs center">
-                <p class="article-meta">Choose your lesson location</p>
-                <h2>The same structured teaching, at the studio or your home</h2>
-                <p class="muted">Home visits are available across listed surrounding suburbs, subject to schedule and travel availability.</p>
-            </header>
-            <div class="grid grid--2 grid--gap-l">
-                <article class="card card--glass">
-                    <h3>Wentworth Point studio</h3>
-                    <p>Attend lessons in a focused studio environment with the piano and teaching setup ready for each session.</p>
-                </article>
-                <article class="card card--glass">
-                    <h3>Lessons at your home</h3>
-                    <p>Liana travels to your home and teaches on your piano. Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit and are quoted for the return journey from Wentworth Point.</p>
-                    <p class="muted">A suitable piano, the student's own books, a quiet lesson space and timely access to the home are required.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section__content container">
-            <div class="grid grid--2 grid--gap-xl align-center">
-                <div class="stack gap-s">
-                    <p class="article-meta">The problem</p>
-                    <h2>Most students do not lack talent. They lack structure.</h2>
-                    <p>Students progress when lessons connect posture, rhythm, reading, technique, repertoire and practice into one clear pathway. Families are not left guessing what happens next.</p>
+    <section class="fa-section fa-academy" id="academy" aria-labelledby="academy-title">
+        <div class="editorial-inner">
+            <p class="fa-section-label">01 / The Academy</p>
+            <div class="fa-section-heading fa-section-heading--wide">
+                <div>
+                    <p class="fa-eyebrow">Piano study with direction</p>
+                    <h2 id="academy-title">Most students do not lack talent. They lack a clear <em>path.</em></h2>
                 </div>
-                <div class="grid grid--2 grid--gap-l">
-                    <article class="card card--glass"><h3>Term Plans</h3><p class="muted">Learning is organised around term goals, not random lesson-to-lesson activity.</p></article>
-                    <article class="card card--glass"><h3>Diaries & Reports</h3><p class="muted">Practice and feedback are made visible for parents and students.</p></article>
-                    <article class="card card--glass"><h3>Exam Pathways</h3><p class="muted">AMEB preparation is available where the student is ready and suited.</p></article>
-                    <article class="card card--glass"><h3>Performances</h3><p class="muted">Recital opportunities support confidence, focus and musical growth.</p></article>
+                <div class="fa-section-intro">
+                    <p class="fa-serif-lead">Lessons connect posture, rhythm, reading, technique, repertoire and practice into one coherent progression.</p>
+                    <p>Families can see what the student is working toward, how practice should be organised and when the program needs to change. Each plan remains individual while teaching, reporting and performance standards stay consistent across the academy.</p>
                 </div>
             </div>
+            <div class="fa-principles">
+                <article><span>01</span><h3>Term Plans</h3><p>Learning is organised around term goals rather than disconnected weekly activity.</p></article>
+                <article><span>02</span><h3>Diaries &amp; Reports</h3><p>Practice directions and progress are visible to students and families.</p></article>
+                <article><span>03</span><h3>Exam Pathways</h3><p>AMEB preparation is available when it suits the student's goals and readiness.</p></article>
+                <article><span>04</span><h3>Performances</h3><p>Recitals build confidence, concentration and musical communication.</p></article>
+            </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="section__content container">
-            <header class="section__header stack gap-xs center">
-                <p class="article-meta">Programs</p>
-                <h2>Programs designed for real progress</h2>
-                <p class="muted">Students begin with an Initial Assessment and are placed into the pathway that best suits their goals, lesson length and readiness.</p>
-            </header>
-            <div class="grid grid--2 grid--gap-l">
-                <article class="card card--glass program-card">
+    <section class="fa-section fa-programs" id="programs" aria-labelledby="programs-title">
+        <div class="editorial-inner">
+            <p class="fa-section-label fa-section-label--light">02 / Foundation &amp; Development</p>
+            <div class="fa-section-heading fa-section-heading--inverse">
+                <div>
+                    <p class="fa-eyebrow fa-eyebrow--accent">The academy program structure</p>
+                    <h2 id="programs-title">Two programs.<br>Different levels of <em>support.</em></h2>
+                </div>
+                <p>Program placement follows the Initial Assessment. Lesson length is recommended according to age, level, goals and readiness.</p>
+            </div>
+            <div class="fa-program-grid" data-analytics-view="program_compare_view" data-analytics-page-type="home">
+                <article class="fa-program">
+                    <div class="fa-program__meta"><span>Program / I</span><span>One lesson per week</span></div>
                     <h3>Foundation</h3>
-                    <p>A steady entry pathway for families seeking consistent weekly learning.</p>
-                    <p class="muted">From <?= e(money($pricing['foundation'][0]['price'])) ?>/month.</p>
-                    <a class="btn btn--ghost" href="/programs">View Foundation</a>
+                    <p class="fa-program__description">A steady pathway for students who need regular weekly structure and families who can support consistent home practice.</p>
+                    <ul>
+                        <li>Individual term plan</li>
+                        <li>Weekly practice diary</li>
+                        <li>Studio recital participation</li>
+                        <li>Limited support outside lesson hours</li>
+                    </ul>
+                    <div class="fa-price-list">
+                        <?php foreach ($pricing['foundation'] as $row): ?>
+                            <div><span><?= e($row['length']) ?></span><strong><?= e(money($row['price'])) ?></strong><small>/month</small></div>
+                        <?php endforeach; ?>
+                    </div>
+                    <a href="/initial-assessment#book">Begin with assessment <span aria-hidden="true">&rarr;</span></a>
                 </article>
-                <article class="card card--glass program-card program-card--recommended">
-                    <span class="program-reco">Recommended</span>
+                <article class="fa-program fa-program--featured">
+                    <span class="fa-program__recommended">Recommended</span>
+                    <div class="fa-program__meta"><span>Program / II</span><span>Two lessons per week</span></div>
                     <h3>Development</h3>
-                    <p>The core structured pathway for stronger progress, accountability and AMEB readiness.</p>
-                    <p class="muted">From <?= e(money($pricing['development'][0]['price'])) ?>/month.</p>
-                    <a class="btn btn--primary" href="/programs">View Development</a>
+                    <p class="fa-program__description">The core pathway for stronger progress, regular guidance, accountability and AMEB readiness where appropriate.</p>
+                    <ul>
+                        <li>Everything in Foundation</li>
+                        <li>Monthly progress reports</li>
+                        <li>Mock exams and readiness checks</li>
+                        <li>AMEB enrolment and exam fees covered</li>
+                        <li>Outside-lesson support by arrangement</li>
+                    </ul>
+                    <div class="fa-price-list">
+                        <?php foreach ($pricing['development'] as $row): ?>
+                            <div><span><?= e($row['length']) ?></span><strong><?= e(money($row['price'])) ?></strong><small>/month</small></div>
+                        <?php endforeach; ?>
+                    </div>
+                    <a href="/initial-assessment#book">Begin with assessment <span aria-hidden="true">&rarr;</span></a>
                 </article>
+            </div>
+            <div class="fa-assessment-note">
+                <div><span>Initial Assessment</span><strong><?= e(money($pricing['assessment'])) ?></strong></div>
+                <p>A 30-minute combined trial lesson and assessment. Program Setup is <?= e(money($pricing['setup'])) ?> only if continuing.</p>
+                <a href="/initial-assessment">Assessment details <span aria-hidden="true">&nearr;</span></a>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="section__content container">
-            <div class="grid grid--2 grid--gap-xl align-center">
-                <div class="stack gap-s">
-                    <p class="article-meta">Pricing snapshot</p>
-                    <h2>A clear first step before program placement</h2>
-                    <p>Initial Assessment is <?= e(money($pricing['assessment'])) ?>. Program Setup is <?= e(money($pricing['setup'])) ?> only if continuing. At-home visits include a travel fee starting from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit.</p>
-                    <div class="actions">
-                        <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'home', 'cta_position' => 'pricing_snapshot', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
-                        <a class="btn btn--ghost" href="/pricing"<?= tracking_attrs('view_pricing', ['page_type' => 'home']) ?>>See Pricing</a>
+    <section class="fa-section fa-results" id="results" aria-labelledby="results-title">
+        <div class="editorial-inner">
+            <p class="fa-section-label">03 / Results</p>
+            <div class="fa-section-heading">
+                <div>
+                    <p class="fa-eyebrow">Progress made visible</p>
+                    <h2 id="results-title">Clarity, consistency and musical <em>growth.</em></h2>
+                </div>
+                <p>Results include examination progression, stronger practice, growing independence and confidence in performance.</p>
+            </div>
+            <div class="fa-results-layout">
+                <figure class="fa-results-photo fa-iridescent-frame">
+                    <?php render_responsive_picture([
+                        'base' => '/images/responsive/recital-group',
+                        'widths' => [480, 768, 1200],
+                        'fallback_width' => 1200,
+                        'width' => 1280,
+                        'height' => 853,
+                        'alt' => 'Fortepiano Academy recital students holding their certificates',
+                        'sizes' => '(max-width: 760px) calc(100vw - 36px), 56vw',
+                    ]); ?>
+                    <figcaption>Fortepiano Academy recital &middot; certificates and performance</figcaption>
+                </figure>
+                <div class="fa-result-stories">
+                    <article><span>Grade progression</span><h3>Angus</h3><p>A long-term pathway from early lessons through the completion of Grade 8.</p></article>
+                    <article><span>Two grades &middot; one year</span><h3>Jennifer &amp; Jacob</h3><p>From beginner foundations to two completed grades by the end of 2025.</p></article>
+                    <article><span>Exam + recital</span><h3>Jennie</h3><p>Preliminary exam success followed by confident participation in the 2025 recital.</p></article>
+                </div>
+            </div>
+            <div class="fa-inline-link"><a href="/results">Read the full student stories <span aria-hidden="true">&rarr;</span></a></div>
+        </div>
+    </section>
+
+    <section class="fa-section fa-faculty" id="faculty" aria-labelledby="faculty-title">
+        <div class="editorial-inner">
+            <p class="fa-section-label fa-section-label--light">04 / Piano Faculty</p>
+            <div class="fa-section-heading fa-section-heading--inverse">
+                <div>
+                    <p class="fa-eyebrow fa-eyebrow--accent">Shared teaching standards</p>
+                    <h2 id="faculty-title">Individual teachers.<br>One academy <em>standard.</em></h2>
+                </div>
+                <p>Fortepiano Academy is expanding its faculty deliberately. As the school grows, teachers are selected, inducted and supported within the academy's teaching and reporting standards.</p>
+            </div>
+            <div class="fa-faculty-layout">
+                <article class="fa-faculty-profile">
+                    <figure>
+                        <?php render_responsive_picture([
+                            'base' => '/images/responsive/faculty-recital',
+                            'widths' => [480, 768],
+                            'fallback_width' => 768,
+                            'width' => 853,
+                            'height' => 1280,
+                            'alt' => 'Liana Pavlicheva with student Jennie at a Fortepiano Academy recital',
+                            'sizes' => '(max-width: 760px) calc(100vw - 36px), 34vw',
+                        ]); ?>
+                    </figure>
+                    <div><span>Founder &amp; Head Teacher</span><h3>Liana Pavlicheva</h3><p>Liana leads student placement, term planning and academy standards alongside her teaching work.</p><a href="/faculty">Meet the faculty <span aria-hidden="true">&rarr;</span></a></div>
+                </article>
+                <div class="fa-faculty-standards">
+                    <article><span>01</span><div><h3>Selection</h3><p>Teaching experience, musicianship, judgement and communication with students and families.</p></div></article>
+                    <article><span>02</span><div><h3>Supervised induction</h3><p>Observation of academy lessons followed by supported teaching before independent allocation.</p></div></article>
+                    <article><span>03</span><div><h3>Ongoing oversight</h3><p>Term plans, progress records, examinations and student concerns remain within one academy system.</p></div></article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fa-section fa-locations" id="lesson-locations" aria-labelledby="locations-title">
+        <div class="editorial-inner">
+            <p class="fa-section-label">05 / Lesson Settings</p>
+            <div class="fa-location-layout">
+                <figure class="fa-location-photo">
+                    <?php render_responsive_picture([
+                        'base' => '/images/responsive/practice-diaries',
+                        'widths' => [480, 768, 1200, 1600],
+                        'fallback_width' => 1200,
+                        'width' => 4032,
+                        'height' => 3024,
+                        'alt' => 'Fortepiano Academy students holding their practice diaries in the studio',
+                        'sizes' => '(max-width: 760px) calc(100vw - 36px), 46vw',
+                    ]); ?>
+                    <figcaption>Practice diaries make weekly direction visible.</figcaption>
+                </figure>
+                <div>
+                    <p class="fa-eyebrow">Sydney lessons, one academy structure</p>
+                    <h2 id="locations-title">At the studio or on the student's own piano.</h2>
+                    <div class="fa-location-pair">
+                        <article><span>Studio / 2127</span><h3>Wentworth Point</h3><p>A focused studio environment with the piano and teaching setup ready for each session.</p><a href="/piano-lessons-wentworth-point">Studio details</a></article>
+                        <article><span>Selected suburbs</span><h3>Lessons at home</h3><p>At-home lessons are subject to teacher and travel availability. Fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit for the return journey from Wentworth Point.</p><a href="/contact">Request a travel quote</a></article>
                     </div>
                 </div>
-                <figure class="card card--glass">
-                    <img src="/img/students sitting at studio holding diaries old.JPG" alt="Students holding practice diaries at Fortepiano Academy" loading="lazy">
-                </figure>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="section__content container">
-            <header class="section__header stack gap-xs center">
-                <p class="article-meta">Proof</p>
-                <h2>Results parents can recognise</h2>
-                <p class="muted">Families usually notice better focus, more purposeful practice and stronger musical understanding before they notice harder pieces.</p>
-            </header>
-            <div class="grid grid--3 grid--gap-l">
-                <article class="card review-card"><h3>Exam progression</h3><p class="muted">Structured preparation supports students working toward graded AMEB progress.</p></article>
-                <article class="card review-card"><h3>Student stories</h3><p class="muted">Long-term progress is shown through confidence, consistency and performance readiness.</p></article>
-                <article class="card review-card"><h3>Parent trust</h3><p class="muted">Visible reviews and recital moments give families a clearer picture of the academy.</p></article>
+    <section class="fa-section fa-testimonials" aria-labelledby="testimonials-title">
+        <div class="editorial-inner">
+            <p class="fa-section-label">06 / Family Perspectives</p>
+            <h2 id="testimonials-title">What families notice after starting.</h2>
+            <div class="fa-testimonial-grid">
+                <blockquote><p>&ldquo;Patient, professional, and well-structured lessons. Both kids made impressive progress in two months.&rdquo;</p><cite>Ying Wang &middot; Google review</cite></blockquote>
+                <blockquote><p>&ldquo;We enrolled our 5-year-old two months ago and already see big improvement. Liana uses illustration and explains until he understands.&rdquo;</p><cite>Evasari Hermawan &middot; Google review</cite></blockquote>
             </div>
-            <div class="actions center pad-top-m">
-                <a class="btn btn--primary" href="/results">View Results</a>
-                <a class="btn btn--ghost" href="/teacher">Meet Liana</a>
-            </div>
+            <a class="fa-text-link" href="<?= e(GOOGLE_REVIEW_URL) ?>" target="_blank" rel="noopener">Read Google reviews <span aria-hidden="true">&nearr;</span></a>
         </div>
     </section>
 
-    <section class="section">
-        <div class="section__content container">
-            <div class="grid grid--2 grid--gap-xl align-center">
-                <figure class="card card--glass">
-                    <img src="/img/Aveena%20February%202022.jpg" alt="Liana guiding a young student at the piano" loading="lazy">
-                </figure>
-                <div class="stack gap-s">
-                    <p class="article-meta">Principal teacher</p>
-                    <h2>Structured teaching with warmth and high standards</h2>
-                    <p>Liana brings Russian music-school training, AMEB experience and years of Fortepiano Academy teaching into a serious, safe and steady learning environment.</p>
-                    <p class="muted">Her own piano training began early, and that childhood foundation shapes the patient, structured way she now guides young learners.</p>
-                    <a class="btn btn--ghost" href="/teacher">Meet Liana</a>
-                </div>
+    <section class="fa-section fa-admissions" id="admissions" aria-labelledby="admissions-title">
+        <div class="editorial-inner fa-admissions__grid">
+            <p class="fa-section-label">07 / Admissions</p>
+            <div class="fa-admissions__copy">
+                <p class="fa-eyebrow">Begin with clarity</p>
+                <h2 id="admissions-title">Initial Piano<br><em>Assessment.</em></h2>
+                <p>The assessment is a 30-minute combined trial lesson and placement session. It identifies current level, readiness, learning needs, goals and the right starting program.</p>
+            </div>
+            <div class="fa-admissions-card fa-iridescent-frame">
+                <div class="fa-admissions-price"><span>Initial Assessment</span><strong><?= e(money($pricing['assessment'])) ?></strong><small>30 minutes</small></div>
+                <ul>
+                    <li>Wentworth Point studio or at home</li>
+                    <li>Program and lesson-length recommendation</li>
+                    <li>Next-step outline within 24 hours</li>
+                    <li><?= e(money($pricing['setup'])) ?> Program Setup only if continuing</li>
+                    <li>At-home travel from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit</li>
+                </ul>
+                <a class="fa-button fa-button--light" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'home', 'cta_position' => 'admissions', 'cta_label' => 'Request an Assessment']) ?>>Request an Assessment <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <div class="fa-faq-list">
+                <?php foreach ($homeFaqs as $faq): ?>
+                    <details>
+                        <summary><?= e($faq['q']) ?><span aria-hidden="true">+</span></summary>
+                        <p><?= e($faq['a']) ?></p>
+                    </details>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
-
-    <section class="section">
-        <div class="section__content container">
-            <div class="grid grid--2 grid--gap-xl align-center">
-                <div class="stack gap-s">
-                    <p class="article-meta">Early piano foundation</p>
-                    <h2>The teacher as a young pianist</h2>
-                    <p>Before founding Fortepiano Academy, Liana grew up inside a serious music-learning environment, with piano performance, discipline and musical culture forming part of everyday training.</p>
-                </div>
-                <figure class="teacher-memory card card--glass">
-                    <img src="/img/Liana little at one of her performances.jpeg" alt="Liana as a young pianist during an early performance" loading="lazy">
-                    <figcaption>Little Liana during her own early piano journey.</figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section__content container">
-            <header class="section__header stack gap-xs center">
-                <p class="article-meta">FAQ</p>
-                <h2>Common questions</h2>
-            </header>
-            <?php render_faqs($faqs); ?>
-        </div>
-    </section>
-
-    <?php render_cta_band('Start with a clear assessment', 'Book an Initial Assessment and receive a recommended pathway for your child.', 'Book Initial Assessment', '/initial-assessment#book', 'View Programs', '/programs', 'home'); ?>
 </main>
 <?php render_footer(); ?>

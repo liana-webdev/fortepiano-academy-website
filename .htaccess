@@ -3,7 +3,7 @@ RewriteEngine On
 
 # Legacy URL redirects
 RewriteRule ^index\.html$ / [R=301,L]
-RewriteRule ^teacher\.html$ /teacher [R=301,L]
+RewriteRule ^teacher\.html$ /faculty [R=301,L]
 RewriteRule ^blog\.html$ /blog [R=301,L]
 
 # Allow existing files and directories through untouched
@@ -15,7 +15,8 @@ RewriteRule ^ - [L]
 RewriteRule ^initial-assessment/?$ initial-assessment.php [L,QSA]
 RewriteRule ^programs/?$ programs.php [L,QSA]
 RewriteRule ^pricing/?$ pricing.php [L,QSA]
-RewriteRule ^teacher/?$ teacher.php [L,QSA]
+RewriteRule ^teacher/?$ /faculty [R=301,L]
+RewriteRule ^faculty/?$ faculty.php [L,QSA]
 RewriteRule ^results/?$ results.php [L,QSA]
 RewriteRule ^contact/?$ contact.php [L,QSA]
 RewriteRule ^blog/?$ blog.php [L,QSA]

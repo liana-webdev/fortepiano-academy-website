@@ -52,6 +52,148 @@
   }
 })();
 
+// Scroll-responsive five-line academy signature
+(() => {
+  const canvas = document.querySelector("[data-fa-living-staff]");
+  if (!canvas || !canvas.getContext) return;
+
+  const context = canvas.getContext("2d", { alpha: true });
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const constrained =
+    window.innerWidth < 760 ||
+    (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ||
+    (navigator.deviceMemory && navigator.deviceMemory <= 4);
+
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let lastScroll = window.scrollY;
+  let velocity = 0;
+  let velocityTarget = 0;
+  let frame = null;
+  let sampleFrame = 0;
+  let useLightLines = false;
+
+  const updatePalette = () => {
+    const sample = document.elementFromPoint(Math.max(1, width * .76), Math.max(1, height * .5));
+    useLightLines =
+      document.body.classList.contains("theme-dark") ||
+      Boolean(sample && sample.closest(".fa-programs, .fa-faculty, .site-footer"));
+  };
+
+  const resize = () => {
+    dpr = Math.min(window.devicePixelRatio || 1, constrained ? 1.15 : 1.5);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    updatePalette();
+    if (reducedMotion.matches) draw(0, false);
+  };
+
+  const onScroll = () => {
+    const nextScroll = window.scrollY;
+    velocityTarget = Math.max(-34, Math.min(34, nextScroll - lastScroll));
+    lastScroll = nextScroll;
+  };
+
+  const draw = (time, continueLoop = true) => {
+    context.clearRect(0, 0, width, height);
+    velocity += (velocityTarget - velocity) * .08;
+    velocityTarget *= .84;
+
+    sampleFrame += 1;
+    if (sampleFrame % 20 === 0) updatePalette();
+
+    const mobile = width < 760;
+    const anchorX = mobile ? width * .84 : width * .74;
+    const gap = mobile ? 7 : 10;
+    const energy = reducedMotion.matches ? 0 : Math.min(1, Math.abs(velocity) / 25);
+    const baseAmplitude = mobile ? 15 : constrained ? 30 : 42;
+    const energyAmplitude = mobile ? 18 : constrained ? 34 : 54;
+    const amplitude = baseAmplitude + energy * energyAmplitude;
+    const phase = reducedMotion.matches ? 0 : time * .00014 + window.scrollY * .0012;
+    const verticalStep = constrained ? 15 : 8;
+
+    for (let line = 0; line < 5; line += 1) {
+      context.beginPath();
+      for (let y = -48; y <= height + 48; y += verticalStep) {
+        const clampedY = Math.max(0, Math.min(height, y));
+        const taper = Math.sin((clampedY / Math.max(height, 1)) * Math.PI);
+        const waveA = Math.sin(y * .006 + phase + line * .13);
+        const waveB = Math.sin(y * .0025 - phase * .72 + line * .32);
+        const x =
+          anchorX +
+          (line - 2) * gap +
+          waveA * amplitude * taper +
+          waveB * (mobile ? 7 : 12) +
+          velocity * .72;
+        if (y === -48) context.moveTo(x, y);
+        else context.lineTo(x, y);
+      }
+
+      if (line === 2) {
+        context.strokeStyle = useLightLines ? "rgba(255, 84, 114, .26)" : "rgba(236, 26, 72, .24)";
+        context.lineWidth = 1.1;
+      } else {
+        context.strokeStyle = useLightLines ? "rgba(244, 239, 232, .12)" : "rgba(16, 16, 20, .1)";
+        context.lineWidth = .82;
+      }
+      context.stroke();
+    }
+
+    if (continueLoop && !reducedMotion.matches && !document.hidden) {
+      frame = window.requestAnimationFrame((nextTime) => draw(nextTime, true));
+    }
+  };
+
+  const start = () => {
+    if (frame !== null) window.cancelAnimationFrame(frame);
+    frame = null;
+    if (reducedMotion.matches) {
+      velocity = 0;
+      velocityTarget = 0;
+      draw(0, false);
+    } else if (!document.hidden) {
+      frame = window.requestAnimationFrame((time) => draw(time, true));
+    }
+  };
+
+  const onVisibilityChange = () => {
+    if (document.hidden && frame !== null) {
+      window.cancelAnimationFrame(frame);
+      frame = null;
+      return;
+    }
+    start();
+  };
+
+  const classObserver = new MutationObserver(() => {
+    updatePalette();
+    if (reducedMotion.matches) draw(0, false);
+  });
+
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
+  document.addEventListener("visibilitychange", onVisibilityChange);
+  reducedMotion.addEventListener("change", start);
+  classObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  start();
+
+  window.addEventListener("pagehide", () => {
+    if (frame !== null) window.cancelAnimationFrame(frame);
+    window.removeEventListener("resize", resize);
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("visibilitychange", onVisibilityChange);
+    reducedMotion.removeEventListener("change", start);
+    classObserver.disconnect();
+  }, { once: true });
+})();
+
 // Mobile nav toggle
 (() => {
   const btn = document.querySelector(".nav__toggle");
@@ -251,11 +393,16 @@
         "Home": "Trang chủ",
         "About": "Giới thiệu",
         "Teacher": "Giáo viên",
+        "Faculty": "Đội ngũ giáo viên",
+        "Academy": "Học viện",
         "Lessons": "Bài học",
         "Results": "Kết quả",
         "Initial Assessment": "Đánh giá ban đầu",
         "Programs": "Chương trình",
         "Blog": "Blog",
+        "Journal": "Tạp chí",
+        "Admissions": "Tuyển sinh",
+        "Pricing": "Học phí",
         "Contact": "Liên hệ",
         "FAQ": "Câu hỏi thường gặp",
         "Privacy Policy": "Chính sách quyền riêng tư",
@@ -442,11 +589,16 @@
                 "Home": "首页",
                 "About": "关于",
                 "Teacher": "教师",
+                "Faculty": "教师团队",
+                "Academy": "学院",
                 "Lessons": "课程",
                 "Results": "成果",
                 "Initial Assessment": "初次评估",
                 "Programs": "课程方案",
                 "Blog": "博客",
+                "Journal": "学刊",
+                "Admissions": "入学",
+                "Pricing": "学费",
                 "Contact": "联系",
                 "FAQ": "常见问题",
                 "Privacy Policy": "隐私政策",

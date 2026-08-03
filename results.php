@@ -6,6 +6,11 @@ $page = [
     'title' => 'Piano Student Results | Fortepiano Academy',
     'description' => 'Full student stories, recital moments, parent reviews and progress examples from Fortepiano Academy in Wentworth Point.',
     'image' => '/img/recital group photo with certificates.JPG',
+    'preload_image' => [
+        'base' => '/images/responsive/recital-group',
+        'widths' => [480, 768, 1200],
+        'sizes' => '(max-width: 760px) calc(100vw - 36px), 42vw',
+    ],
     'schema' => [
         business_schema(),
         breadcrumb_schema([
@@ -46,7 +51,17 @@ render_header('/results');
                     </div>
                 </div>
                 <figure class="blog-hero__media card card--glass">
-                    <img src="/img/recital group photo with certificates.JPG" alt="Fortepiano Academy recital group with certificates" loading="eager">
+                    <?php render_responsive_picture([
+                        'base' => '/images/responsive/recital-group',
+                        'widths' => [480, 768, 1200],
+                        'fallback_width' => 1200,
+                        'width' => 1280,
+                        'height' => 853,
+                        'alt' => 'Fortepiano Academy recital group with certificates',
+                        'sizes' => '(max-width: 760px) calc(100vw - 36px), 42vw',
+                        'loading' => 'eager',
+                        'fetchpriority' => 'high',
+                    ]); ?>
                 </figure>
             </div>
         </div>
@@ -85,20 +100,20 @@ render_header('/results');
                     </summary>
                     <div class="story-card__body">
                         <div class="story-card__group">
-                            <img class="story-card__image" src="/img/Angus.png" alt="Angus" loading="lazy">
+                            <?php render_responsive_picture(['base' => '/images/responsive/student-angus', 'widths' => [480, 768, 1200], 'fallback_width' => 768, 'width' => 1665, 'height' => 1216, 'alt' => 'Angus', 'sizes' => '(max-width: 760px) calc(100vw - 36px), 45vw', 'class' => 'story-card__image']); ?>
                             <h3>Angus</h3>
                             <p>Angus, the eldest, represents what steady dedication looks like over time. From his early lessons to completing Grade 8, his journey is defined by consistency: not rushed, not forced, but carefully built through years of disciplined work.</p>
                             <p>Throughout his time at the academy, Angus developed a strong technical foundation, from scales to advanced repertoire, refining his playing with each lesson. His progress was shaped not only by repetition, but by understanding: learning to break down challenges, work through them patiently, and truly grasp what he was playing.</p>
                             <p>With a sharp ear and attention to detail, mistakes were never left to settle into habit. They were noticed, addressed, and refined immediately, allowing his playing to remain clean, controlled, and intentional. Over time, this developed into a deeper awareness of expression, emotion, and meaning behind the music.</p>
                         </div>
                         <div class="story-card__group">
-                            <img class="story-card__image" src="/img/Jonas.png" alt="Jonas" loading="lazy">
+                            <?php render_responsive_picture(['base' => '/images/responsive/student-jonas', 'widths' => [480, 768, 1200], 'fallback_width' => 768, 'width' => 1748, 'height' => 1121, 'alt' => 'Jonas', 'sizes' => '(max-width: 760px) calc(100vw - 36px), 45vw', 'class' => 'story-card__image']); ?>
                             <h3>Jonas</h3>
                             <p>Jonas began from Grade 2 and steadily revealed a strong sense of purpose. With each step forward, he patiently gained clarity and confidence through regular practice, leading to excellent performances in his Grade 4 and Grade 5 exams.</p>
                             <p>His journey reflects a powerful transition from humble beginnings into a pianist who performs with assurance and understanding.</p>
                         </div>
                         <div class="story-card__group">
-                            <img class="story-card__image" src="/img/Jarick.png" alt="Jarick" loading="lazy">
+                            <?php render_responsive_picture(['base' => '/images/responsive/student-jarick', 'widths' => [480, 768], 'fallback_width' => 768, 'width' => 1016, 'height' => 1183, 'alt' => 'Jarick', 'sizes' => '(max-width: 760px) calc(100vw - 36px), 45vw', 'class' => 'story-card__image']); ?>
                             <h3>Jarick</h3>
                             <p>Jarick, the youngest, entered with a spark that could not be ignored. Skipping the typical beginner stages, he moved swiftly through the early levels, acing both his Preliminary and Grade 1 exams.</p>
                             <p>His progress carries a sense of natural curiosity and fearlessness, as if he stepped into music already eager to explore it fully.</p>
@@ -117,7 +132,7 @@ render_header('/results');
                     </summary>
                     <div class="story-card__body">
                         <div class="story-card__image-row">
-                            <img class="story-card__image" src="/img/Jennifer and Jacob.png" alt="Jennifer and Jacob" loading="lazy">
+                            <?php render_responsive_picture(['base' => '/images/responsive/student-jennifer-jacob', 'widths' => [480, 768, 1200], 'fallback_width' => 768, 'width' => 1978, 'height' => 1484, 'alt' => 'Jennifer and Jacob', 'sizes' => '(max-width: 760px) calc(100vw - 36px), 45vw', 'class' => 'story-card__image']); ?>
                         </div>
                         <p>Jennifer and Jacob came into lessons at a beginner level, but from the very beginning there was something different: a serious focus that appeared almost immediately.</p>
                         <p>Active lessons began in mid-2024, steadily transitioning them from their previous program into a more structured approach. Once that foundation was set, the direction became clear: mid-2025 exams.</p>
@@ -135,7 +150,7 @@ render_header('/results');
                         <span class="story-card__tag">A fast-growing student with stage confidence and musical curiosity.</span>
                     </summary>
                     <div class="story-card__body">
-                        <img class="story-card__image" src="/img/Jennie.png" alt="Jennie" loading="lazy">
+                        <?php render_responsive_picture(['base' => '/images/responsive/student-jennie', 'widths' => [480, 768, 1200], 'fallback_width' => 768, 'width' => 1373, 'height' => 1832, 'alt' => 'Jennie', 'sizes' => '(max-width: 760px) calc(100vw - 36px), 45vw', 'class' => 'story-card__image']); ?>
                         <p class="story-card__quote">"We have seen her not only achieve new heights but also get inspired by this experience." - Jennie's father</p>
                         <p>Jennie joined Fortepiano Academy in mid-2025, transitioning from previous lessons with a clear need to rebuild and refine her fundamentals.</p>
                         <p>In a short time, she developed stronger technique and a much clearer understanding of piano, transforming the way she approaches her playing.</p>
@@ -150,7 +165,7 @@ render_header('/results');
                         <span class="story-card__tag">A young learner building strong fundamentals with courage and structure.</span>
                     </summary>
                     <div class="story-card__body">
-                        <img class="story-card__image" src="/img/Amin.png" alt="Amin" loading="lazy">
+                        <?php render_responsive_picture(['base' => '/images/responsive/student-amin', 'widths' => [480, 768, 1200], 'fallback_width' => 768, 'width' => 1349, 'height' => 1992, 'alt' => 'Amin', 'sizes' => '(max-width: 760px) calc(100vw - 36px), 45vw', 'class' => 'story-card__image']); ?>
                         <p>At just 7 years old, with no prior experience, Amin joined the academy in mid-2025. Her beginning was humble, but she approached every challenge with bravery and a genuine desire to improve, moving through her early struggles with patience and determination.</p>
                         <p>One of the key forces behind her progress has been connection. Sometimes what a student needs most is not just structure or rewards, but a teacher who is understanding, engaging, and present.</p>
                         <p class="story-card__quote">"Very professional, good with children and makes lessons enjoyable. My daughter looks forward to every class." - Nara</p>
@@ -193,10 +208,10 @@ render_header('/results');
             </header>
             <div class="ribbon">
                 <div class="ribbon__track">
-                    <figure class="ribbon__item card card--flat"><img src="/img/recital teacher and jennie.JPG" alt="Recital with student Jennie" loading="lazy"></figure>
-                    <figure class="ribbon__item card card--flat"><img src="/img/recital teacher and amin.JPG" alt="Recital with student Amin" loading="lazy"></figure>
-                    <figure class="ribbon__item card card--flat"><img src="/img/kids holding cert.JPG" alt="Students holding certificates" loading="lazy"></figure>
-                    <figure class="ribbon__item card card--flat"><img src="/img/recital group photo with parents.JPG" alt="Fortepiano Academy recital group with parents" loading="lazy"></figure>
+                    <figure class="ribbon__item card card--flat"><?php render_responsive_picture(['base' => '/images/responsive/recital-jennie', 'widths' => [480, 768], 'fallback_width' => 768, 'width' => 853, 'height' => 1280, 'alt' => 'Recital with student Jennie', 'sizes' => '(max-width: 760px) 82vw, 24vw']); ?></figure>
+                    <figure class="ribbon__item card card--flat"><?php render_responsive_picture(['base' => '/images/responsive/recital-amin', 'widths' => [480, 768], 'fallback_width' => 768, 'width' => 853, 'height' => 1280, 'alt' => 'Recital with student Amin', 'sizes' => '(max-width: 760px) 82vw, 24vw']); ?></figure>
+                    <figure class="ribbon__item card card--flat"><?php render_responsive_picture(['base' => '/images/responsive/recital-certificates', 'widths' => [480, 768, 1200], 'fallback_width' => 768, 'width' => 3855, 'height' => 3024, 'alt' => 'Students holding certificates', 'sizes' => '(max-width: 760px) 82vw, 24vw']); ?></figure>
+                    <figure class="ribbon__item card card--flat"><?php render_responsive_picture(['base' => '/images/responsive/recital-parents', 'widths' => [480, 768, 1200], 'fallback_width' => 768, 'width' => 1280, 'height' => 853, 'alt' => 'Fortepiano Academy recital group with parents', 'sizes' => '(max-width: 760px) 82vw, 24vw']); ?></figure>
                 </div>
             </div>
         </div>
