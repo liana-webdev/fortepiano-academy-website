@@ -20,18 +20,7 @@ $page = [
     ],
 ];
 
-$reviews = [
-    ['name' => 'Evasari Hermawan', 'text' => 'We enrolled our 5-year-old two months ago and already see big improvement. Liana uses illustration and explains until he understands. Really recommended.'],
-    ['name' => 'Ying Wang', 'text' => 'Patient, professional, and well-structured lessons. Both kids made impressive progress in two months.'],
-    ['name' => 'Peter Lam', 'text' => 'Our two children showed accelerated growth in reading, posture, and touch after switching to Fortepiano Academy.'],
-    ['name' => 'Jun Yang', 'text' => 'She taught me songs I actually want to play and the right techniques to play like a professional.'],
-    ['name' => 'Danielle Eloss', 'text' => 'Professionalism, knowledge and teaching technique. Highly recommend to anyone seeking piano lessons.'],
-    ['name' => 'Angus Ta', 'text' => 'Patient, thorough, and flexible. In two years my playing improved across scales and pieces.'],
-    ['name' => 'Elizabeth Tuialii', 'text' => 'Wonderful teacher. Very patient and encouraging with my daughter.'],
-    ['name' => 'Tanya Do', 'text' => 'Both daughters have learned with Miss Liana for 3+ years. Significant improvement and they love lessons.'],
-    ['name' => 'Farzana Sharmeen', 'text' => 'Friendly and skilled tutor with an amazing ability to motivate young learners.'],
-    ['name' => 'Milton Mukando', 'text' => 'Detailed, simplified program; very patient and flexible. Kids were very happy with each session.'],
-];
+$reviews = academy_reviews();
 
 render_head($page);
 render_header('/results');
@@ -193,7 +182,7 @@ render_header('/results');
                             <div class="stars" aria-label="5 out of 5 stars"><span>5 stars</span></div>
                         </header>
                         <p class="review-card__text"><?= e($review['text']) ?></p>
-                        <a class="btn btn--ghost btn--google" href="<?= e(GOOGLE_REVIEW_URL) ?>" target="_blank" rel="noopener">Read Google Reviews</a>
+                        <a class="btn btn--ghost btn--google" href="<?= e($review['url']) ?>" target="_blank" rel="noopener">Read this Google review</a>
                     </article>
                 <?php endforeach; ?>
             </div>

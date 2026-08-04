@@ -11,6 +11,7 @@ const SITE_ABN = '98117712543';
 const HOME_LESSON_TRAVEL_FROM = 'Wentworth Point';
 const HOME_LESSON_TRAVEL_FEE = 15;
 const GOOGLE_REVIEW_URL = 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN0LXR1TlRBEAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgICt-tuNTA%7CCgwIqIiUtwYQ4MbrywE%7C?hl=en-AU';
+const GOOGLE_REVIEWS_PAGE_URL = 'https://www.google.com/maps/place/Fortepiano+Academy';
 
 $pricing = [
     'assessment' => 40,
@@ -35,6 +36,62 @@ $navItems = [
     ['label' => 'Journal', 'href' => '/blog'],
     ['label' => 'Admissions', 'href' => '/initial-assessment'],
 ];
+
+function academy_reviews(): array
+{
+    return [
+        [
+            'name' => 'Evasari Hermawan',
+            'text' => 'We enrolled our 5-year-old two months ago and already see big improvement. Liana uses illustration and explains until he understands. Really recommended.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJMzVYalRBEAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgMCI35XjTA%7CCgwIjLLGvwYQkPGE1gI%7C?hl=ru&g_ep=Eg1tbF8yMDI1MTAwOF8wKgBIAlAC',
+        ],
+        [
+            'name' => 'Ying Wang',
+            'text' => 'Patient, professional, and well-structured lessons. Both kids made impressive progress in two months.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURIdnREcU13EAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgIDHvtDqMw%7CCgwI18WgtwYQkIy67gE%7C?hl=ru&g_ep=Eg1tbF8yMDI1MTAwOF8wKgBIAlAC',
+        ],
+        [
+            'name' => 'Peter Lam',
+            'text' => 'Our two children showed accelerated growth in reading, posture, and touch after switching to Fortepiano Academy.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN0LXR1TlRBEAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgICt-tuNTA%7CCgwIqIiUtwYQ4MbrywE%7C?hl=ru&g_ep=Eg1tbF8yMDI1MTAwOF8wKgBIAlAC',
+        ],
+        [
+            'name' => 'Jun Yang',
+            'text' => 'She taught me songs I actually want to play and the right techniques to play like a professional.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VMaXltSURaOUt5cmt3RRAB!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKELiymIDZ9KyrkwE%7CCgwI-uDzwQYQ2MaVigM%7C?hl=en-AU&g_st=ic',
+        ],
+        [
+            'name' => 'Danielle Eloss',
+            'text' => 'Professionalism, knowledge and teaching technique. Highly recommend to anyone seeking piano lessons.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN0LXR1TlRBEAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgICt-tuNTA%7CCgwIqIiUtwYQ4MbrywE%7C?hl=ru&g_ep=Eg1tbF8yMDI1MTAwOF8wKgBIAlAC',
+        ],
+        [
+            'name' => 'Angus Ta',
+            'text' => 'Patient, thorough, and flexible. In two years my playing improved across scales and pieces.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN0LXR1TlRBEAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgICt-tuNTA%7CCgwIqIiUtwYQ4MbrywE%7C?hl=ru&g_ep=Eg1tbF8yMDI1MTAwOF8wKgBIAlAC',
+        ],
+        [
+            'name' => 'Elizabeth Tuialii',
+            'text' => 'Wonderful teacher. Very patient and encouraging with my daughter.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNkNHUzWjV3RRAB!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgICd4u3Z5wE%7CCgwIqIiUtwYQwPzJvwE%7C?hl=en-AU&g_st=ic',
+        ],
+        [
+            'name' => 'Tanya Do',
+            'text' => 'Both daughters have learned with Miss Liana for 3+ years. Significant improvement and they love lessons.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNkbWRDaWNnEAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgICdmdCicg%7CCgwIqIiUtwYQgL-HxwE%7C?hl=en-AU&g_st=ic',
+        ],
+        [
+            'name' => 'Farzana Sharmeen',
+            'text' => 'Friendly and skilled tutor with an amazing ability to motivate young learners.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURYMzlycHRRRRAB!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgIDX39rptQE%7CCgsIg46TuQYQgL-PcQ%7C?hl=en-AU&g_st=ic',
+        ],
+        [
+            'name' => 'Milton Mukando',
+            'text' => 'Detailed, simplified program; very patient and flexible. Kids were very happy with each session.',
+            'url' => 'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNkdkxUNFpBEAE!2m1!1s0x0:0x8eef43b6cdb2eea0!3m1!1s2@1:CIHM0ogKEICAgICdvLT4ZA%7CCgwIqIiUtwYQ4OSFwAE%7C?hl=en-AU&g_st=ic',
+        ],
+    ];
+}
 
 function e(string|int|float|null $value): string
 {

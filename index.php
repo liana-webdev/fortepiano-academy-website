@@ -30,6 +30,7 @@ $homeFaqs = [
     ['q' => 'Are AMEB exams compulsory?', 'a' => 'No. AMEB preparation is available where it suits the student\'s goals and readiness. Recitals, musicianship, technique and repertoire remain meaningful forms of progress without a fixed examination timeline.'],
     ['q' => 'Where are lessons taught?', 'a' => 'Lessons are available at the Wentworth Point studio and at students\' homes across selected surrounding suburbs, subject to teacher, schedule and travel availability. Travel fees start from $15 per visit.'],
 ];
+$reviews = academy_reviews();
 
 render_head($page);
 render_header('/');
@@ -47,7 +48,6 @@ render_header('/');
                     </a>
                     <a class="fa-button fa-button--secondary" href="#programs">Compare Programs</a>
                 </div>
-                <div class="fa-score-motif" aria-hidden="true"></div>
             </div>
             <figure class="fa-hero__media fa-iridescent-frame">
                 <?php render_responsive_picture([
@@ -72,7 +72,7 @@ render_header('/');
         <span>Progress reports</span>
         <span>Recital culture</span>
         <span>WWCC professional</span>
-        <a href="<?= e(GOOGLE_REVIEW_URL) ?>" target="_blank" rel="noopener">5.0 Google rating</a>
+        <a href="<?= e(GOOGLE_REVIEWS_PAGE_URL) ?>" target="_blank" rel="noopener">5.0 Google rating</a>
     </div>
 
     <section class="fa-section fa-academy" id="academy" aria-labelledby="academy-title">
@@ -253,10 +253,17 @@ render_header('/');
             <p class="fa-section-label">06 / Family Perspectives</p>
             <h2 id="testimonials-title">What families notice after starting.</h2>
             <div class="fa-testimonial-grid">
-                <blockquote><p>&ldquo;Patient, professional, and well-structured lessons. Both kids made impressive progress in two months.&rdquo;</p><cite>Ying Wang &middot; Google review</cite></blockquote>
-                <blockquote><p>&ldquo;We enrolled our 5-year-old two months ago and already see big improvement. Liana uses illustration and explains until he understands.&rdquo;</p><cite>Evasari Hermawan &middot; Google review</cite></blockquote>
+                <?php foreach ($reviews as $review): ?>
+                    <blockquote>
+                        <p>&ldquo;<?= e($review['text']) ?>&rdquo;</p>
+                        <footer class="fa-testimonial__meta">
+                            <cite><?= e($review['name']) ?> &middot; Google review</cite>
+                            <a href="<?= e($review['url']) ?>" target="_blank" rel="noopener">Read this review <span aria-hidden="true">&nearr;</span></a>
+                        </footer>
+                    </blockquote>
+                <?php endforeach; ?>
             </div>
-            <a class="fa-text-link" href="<?= e(GOOGLE_REVIEW_URL) ?>" target="_blank" rel="noopener">Read Google reviews <span aria-hidden="true">&nearr;</span></a>
+            <a class="fa-text-link" href="<?= e(GOOGLE_REVIEWS_PAGE_URL) ?>" target="_blank" rel="noopener">Read all Google reviews <span aria-hidden="true">&nearr;</span></a>
         </div>
     </section>
 
