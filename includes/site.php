@@ -28,6 +28,23 @@ $pricing = [
     ],
 ];
 
+$programs = [
+    'foundation' => [
+        'name' => 'Foundation',
+        'frequency' => 'One lesson per week',
+        'frequency_short' => '1 lesson per week',
+        'benefit' => 'Steady weekly structure with a clear term plan and practice diary, while the student completes more practice independently between lessons.',
+        'best_for' => 'Students who need a consistent weekly pathway and families able to support practice between lessons.',
+    ],
+    'development' => [
+        'name' => 'Development',
+        'frequency' => 'Two lessons per week',
+        'frequency_short' => '2 lessons per week',
+        'benefit' => 'Twice-weekly teacher contact, closer accountability and regular reporting, with stronger AMEB preparation support where appropriate.',
+        'best_for' => 'Students who benefit from more frequent guidance, faster feedback and closer teacher oversight.',
+    ],
+];
+
 $navItems = [
     ['label' => 'Academy', 'href' => '/#academy', 'active' => '/'],
     ['label' => 'Programs', 'href' => '/programs'],

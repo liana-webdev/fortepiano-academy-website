@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/layout.php';
 require_once __DIR__ . '/data/local-pages.php';
-global $localPages;
+global $localPages, $programs;
 
 $slug = $_GET['page'] ?? '';
 if (!isset($localPages[$slug])) {
@@ -86,7 +86,7 @@ render_header('');
     </section>
     <section class="section">
         <div class="section__content container grid grid--2 grid--gap-l">
-            <article class="card card--glass"><h2>Programs available</h2><p>Foundation supports steady weekly learning. Development is the stronger pathway for accountability, serious progress and exam readiness.</p><a class="btn btn--ghost" href="/programs">View Programs</a></article>
+            <article class="card card--glass"><h2>Programs available</h2><p><strong>Foundation:</strong> <?= e($programs['foundation']['frequency']) ?> for steady structure and more independent practice.</p><p><strong>Development:</strong> <?= e($programs['development']['frequency']) ?> for closer guidance, reporting and AMEB preparation support where appropriate.</p><a class="btn btn--ghost" href="/programs">View Programs</a></article>
             <article class="card card--glass"><h2>Initial Assessment</h2><p>The first step is a <?= e(money($pricing['assessment'])) ?> Initial Assessment to understand level, learning style, goals and recommended pathway.</p><a class="btn btn--primary" href="/initial-assessment#book">Book Initial Assessment</a></article>
         </div>
     </section>

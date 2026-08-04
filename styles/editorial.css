@@ -555,7 +555,7 @@ main,
 .fa-hero__media img {
   object-fit: cover;
   object-position: center 43%;
-  filter: saturate(.76) contrast(1.04);
+  filter: none;
 }
 
 .fa-hero__media figcaption {
@@ -734,7 +734,7 @@ main,
 
 .fa-program {
   position: relative;
-  min-height: 720px;
+  min-height: 0;
   padding: 28px clamp(24px, 3vw, 48px) 30px;
   display: flex;
   flex-direction: column;
@@ -777,12 +777,30 @@ main,
 }
 
 .fa-program__description {
-  min-height: 98px;
   max-width: 540px;
   margin: 22px 0 0;
   color: rgba(244, 239, 232, .7);
   font-size: .96rem;
   line-height: 1.55;
+}
+
+.fa-program__benefit {
+  max-width: 540px;
+  margin: 20px 0 0;
+  padding: 15px 0 15px 18px;
+  color: rgba(244, 239, 232, .82);
+  border-left: 2px solid var(--fa-red-bright);
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.fa-program__benefit strong {
+  margin-bottom: 4px;
+  display: block;
+  color: #f4efe8;
+  font-size: .68rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
 }
 
 .fa-program ul {
@@ -943,7 +961,7 @@ main,
 
 .fa-results-photo img {
   object-fit: cover;
-  filter: saturate(.78) contrast(1.03);
+  filter: none;
 }
 
 .fa-results-photo figcaption {
@@ -1136,7 +1154,7 @@ main,
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  filter: saturate(.74) contrast(1.02);
+  filter: none;
 }
 
 .fa-location-photo figcaption {
@@ -1316,10 +1334,24 @@ main,
 }
 
 .fa-admissions-card {
+  position: relative;
+  overflow: hidden;
   padding: 30px;
   align-self: start;
   color: #f4efe8;
   background: #101014;
+}
+
+.fa-admissions-card.fa-iridescent-frame::before {
+  inset: -24%;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 25, 72, .95), transparent 31%),
+    radial-gradient(circle at 82% 22%, rgba(111, 106, 255, .72), transparent 32%),
+    radial-gradient(circle at 70% 84%, rgba(82, 231, 205, .62), transparent 30%),
+    #101014;
+  filter: blur(54px) saturate(1.15);
+  opacity: .25;
+  pointer-events: none;
 }
 
 .fa-admissions-price {
@@ -1494,8 +1526,10 @@ main,
 
 .blog-hero__media img,
 .hero__media img {
+  display: block;
   width: 100%;
   height: auto;
+  max-height: min(620px, 70vh);
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
@@ -1572,6 +1606,176 @@ body.theme-dark .btn--primary:hover {
 .program-reco,
 .badge {
   border-radius: 0;
+}
+
+.card,
+.form,
+.grid > * {
+  min-width: 0;
+}
+
+.stack > p,
+.card > p,
+.section__header > p,
+.blog-hero .lead {
+  max-width: 68ch;
+}
+
+.stack > p {
+  margin-bottom: 0;
+}
+
+.section__content > .lead {
+  max-width: 72ch;
+}
+
+.section__content > .lead.center {
+  margin-inline: auto;
+}
+
+.program-frequency {
+  width: max-content;
+  max-width: 100%;
+  margin: 12px 0 18px;
+  padding: 7px 10px;
+  color: var(--fa-ink);
+  background: color-mix(in srgb, var(--fa-red) 10%, transparent);
+  border-left: 3px solid var(--fa-red);
+  font-size: .82rem;
+  font-weight: 750;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.program-benefit {
+  max-width: 58ch;
+  margin-top: 22px;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--fa-rule);
+  color: var(--fa-graphite);
+}
+
+.program-benefit strong {
+  color: var(--fa-ink);
+}
+
+.assessment-hero {
+  padding-block: clamp(54px, 6vw, 88px);
+}
+
+.assessment-hero__copy {
+  max-width: 820px;
+  gap: clamp(18px, 2vw, 28px);
+}
+
+.assessment-hero__copy > p:not(.article-meta) {
+  max-width: 64ch;
+}
+
+.assessment-hero__copy .btn {
+  width: max-content;
+}
+
+.assessment-placement-note {
+  padding: 14px 18px;
+  color: var(--fa-ink);
+  background: color-mix(in srgb, var(--fa-red) 8%, transparent);
+  border-left: 3px solid var(--fa-red);
+  font-weight: 650;
+}
+
+.assessment-enrolment__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+  gap: clamp(44px, 7vw, 96px);
+  align-items: start;
+}
+
+.assessment-enrolment__copy {
+  max-width: 560px;
+}
+
+.assessment-enrolment__copy > p {
+  max-width: 56ch;
+}
+
+.program-frequency-summary {
+  margin-top: 16px;
+  border-top: 1px solid var(--fa-rule);
+}
+
+.program-frequency-summary > div {
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: minmax(110px, .5fr) 1fr;
+  gap: 8px 20px;
+  border-bottom: 1px solid var(--fa-rule);
+}
+
+.program-frequency-summary strong {
+  font-family: var(--fa-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.program-frequency-summary span {
+  color: var(--fa-red);
+  font-weight: 750;
+}
+
+.program-frequency-summary p {
+  grid-column: 2;
+  max-width: 48ch;
+  margin: 0;
+  color: var(--fa-graphite);
+  font-size: .88rem;
+}
+
+.contact-program-summary {
+  margin: 18px 0 24px;
+  border-top: 1px solid var(--fa-rule);
+}
+
+.contact-program-summary p {
+  margin: 0;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid var(--fa-rule);
+}
+
+.contact-program-summary span {
+  color: var(--fa-red);
+  font-weight: 700;
+  text-align: right;
+}
+
+.faculty-proof-section {
+  padding-block: clamp(48px, 5vw, 76px);
+}
+
+.faculty-proof-grid {
+  max-width: 1120px;
+  grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(42px, 6vw, 82px);
+}
+
+.faculty-proof__media {
+  width: 100%;
+  max-width: 460px;
+  margin: 0;
+  justify-self: start;
+  padding: 0;
+  overflow: hidden;
+}
+
+.faculty-proof__media img {
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
 .form {
@@ -1776,8 +1980,18 @@ details.card summary {
   .fa-results-layout,
   .fa-faculty-layout,
   .fa-location-layout,
-  .fa-admissions__grid {
+  .fa-admissions__grid,
+  .assessment-enrolment__grid,
+  .faculty-proof-grid {
     grid-template-columns: 1fr;
+  }
+
+  .assessment-enrolment__copy {
+    max-width: 680px;
+  }
+
+  .faculty-proof__media {
+    max-width: 520px;
   }
 
   .fa-hero__media {
@@ -1976,7 +2190,7 @@ details.card summary {
   }
 
   .fa-program {
-    min-height: 700px;
+    min-height: 0;
     padding: 24px 18px 26px;
   }
 
@@ -1985,6 +2199,7 @@ details.card summary {
   }
 
   .fa-program ul {
+    min-height: 0;
     grid-template-columns: 1fr;
   }
 
@@ -2078,6 +2293,20 @@ details.card summary {
   .section h1,
   .blog-hero h1 {
     font-size: clamp(3rem, 14vw, 4rem);
+  }
+
+  .assessment-hero__copy .btn {
+    width: 100%;
+  }
+
+  .program-frequency-summary > div {
+    display: block;
+  }
+
+  .program-frequency-summary span,
+  .program-frequency-summary p {
+    margin-top: 6px;
+    display: block;
   }
 
   .section {

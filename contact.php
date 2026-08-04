@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/layout.php';
+global $programs;
 $page = [
     'path' => '/contact',
     'title' => 'Contact Fortepiano Academy | Studio and At-Home Piano Lessons',
@@ -38,6 +39,10 @@ render_header('/contact');
                 <div class="card card--soft">
                     <h2>Assessment prompt</h2>
                     <p>The Initial Assessment is the clearest starting point if you want a recommended program and lesson length.</p>
+                    <div class="contact-program-summary">
+                        <p><strong>Foundation</strong><span><?= e($programs['foundation']['frequency']) ?></span></p>
+                        <p><strong>Development</strong><span><?= e($programs['development']['frequency']) ?></span></p>
+                    </div>
                     <a class="btn btn--ghost" href="/initial-assessment#book">Book Initial Assessment</a>
                 </div>
             </aside>

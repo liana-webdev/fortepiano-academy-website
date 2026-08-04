@@ -1,15 +1,10 @@
 <?php
 require_once __DIR__ . '/includes/layout.php';
-global $pricing;
+global $pricing, $programs;
 $page = [
     'path' => '/initial-assessment',
     'title' => 'Initial Piano Assessment | Fortepiano Academy',
     'description' => 'Book an Initial Piano Assessment at the Wentworth Point studio or in your home to receive a recommended piano program pathway.',
-    'preload_image' => [
-        'base' => '/images/responsive/beginner-lesson',
-        'widths' => [480, 768, 1200, 1600],
-        'sizes' => '(max-width: 760px) calc(100vw - 36px), 42vw',
-    ],
     'schema' => [business_schema(), service_schema('Initial Piano Assessment', '/initial-assessment'), breadcrumb_schema([['label' => 'Home', 'href' => '/'], ['label' => 'Initial Assessment', 'href' => '/initial-assessment']])],
 ];
 $faqs = [
@@ -23,30 +18,16 @@ render_head($page);
 render_header('/initial-assessment');
 ?>
 <main>
-    <section class="section blog-hero">
+    <section class="section blog-hero assessment-hero">
         <div class="section__content container">
             <?php render_breadcrumb([['label' => 'Home', 'href' => '/'], ['label' => 'Initial Assessment', 'href' => '/initial-assessment']]); ?>
-            <div class="grid grid--2 grid--gap-xl align-center">
-                <div class="stack gap-m">
-                    <p class="article-meta">First step</p>
-                    <h1>Initial Piano Assessment</h1>
-                    <p class="lead"><?= e(money($pricing['assessment'])) ?> assessment lesson at the Wentworth Point studio or in your home for placement, readiness and pathway recommendation.</p>
-                    <p>The Initial Assessment is a combined trial lesson and assessment, not a casual try-and-see lesson. It helps determine current level, learning style, readiness, goals and the most suitable starting pathway.</p>
-                    <a class="btn btn--primary" href="#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'assessment', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
-                </div>
-                <figure class="blog-hero__media card card--glass">
-                    <?php render_responsive_picture([
-                        'base' => '/images/responsive/beginner-lesson',
-                        'widths' => [480, 768, 1200, 1600],
-                        'fallback_width' => 1200,
-                        'width' => 3024,
-                        'height' => 4032,
-                        'alt' => 'Beginner piano student in a structured lesson',
-                        'sizes' => '(max-width: 760px) calc(100vw - 36px), 42vw',
-                        'loading' => 'eager',
-                        'fetchpriority' => 'high',
-                    ]); ?>
-                </figure>
+            <div class="assessment-hero__copy stack gap-m">
+                <p class="article-meta">First step</p>
+                <h1>Initial Piano Assessment</h1>
+                <p class="lead"><?= e(money($pricing['assessment'])) ?> assessment lesson at the Wentworth Point studio or in your home for placement, readiness and pathway recommendation.</p>
+                <p>The Initial Assessment is a combined trial lesson and assessment, not a casual try-and-see lesson. It helps determine current level, learning style, readiness, goals and the most suitable starting pathway.</p>
+                <p class="assessment-placement-note">Placement is into Foundation (<?= e($programs['foundation']['frequency_short']) ?>) or Development (<?= e($programs['development']['frequency_short']) ?>).</p>
+                <a class="btn btn--primary" href="#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'assessment', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
             </div>
         </div>
     </section>
@@ -59,13 +40,17 @@ render_header('/initial-assessment');
     </section>
     <section class="section">
         <div class="section__content container">
-            <div class="grid grid--2 grid--gap-xl align-start">
-                <div class="stack gap-s">
+            <div class="assessment-enrolment__grid">
+                <div class="assessment-enrolment__copy stack gap-s">
                     <p class="article-meta">If continuing</p>
                     <h2>Program Setup and enrolment</h2>
                     <p>Program Setup is <?= e(money($pricing['setup'])) ?> only if you continue. It covers enrolment setup, terms, and preparation of an individual term plan.</p>
                     <p>A clear beginning makes everything easier: enquiry, Initial Assessment, recommendation, Program Setup, individual term plan, then lessons begin.</p>
                     <p>For an at-home assessment, provide your suburb and nearest cross street for a travel quote. Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> and apply to the assessment visit.</p>
+                    <div class="program-frequency-summary" aria-label="Program lesson frequency comparison">
+                        <div><strong>Foundation</strong><span><?= e($programs['foundation']['frequency']) ?></span><p><?= e($programs['foundation']['benefit']) ?></p></div>
+                        <div><strong>Development</strong><span><?= e($programs['development']['frequency']) ?></span><p><?= e($programs['development']['benefit']) ?></p></div>
+                    </div>
                 </div>
                 <?php render_contact_form('assessment', 'Book Initial Assessment'); ?>
             </div>
