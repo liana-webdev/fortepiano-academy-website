@@ -101,9 +101,9 @@ render_header('/faculty');
         </div>
     </section>
 
-    <section class="section">
-        <div class="section__content container grid grid--2 grid--gap-xl align-center">
-            <figure class="card card--glass"><img src="/images/ameb-piano-certificates.jpg" alt="Piano certificates held by Fortepiano Academy students" width="3855" height="3024" loading="lazy" decoding="async"></figure>
+    <section class="section faculty-proof-section">
+        <div class="section__content container grid grid--2 faculty-proof-grid align-center">
+            <figure class="card card--glass faculty-proof__media"><img src="/images/ameb-piano-certificates.jpg" alt="Piano certificates held by Fortepiano Academy students" width="3855" height="3024" loading="lazy" decoding="async"></figure>
             <div class="stack gap-s">
                 <p class="article-meta">Professional learning environment</p>
                 <h2>Structured, stable and child-safe</h2>

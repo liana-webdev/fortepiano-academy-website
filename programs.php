@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ . '/includes/layout.php';
+global $programs;
 $page = [
     'path' => '/programs',
     'title' => 'Piano Programs | Foundation and Development | Fortepiano Academy',
-    'description' => 'Compare Foundation and Development piano programs available at the Wentworth Point studio or in your home.',
+    'description' => 'Compare the once-weekly Foundation Program and twice-weekly Development Program at Fortepiano Academy.',
     'schema' => [business_schema(), service_schema('Fortepiano Academy Piano Programs', '/programs'), breadcrumb_schema([['label' => 'Home', 'href' => '/'], ['label' => 'Programs', 'href' => '/programs']])],
 ];
 render_head($page);
@@ -36,9 +37,11 @@ render_header('/programs');
         <div class="section__content container grid grid--2 grid--gap-l" data-analytics-view="program_compare_view" data-analytics-page-type="programs">
             <article class="card card--glass program-card">
                 <h2>Foundation Program</h2>
-                <p>A steady starting pathway for students who need regular weekly structure and families who can support consistent home practice.</p>
+                <p class="program-frequency"><?= e($programs['foundation']['frequency']) ?></p>
+                <p><?= e($programs['foundation']['best_for']) ?></p>
+                <p class="program-benefit"><strong>Main benefit:</strong> <?= e($programs['foundation']['benefit']) ?></p>
                 <ul class="tick-list">
-                    <li>One lesson per week</li>
+                    <li><?= e($programs['foundation']['frequency']) ?></li>
                     <li>Term-based learning plan</li>
                     <li>Weekly practice diary</li>
                     <li>Studio recital participation</li>
@@ -48,9 +51,11 @@ render_header('/programs');
             <article class="card card--glass program-card program-card--recommended">
                 <span class="program-reco">Recommended</span>
                 <h2>Development Program</h2>
-                <p>The default pathway for stronger progress, regular guidance, AMEB readiness and more teacher involvement.</p>
+                <p class="program-frequency"><?= e($programs['development']['frequency']) ?></p>
+                <p><?= e($programs['development']['best_for']) ?></p>
+                <p class="program-benefit"><strong>Main benefit:</strong> <?= e($programs['development']['benefit']) ?></p>
                 <ul class="tick-list">
-                    <li>Two lessons per week</li>
+                    <li><?= e($programs['development']['frequency']) ?></li>
                     <li>Everything in Foundation</li>
                     <li>Monthly progress reports</li>
                     <li>Structured AMEB preparation where appropriate</li>

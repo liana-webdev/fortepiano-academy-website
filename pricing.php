@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/layout.php';
-global $pricing;
+global $pricing, $programs;
 $page = [
     'path' => '/pricing',
     'title' => 'Piano Lesson Pricing | Fortepiano Academy',
@@ -45,18 +45,20 @@ render_header('/pricing');
         <div class="section__content container grid grid--2 grid--gap-l">
             <article class="card card--glass">
                 <h2>Foundation Program</h2>
+                <p class="program-frequency"><?= e($programs['foundation']['frequency']) ?></p>
                 <table class="pricing-table"><tbody>
                     <?php foreach ($pricing['foundation'] as $row): ?><tr><th><?= e($row['length']) ?></th><td><?= e(money($row['price'])) ?>/month</td></tr><?php endforeach; ?>
                 </tbody></table>
-                <p class="muted">Steady weekly pathway with regular practice structure.</p>
+                <p class="program-benefit"><strong>Main benefit:</strong> <?= e($programs['foundation']['benefit']) ?></p>
             </article>
             <article class="card card--glass program-card--recommended">
                 <span class="program-reco">Recommended</span>
                 <h2>Development Program</h2>
+                <p class="program-frequency"><?= e($programs['development']['frequency']) ?></p>
                 <table class="pricing-table"><tbody>
                     <?php foreach ($pricing['development'] as $row): ?><tr><th><?= e($row['length']) ?></th><td><?= e(money($row['price'])) ?>/month</td></tr><?php endforeach; ?>
                 </tbody></table>
-                <p class="muted">Stronger structure for supported progress, AMEB readiness and accountability.</p>
+                <p class="program-benefit"><strong>Main benefit:</strong> <?= e($programs['development']['benefit']) ?></p>
             </article>
         </div>
     </section>

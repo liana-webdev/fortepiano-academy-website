@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/layout.php';
-global $pricing;
+global $pricing, $programs;
 
 $page = [
     'path' => '/',
@@ -26,7 +26,7 @@ $page = [
 
 $homeFaqs = [
     ['q' => 'How do we begin?', 'a' => 'Begin with the $40 Initial Assessment. It is a real teaching session used to understand level, readiness, goals and the most suitable program and lesson length.'],
-    ['q' => 'What is the difference between Foundation and Development?', 'a' => 'Foundation provides one lesson each week and relies more heavily on independent home practice. Development provides two lessons each week, closer accountability, more reporting and stronger support for exam preparation.'],
+    ['q' => 'What is the difference between Foundation and Development?', 'a' => $programs['foundation']['frequency'] . ' in Foundation, with more independent practice between lessons. ' . $programs['development']['frequency'] . ' in Development, with closer accountability, regular reporting and stronger AMEB preparation support where appropriate.'],
     ['q' => 'Are AMEB exams compulsory?', 'a' => 'No. AMEB preparation is available where it suits the student\'s goals and readiness. Recitals, musicianship, technique and repertoire remain meaningful forms of progress without a fixed examination timeline.'],
     ['q' => 'Where are lessons taught?', 'a' => 'Lessons are available at the Wentworth Point studio and at students\' homes across selected surrounding suburbs, subject to teacher, schedule and travel availability. Travel fees start from $15 per visit.'],
 ];
@@ -109,9 +109,10 @@ render_header('/');
             </div>
             <div class="fa-program-grid" data-analytics-view="program_compare_view" data-analytics-page-type="home">
                 <article class="fa-program">
-                    <div class="fa-program__meta"><span>Program / I</span><span>One lesson per week</span></div>
+                    <div class="fa-program__meta"><span>Program / I</span><span><?= e($programs['foundation']['frequency']) ?></span></div>
                     <h3>Foundation</h3>
-                    <p class="fa-program__description">A steady pathway for students who need regular weekly structure and families who can support consistent home practice.</p>
+                    <p class="fa-program__description"><?= e($programs['foundation']['best_for']) ?></p>
+                    <p class="fa-program__benefit"><strong>Main benefit</strong><?= e($programs['foundation']['benefit']) ?></p>
                     <ul>
                         <li>Individual term plan</li>
                         <li>Weekly practice diary</li>
@@ -127,9 +128,10 @@ render_header('/');
                 </article>
                 <article class="fa-program fa-program--featured">
                     <span class="fa-program__recommended">Recommended</span>
-                    <div class="fa-program__meta"><span>Program / II</span><span>Two lessons per week</span></div>
+                    <div class="fa-program__meta"><span>Program / II</span><span><?= e($programs['development']['frequency']) ?></span></div>
                     <h3>Development</h3>
-                    <p class="fa-program__description">The core pathway for stronger progress, regular guidance, accountability and AMEB readiness where appropriate.</p>
+                    <p class="fa-program__description"><?= e($programs['development']['best_for']) ?></p>
+                    <p class="fa-program__benefit"><strong>Main benefit</strong><?= e($programs['development']['benefit']) ?></p>
                     <ul>
                         <li>Everything in Foundation</li>
                         <li>Monthly progress reports</li>
