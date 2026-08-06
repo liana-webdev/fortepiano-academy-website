@@ -10,7 +10,7 @@ $errors = is_array($flash['errors'] ?? null) ? $flash['errors'] : [];
 $values = is_array($flash['values'] ?? null) ? $flash['values'] : [];
 $privacyUrl = (string) ($config['site']['privacy_policy_url'] ?? '/privacy-policy.html');
 $canonicalUrl = (string) ($config['site']['canonical_url'] ?? 'https://fortepianoacademy.au/enrol');
-$ogImageUrl = (string) ($config['site']['og_image_url'] ?? 'https://fortepianoacademy.au/enrol/assets/img/og-image-placeholder.jpg');
+$ogImageUrl = (string) ($config['site']['og_image_url'] ?? 'https://fortepianoacademy.au/enrol/assets/img/og-image.jpg');
 
 function field_value(array $values, string $key): string
 {
@@ -35,7 +35,7 @@ function field_error(array $errors, string $key): string
   <meta property="og:description" content="One-to-one piano education with clear direction, strong foundations and individual term plans.">
   <meta property="og:url" content="<?= e($canonicalUrl) ?>">
   <meta property="og:image" content="<?= e($ogImageUrl) ?>">
-  <meta property="og:image:alt" content="Fortepiano Academy piano lesson — replaceable campaign image">
+  <meta property="og:image:alt" content="Fortepiano Academy Spring 2026 Piano Enrolments">
   <meta name="theme-color" content="#F7F3EE">
   <link rel="preload" href="assets/fonts/editorial-serif.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-lesson.webp" as="image" type="image/webp" fetchpriority="high">

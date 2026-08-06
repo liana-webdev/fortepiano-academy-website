@@ -30,7 +30,7 @@ return [
     'site' => [
         'privacy_policy_url' => '/privacy-policy.html',
         'canonical_url' => 'https://fortepianoacademy.au/enrol',
-        'og_image_url' => 'https://fortepianoacademy.au/enrol/assets/img/og-image-placeholder.jpg',
+        'og_image_url' => 'https://fortepianoacademy.au/enrol/assets/img/og-image.jpg',
     ],
 
     // Local-only dry-run switch. Never enable this on public hosting.
