@@ -27,6 +27,7 @@ if (!$confirmed) {
   <title><?= $confirmed ? 'Enquiry received' : 'Confirmation unavailable' ?> | Fortepiano Academy</title>
   <meta name="description" content="Fortepiano Academy Initial Assessment enquiry confirmation.">
   <meta name="theme-color" content="#0E0D11">
+  <link rel="icon" href="assets/img/logo-colour.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/editorial-serif.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
   <?php enrol_tracking_head($config); ?>
@@ -35,8 +36,8 @@ if (!$confirmed) {
 <?php enrol_tracking_body($config); ?>
 <main class="confirmation-main">
   <div class="confirmation-light" aria-hidden="true"></div>
-  <a class="wordmark wordmark-confirmation" href="index.php">
-    <span class="wordmark-mark" aria-hidden="true">F</span><span>Fortepiano<br>Academy</span>
+  <a class="brand-logo-link brand-logo-link-confirmation" href="index.php" aria-label="Fortepiano Academy enrolments">
+    <img class="brand-logo brand-logo-confirmation" src="assets/img/logo-white.svg" width="200" height="178" alt="Fortepiano Academy">
   </a>
   <section class="confirmation-card">
     <?php if ($confirmed): ?>

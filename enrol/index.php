@@ -37,6 +37,7 @@ function field_error(array $errors, string $key): string
   <meta property="og:image" content="<?= e($ogImageUrl) ?>">
   <meta property="og:image:alt" content="Fortepiano Academy Spring 2026 Piano Enrolments">
   <meta name="theme-color" content="#F7F3EE">
+  <link rel="icon" href="assets/img/logo-colour.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/editorial-serif.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-lesson.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -63,9 +64,8 @@ function field_error(array $errors, string $key): string
 
 <header class="site-header" data-site-header>
   <div class="shell nav-wrap">
-    <a class="wordmark" href="#top" aria-label="Fortepiano Academy home">
-      <span class="wordmark-mark" aria-hidden="true">F</span>
-      <span>Fortepiano<br>Academy</span>
+    <a class="brand-logo-link" href="#top" aria-label="Fortepiano Academy home">
+      <img class="brand-logo brand-logo-header" src="assets/img/logo-colour.svg" width="163" height="145" alt="Fortepiano Academy">
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
       <span>Menu</span><i aria-hidden="true"></i>
@@ -100,8 +100,7 @@ function field_error(array $errors, string $key): string
       </div>
       <figure class="hero-media">
         <img src="assets/img/hero-lesson.webp" width="1200" height="900" alt="A student at the piano during a one-to-one lesson" fetchpriority="high">
-        <figcaption><span>Campaign photography</span><span>Replace with approved seasonal image</span></figcaption>
-        <div class="image-index" aria-hidden="true">01 / 03</div>
+        <figcaption><span>One-to-one piano education</span><span>Wentworth Point · Sydney</span></figcaption>
       </figure>
     </div>
     <div class="staff-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
@@ -197,7 +196,7 @@ function field_error(array $errors, string $key): string
     <div class="shell location-grid">
       <figure>
         <img src="assets/img/studio-detail.webp" width="1200" height="900" alt="One-to-one piano teaching in a studio setting" loading="lazy">
-        <figcaption><span>Academy photography</span><span>Replace with approved location image</span></figcaption>
+        <figcaption><span>Wentworth Point studio</span><span>Structured one-to-one lessons</span></figcaption>
       </figure>
       <div class="location-copy">
         <p class="eyebrow"><span></span> Studio &amp; home lessons</p>
@@ -315,7 +314,7 @@ function field_error(array $errors, string $key): string
 
 <footer class="site-footer">
   <div class="shell footer-top">
-    <a class="wordmark wordmark-footer" href="#top"><span class="wordmark-mark" aria-hidden="true">F</span><span>Fortepiano<br>Academy</span></a>
+    <a class="brand-logo-link brand-logo-link-footer" href="#top" aria-label="Fortepiano Academy home"><img class="brand-logo brand-logo-footer" src="assets/img/logo-white.svg" width="200" height="178" alt="Fortepiano Academy"></a>
     <p>Structured one-to-one piano education<br>for children, teenagers and adults.</p>
     <div><span>Location</span><p>Wentworth Point, Sydney</p></div>
     <div><span>Enquiries</span><a href="mailto:contact@fortepianoacademy.au" data-track="email">contact@fortepianoacademy.au</a></div>
