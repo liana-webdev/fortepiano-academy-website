@@ -8,11 +8,11 @@ This folder is a standalone PHP 8.1+ landing page. It does not use a database an
 2. Open the new `config.php` and enter the authenticated SMTP host, port, encryption, username and password supplied by the email host.
 3. Keep `from_email` on the `fortepianoacademy.au` domain. The default recipient is `contact@fortepianoacademy.au`; the visitor's validated address is used only as `Reply-To`.
 4. Enter tracking IDs in the same private file if required. Leave a value blank to disable that integration.
-5. Replace the three clearly named campaign assets when approved photography is ready:
+5. The supplied academy photography and branded social card are ready to use. If you later update campaign photography, keep these filenames:
    - `assets/img/hero-lesson.webp` (1200 × 900 recommended)
    - `assets/img/studio-detail.webp` (1200 × 900 recommended)
    - `assets/img/og-image.jpg` (1200 × 630 social-sharing card)
-6. Replace the text wordmark in `index.php` and `thank-you.php` with an approved logo if desired.
+6. The official academy colour and white logos are included in `assets/img` and used in the header, footer, confirmation page and favicon.
 7. Change `site.privacy_policy_url` in `config.php` if the live privacy policy uses a different path.
 
 ## Install PHPMailer
