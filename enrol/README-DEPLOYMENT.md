@@ -11,7 +11,7 @@ This folder is a standalone PHP 8.1+ landing page. It does not use a database an
 5. Replace the three clearly named campaign assets when approved photography is ready:
    - `assets/img/hero-lesson.webp` (1200 × 900 recommended)
    - `assets/img/studio-detail.webp` (1200 × 900 recommended)
-   - `assets/img/og-image-placeholder.jpg` (1200 × 630 recommended)
+   - `assets/img/og-image.jpg` (1200 × 630 social-sharing card)
 6. Replace the text wordmark in `index.php` and `thank-you.php` with an approved logo if desired.
 7. Change `site.privacy_policy_url` in `config.php` if the live privacy policy uses a different path.
 

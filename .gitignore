@@ -1,0 +1,5 @@
+# Private production configuration must never be committed.
+/enrol/config.php
+
+# Local deployment package; GitHub should contain the source folder instead.
+/fortepiano-academy-enrol-spring-2026.zip
