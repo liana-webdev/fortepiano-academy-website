@@ -2,7 +2,8 @@
 declare(strict_types=1);
 
 /**
- * Copy this file to config.php and replace the placeholders.
+ * Copy this file to config.php and replace the placeholders to use authenticated
+ * SMTP. Without config.php, the form falls back to the host's PHP mail transport.
  * config.php is blocked from web access by .htaccess and excluded from the ZIP.
  */
 return [
