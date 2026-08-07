@@ -1,11 +1,11 @@
 # Fortepiano Academy `/enrol` deployment
 
-This folder is a standalone PHP 8.1+ landing page. It does not use a database and it does not use PHP `mail()`.
+This folder is a standalone PHP 8.1+ landing page. It does not use a database. It prefers authenticated SMTP when configured and falls back to the hosting account's PHP mail transport when SMTP credentials are unavailable.
 
 ## Before upload
 
-1. Copy `config.example.php` to `config.php`.
-2. Open the new `config.php` and enter the authenticated SMTP host, port, encryption, username and password supplied by the email host.
+1. For recommended authenticated delivery, copy `config.example.php` to `config.php`.
+2. Open the new `config.php` and enter the SMTP host, port, encryption, username and password supplied by the email host. If a private config is not deployed, PHPMailer automatically uses the host's local mail transport instead of rejecting enquiries.
 3. Keep `from_email` on the `fortepianoacademy.au` domain. The default recipient is `contact@fortepianoacademy.au`; the visitor's validated address is used only as `Reply-To`.
 4. Enter tracking IDs in the same private file if required. Leave a value blank to disable that integration.
 5. The supplied academy photography and branded social card are ready to use. If you later update campaign photography, keep these filenames:

@@ -40,12 +40,7 @@ $smtp = $config['smtp'] ?? [];
 $requiredConfig = ['host', 'port', 'encryption', 'username', 'password', 'from_email', 'from_name', 'recipient_email'];
 $missingConfig = array_filter($requiredConfig, static fn (string $key): bool => trim((string) ($smtp[$key] ?? '')) === '');
 $isLocalTest = enrol_is_local_request() && (bool) ($config['testing']['allow_local_test_delivery'] ?? false);
-
-if (!$isLocalTest && $missingConfig) {
-    error_log('Fortepiano enrolment SMTP configuration is incomplete.');
-    enrol_flash_form(['form' => 'Email delivery is not configured yet. Please email contact@fortepianoacademy.au directly.'], $values);
-    enrol_redirect('index.php?form=delivery-error#enquiry');
-}
+$useSmtp = !$missingConfig;
 
 function email_row(string $label, string $value): string
 {
@@ -93,26 +88,37 @@ try {
         }
         require $autoload;
 
-        $fromEmail = strtolower((string) $smtp['from_email']);
+        $fromEmail = strtolower((string) ($smtp['from_email'] ?? 'contact@fortepianoacademy.au'));
+        $fromName = trim((string) ($smtp['from_name'] ?? 'Fortepiano Academy Enrolments'));
+        $recipientEmail = strtolower((string) ($smtp['recipient_email'] ?? 'contact@fortepianoacademy.au'));
         $fromDomain = substr(strrchr($fromEmail, '@') ?: '', 1);
         if ($fromDomain !== CANONICAL_DOMAIN) {
             throw new RuntimeException('The configured From address must use the fortepianoacademy.au domain.');
         }
+        if (!filter_var($recipientEmail, FILTER_VALIDATE_EMAIL)) {
+            throw new RuntimeException('The configured recipient address is invalid.');
+        }
 
         $mail = new PHPMailer\PHPMailer\PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = (string) $smtp['host'];
-        $mail->Port = (int) $smtp['port'];
-        $mail->SMTPAuth = true;
-        $mail->Username = (string) $smtp['username'];
-        $mail->Password = (string) $smtp['password'];
-        $mail->Timeout = 20;
+        if ($useSmtp) {
+            $mail->isSMTP();
+            $mail->Host = (string) $smtp['host'];
+            $mail->Port = (int) $smtp['port'];
+            $mail->SMTPAuth = true;
+            $mail->Username = (string) $smtp['username'];
+            $mail->Password = (string) $smtp['password'];
+            $mail->Timeout = 20;
+            $mail->SMTPSecure = strtolower((string) $smtp['encryption']) === 'ssl'
+                ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS
+                : PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        } else {
+            // Shared hosting normally supplies a local mail transfer agent. Using it
+            // keeps enquiries working when a private SMTP config was not deployed.
+            $mail->isMail();
+        }
         $mail->CharSet = 'UTF-8';
-        $mail->SMTPSecure = strtolower((string) $smtp['encryption']) === 'ssl'
-            ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS
-            : PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->setFrom($fromEmail, (string) $smtp['from_name']);
-        $mail->addAddress((string) $smtp['recipient_email']);
+        $mail->setFrom($fromEmail, $fromName);
+        $mail->addAddress($recipientEmail);
         $mail->addReplyTo($values['email'], $values['name']);
         $mail->Subject = 'Initial Assessment enquiry — ' . $values['name'];
         $mail->isHTML(true);
