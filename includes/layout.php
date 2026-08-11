@@ -19,7 +19,7 @@ function render_head(array $page): void
     <link rel="icon" type="image/svg+xml" href="/images/website%20icon.svg">
     <title><?= e($title) ?></title>
     <meta name="description" content="<?= e($description) ?>">
-    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="robots" content="<?= e($page['robots'] ?? 'index, follow, max-image-preview:large') ?>">
     <link rel="canonical" href="<?= e(canonical($path)) ?>">
     <meta property="og:type" content="<?= e($page['og_type'] ?? 'website') ?>">
     <meta property="og:title" content="<?= e($title) ?>">
@@ -196,7 +196,7 @@ function render_footer(): void
         </div>
     </div>
 </footer>
-<script src="/scripts/script.js?v=6"></script>
+<script src="/scripts/script.js?v=7"></script>
 </body>
 </html>
 <?php

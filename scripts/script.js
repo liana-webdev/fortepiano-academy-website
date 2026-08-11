@@ -34,9 +34,6 @@
       started = true;
       sendEvent("form_start", params);
     }, { once: true });
-    form.addEventListener("submit", () => {
-      sendEvent("form_submit", params);
-    });
   });
 
   if ("IntersectionObserver" in window) {

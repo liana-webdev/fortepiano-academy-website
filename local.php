@@ -12,8 +12,8 @@ if (!isset($localPages[$slug])) {
 $local = $localPages[$slug];
 $page = [
     'path' => $local['path'],
-    'title' => 'Studio and At-Home Piano Lessons in ' . $local['label'] . ' | Fortepiano Academy',
-    'description' => 'Structured one-to-one piano lessons for ' . $local['label'] . ' families, available at the Wentworth Point studio or in your home subject to availability.',
+    'title' => $local['title'],
+    'description' => $local['description'],
     'image' => '/images/piano-lesson-wentworth-point.jpg',
     'preload_image' => [
         'base' => '/images/responsive/studio-lesson',
@@ -22,7 +22,7 @@ $page = [
     ],
     'schema' => [
         business_schema(),
-        service_schema('Studio and at-home piano lessons in ' . $local['area'], $local['path'], $local['area']),
+        service_schema($local['h1'], $local['path'], $local['area']),
         breadcrumb_schema([['label' => 'Home', 'href' => '/'], ['label' => $local['label'], 'href' => $local['path']]]),
     ],
 ];
@@ -41,10 +41,10 @@ render_header('');
             <?php render_breadcrumb([['label' => 'Home', 'href' => '/'], ['label' => $local['label'], 'href' => $local['path']]]); ?>
             <div class="grid grid--2 grid--gap-xl align-center">
                 <div class="stack gap-m">
-                    <p class="article-meta">Studio and at-home piano lessons <?= e($local['label']) ?></p>
-                    <h1>Structured piano lessons for <?= e($local['label']) ?> families</h1>
-                    <p class="lead">Choose lessons at the Wentworth Point studio or request at-home lessons in <?= e($local['label']) ?>, subject to teacher and travel availability.</p>
-                    <p>At-home lessons follow the same structured program as studio lessons. Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit and are quoted for the return journey from Wentworth Point.</p>
+                    <p class="article-meta">Piano lessons for <?= e($local['label']) ?> families</p>
+                    <h1><?= e($local['h1']) ?></h1>
+                    <p class="lead"><?= e($local['intro']) ?></p>
+                    <p><strong><?= e($local['honesty']) ?></strong> <?= e($local['service_area']) ?></p>
                     <div class="actions">
                         <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('local_page_cta_click', ['page_type' => 'local', 'suburb_context' => $local['area'], 'cta_position' => 'hero']) ?>>Book Initial Assessment</a>
                         <a class="btn btn--ghost" href="/programs">View Programs</a>
