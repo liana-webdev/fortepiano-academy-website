@@ -6,6 +6,9 @@ RewriteRule ^index\.html$ / [R=301,L]
 RewriteRule ^teacher\.html$ /faculty [R=301,L]
 RewriteRule ^blog\.html$ /blog [R=301,L]
 
+# This clean URL conflicts with the physical /blog article directory.
+RewriteRule ^blog/?$ blog.php [L,QSA]
+
 # Allow existing files and directories through untouched
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
@@ -19,7 +22,6 @@ RewriteRule ^teacher/?$ /faculty [R=301,L]
 RewriteRule ^faculty/?$ faculty.php [L,QSA]
 RewriteRule ^results/?$ results.php [L,QSA]
 RewriteRule ^contact/?$ contact.php [L,QSA]
-RewriteRule ^blog/?$ blog.php [L,QSA]
 RewriteRule ^thank-you/?$ thank-you.php [L,QSA]
 
 # Local pages
