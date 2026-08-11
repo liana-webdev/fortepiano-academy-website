@@ -39,7 +39,7 @@
   --text: #111216;
   --muted: #5b5e66;
   /* brand */
-  --primary: #EC1A48;
+  --primary: #EC1A4C;
   --primary-600: #d1153f;
   /* ui */
   --border: rgba(16, 18, 24, .12);
@@ -157,7 +157,7 @@ body.theme-light .theme-toggle__icon {
     --surface: #1b1922;
     --text: #e8e6ee;
     --muted: #a7a4b0;
-    --primary: #EC1A48;
+    --primary: #EC1A4C;
     --primary-600: #d1153f;
     --shadow-1: 0 6px 24px rgba(0, 0, 0, .25);
     --shadow-glass: 0 8px 30px rgba(236, 26, 72, .25);

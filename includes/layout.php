@@ -42,8 +42,8 @@ function render_head(array $page): void
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/main.css?v=5">
-    <link rel="stylesheet" href="/styles/editorial.css?v=4">
+    <link rel="stylesheet" href="/styles/main.css?v=6">
+    <link rel="stylesheet" href="/styles/editorial.css?v=5">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9S4RJ9799Y"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

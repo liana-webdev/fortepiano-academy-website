@@ -6,7 +6,7 @@
   --fa-paper: #f4efe8;
   --fa-ivory: #fdfaf5;
   --fa-ink: #101014;
-  --fa-red: #c70e39;
+  --fa-red: #EC1A4C;
   --fa-red-bright: #ff355d;
   --fa-red-deep: #c70e39;
   --fa-oxblood: #4b0c1e;
@@ -55,7 +55,7 @@ body.theme-dark {
   --fa-muted: #aaa3a0;
   --fa-rule: rgba(244, 239, 232, .28);
   --fa-rule-soft: rgba(244, 239, 232, .14);
-  --fa-red: #ff355d;
+  --fa-red: #EC1A4C;
   --bg: var(--fa-paper);
   --surface: var(--fa-ivory);
   --text: var(--fa-ink);
@@ -75,7 +75,7 @@ body.theme-light {
   --fa-muted: #716b68;
   --fa-rule: rgba(16, 16, 20, .22);
   --fa-rule-soft: rgba(16, 16, 20, .12);
-  --fa-red: #c70e39;
+  --fa-red: #EC1A4C;
   --bg: var(--fa-paper);
   --surface: var(--fa-ivory);
   --text: var(--fa-ink);
