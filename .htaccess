@@ -20,6 +20,7 @@ RewriteRule ^faculty/?$ faculty.php [L,QSA]
 RewriteRule ^results/?$ results.php [L,QSA]
 RewriteRule ^contact/?$ contact.php [L,QSA]
 RewriteRule ^blog/?$ blog.php [L,QSA]
+RewriteRule ^thank-you/?$ thank-you.php [L,QSA]
 
 # Local pages
 RewriteRule ^(piano-lessons-[a-z0-9-]+)/?$ local.php?page=$1 [L,QSA]
