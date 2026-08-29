@@ -101,7 +101,6 @@ function render_header(string $active = ''): void
     <div class="container service-line__row">
         <span>Sydney piano school</span>
         <div class="service-line__links">
-            <a href="/pricing">Pricing</a>
             <a href="/piano-lessons-wentworth-point">Wentworth Point studio</a>
             <span>At-home lessons available</span>
         </div>

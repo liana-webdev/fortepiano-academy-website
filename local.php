@@ -87,7 +87,7 @@ render_header('');
     <section class="section">
         <div class="section__content container grid grid--2 grid--gap-l">
             <article class="card card--glass"><h2>Programs available</h2><p><strong>Foundation:</strong> <?= e($programs['foundation']['frequency']) ?> for steady structure and more independent practice.</p><p><strong>Development:</strong> <?= e($programs['development']['frequency']) ?> for closer guidance, reporting and AMEB preparation support where appropriate.</p><a class="btn btn--ghost" href="/programs">View Programs</a></article>
-            <article class="card card--glass"><h2>Initial Assessment</h2><p>The first step is a <?= e(money($pricing['assessment'])) ?> Initial Assessment to understand level, learning style, goals and recommended pathway.</p><a class="btn btn--primary" href="/initial-assessment#book">Book Initial Assessment</a></article>
+            <article class="card card--glass"><h2>Initial Assessment</h2><p>Families begin with a <?= e(money($pricing['assessment'])) ?> Initial Assessment before receiving a recommended program pathway. You do not need to choose a program first.</p><a class="btn btn--primary" href="/initial-assessment#book">Book Initial Assessment</a></article>
         </div>
     </section>
     <section class="section">
@@ -101,6 +101,6 @@ render_header('');
         </div>
     </section>
     <section class="section"><div class="section__content container"><header class="section__header center"><h2>Local FAQs</h2></header><?php render_faqs($faqs); ?></div></section>
-    <?php render_cta_band('Start with a clear pathway', 'Book the Initial Assessment and receive a recommended program for your child.', 'Book Initial Assessment', '/initial-assessment#book', 'View Pricing', '/pricing', 'local'); ?>
+    <?php render_cta_band('Start with a clear pathway', 'Book the Initial Assessment and receive a recommended program for your child.', 'Book Initial Assessment', '/initial-assessment#book', 'Compare Programs', '/programs', 'local'); ?>
 </main>
 <?php render_footer(); ?>

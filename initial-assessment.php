@@ -26,6 +26,7 @@ render_header('/initial-assessment');
                 <h1>Initial Piano Assessment</h1>
                 <p class="lead"><?= e(money($pricing['assessment'])) ?> assessment lesson at the Wentworth Point studio or in your home for placement, readiness and pathway recommendation.</p>
                 <p>The Initial Assessment is a combined trial lesson and assessment, not a casual try-and-see lesson. It helps determine current level, learning style, readiness, goals and the most suitable starting pathway.</p>
+                <p><strong>The assessment comes first.</strong> Program placement and ongoing tuition options are recommended afterwards.</p>
                 <p class="assessment-placement-note">Placement is into Foundation (<?= e($programs['foundation']['frequency_short']) ?>) or Development (<?= e($programs['development']['frequency_short']) ?>).</p>
                 <a class="btn btn--primary" href="#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'assessment', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
             </div>

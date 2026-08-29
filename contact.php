@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/includes/layout.php';
-global $programs;
 $page = [
     'path' => '/contact',
     'title' => 'Contact Fortepiano Academy | Studio and At-Home Piano Lessons',
@@ -37,13 +36,12 @@ render_header('/contact');
                     <iframe class="map" title="Map to Fortepiano Academy" loading="lazy" src="https://www.google.com/maps?q=5%20Verona%20Drive%20Wentworth%20Point%20NSW%202127&output=embed"></iframe>
                 </div>
                 <div class="card card--soft">
-                    <h2>Assessment prompt</h2>
-                    <p>The Initial Assessment is the clearest starting point if you want a recommended program and lesson length.</p>
-                    <div class="contact-program-summary">
-                        <p><strong>Foundation</strong><span><?= e($programs['foundation']['frequency']) ?></span></p>
-                        <p><strong>Development</strong><span><?= e($programs['development']['frequency']) ?></span></p>
+                    <h2>Not sure which option fits?</h2>
+                    <p>You do not need to choose a program before starting. The Initial Assessment is used to understand the student&rsquo;s level, goals and recommended lesson pathway.</p>
+                    <div class="actions">
+                        <a class="btn btn--primary" href="/initial-assessment#book">Book Initial Assessment</a>
+                        <a class="btn btn--ghost" href="/programs">Compare Programs</a>
                     </div>
-                    <a class="btn btn--ghost" href="/initial-assessment#book">Book Initial Assessment</a>
                 </div>
             </aside>
         </div>

@@ -18,9 +18,10 @@ render_header('/programs');
                 <p class="article-meta">Foundation and Development</p>
                 <h1>Programs built for structured progress</h1>
                 <p class="lead">Fortepiano Academy uses programs because meaningful piano progress needs a pathway, whether lessons take place at the studio or in your home.</p>
+                <p>You do not need to choose a program before starting. The Initial Assessment is used to understand the student&rsquo;s level, goals and recommended lesson pathway.</p>
                 <div class="actions">
-                    <a class="btn btn--primary" href="/pricing"<?= tracking_attrs('view_pricing', ['page_type' => 'programs']) ?>>See Pricing</a>
-                    <a class="btn btn--ghost" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'programs', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
+                    <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'programs', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
+                    <a class="btn btn--ghost" href="/pricing"<?= tracking_attrs('view_pricing', ['page_type' => 'programs']) ?>>View Detailed Pricing</a>
                 </div>
             </div>
         </div>
@@ -73,6 +74,6 @@ render_header('/programs');
             <article class="card"><h2>AMEB pathway</h2><p>AMEB work is recommended when it supports the student rather than becoming pressure for its own sake.</p></article>
         </div>
     </section>
-    <?php render_cta_band('Start with the right pathway', 'The assessment allows the academy to recommend the program and lesson length that actually fits.', 'Book Initial Assessment', '/initial-assessment#book', 'See Pricing', '/pricing', 'programs'); ?>
+    <?php render_cta_band('Start with the right pathway', 'The assessment allows the academy to recommend the program and lesson length that actually fits.', 'Book Initial Assessment', '/initial-assessment#book', 'View Detailed Pricing', '/pricing', 'programs'); ?>
 </main>
 <?php render_footer(); ?>

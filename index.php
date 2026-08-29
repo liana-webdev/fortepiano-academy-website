@@ -46,7 +46,7 @@ render_header('/');
                     <a class="fa-button fa-button--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'home', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>
                         <span>Book Initial Assessment</span><span aria-hidden="true">&rarr;</span>
                     </a>
-                    <a class="fa-button fa-button--secondary" href="#programs">Compare Programs</a>
+                    <a class="fa-button fa-button--secondary" href="/programs">Compare Programs</a>
                 </div>
             </div>
             <figure class="fa-hero__media fa-iridescent-frame">
@@ -119,11 +119,6 @@ render_header('/');
                         <li>Studio recital participation</li>
                         <li>Limited support outside lesson hours</li>
                     </ul>
-                    <div class="fa-price-list">
-                        <?php foreach ($pricing['foundation'] as $row): ?>
-                            <div><span><?= e($row['length']) ?></span><strong><?= e(money($row['price'])) ?></strong><small>/month</small></div>
-                        <?php endforeach; ?>
-                    </div>
                     <a href="/initial-assessment#book">Begin with assessment <span aria-hidden="true">&rarr;</span></a>
                 </article>
                 <article class="fa-program fa-program--featured">
@@ -139,18 +134,13 @@ render_header('/');
                         <li>AMEB enrolment and exam fees covered</li>
                         <li>Outside-lesson support by arrangement</li>
                     </ul>
-                    <div class="fa-price-list">
-                        <?php foreach ($pricing['development'] as $row): ?>
-                            <div><span><?= e($row['length']) ?></span><strong><?= e(money($row['price'])) ?></strong><small>/month</small></div>
-                        <?php endforeach; ?>
-                    </div>
                     <a href="/initial-assessment#book">Begin with assessment <span aria-hidden="true">&rarr;</span></a>
                 </article>
             </div>
             <div class="fa-assessment-note">
                 <div><span>Initial Assessment</span><strong><?= e(money($pricing['assessment'])) ?></strong></div>
-                <p>A 30-minute combined trial lesson and assessment. Program Setup is <?= e(money($pricing['setup'])) ?> only if continuing.</p>
-                <a href="/initial-assessment">Assessment details <span aria-hidden="true">&nearr;</span></a>
+                <p>Start with a <?= e(money($pricing['assessment'])) ?> Initial Assessment. You do not need to choose a program first. A recommended pathway and lesson length are provided afterwards.</p>
+                <a href="/programs">Compare programs <span aria-hidden="true">&nearr;</span></a>
             </div>
         </div>
     </section>
