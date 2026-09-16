@@ -14,7 +14,7 @@ render_header('/contact');
         <div class="section__content container">
             <?php render_breadcrumb([['label' => 'Home', 'href' => '/'], ['label' => 'Contact', 'href' => '/contact']]); ?>
             <h1>Contact Fortepiano Academy</h1>
-            <p class="lead">Use this form for studio or at-home assessment bookings, travel quotes, program questions, pricing questions or general enquiries.</p>
+            <p class="lead">Use this form for studio or at-home assessment bookings, travel quotes, program questions, tuition questions or general enquiries.</p>
         </div>
     </section>
     <section class="section">
@@ -29,8 +29,8 @@ render_header('/contact');
                 </div>
                 <div class="card card--glass">
                     <h2>At-home lesson enquiries</h2>
-                    <p>Home lessons are available across listed surrounding suburbs, subject to availability. Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit for the return journey from Wentworth Point.</p>
-                    <p>Provide your suburb and nearest cross street so the exact travel fee can be confirmed before booking.</p>
+                    <p>Home lessons are available across listed surrounding suburbs, subject to availability.</p>
+                    <p>Provide your suburb and nearest cross street so any travel fee can be quoted and confirmed before booking.</p>
                 </div>
                 <div class="card">
                     <iframe class="map" title="Map to Fortepiano Academy" loading="lazy" src="https://www.google.com/maps?q=5%20Verona%20Drive%20Wentworth%20Point%20NSW%202127&output=embed"></iframe>

@@ -71,7 +71,7 @@ render_header('/blog');
                     <p>A downloadable parent guide is planned for a later release. For now, start with assessment or explore the program structure.</p>
                     <a class="btn btn--primary" href="/initial-assessment#book">Book Initial Assessment</a>
                     <a class="btn btn--ghost" href="/programs">View Programs</a>
-                    <p class="muted">At-home lessons are available in listed surrounding suburbs, subject to availability and a travel fee starting from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit.</p>
+                    <p class="muted">At-home lessons are available in listed surrounding suburbs, subject to availability. Any travel fee is quoted and confirmed before booking.</p>
                 </div>
             </aside>
         </div>

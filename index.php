@@ -28,7 +28,7 @@ $homeFaqs = [
     ['q' => 'How do we begin?', 'a' => 'Begin with the $40 Initial Assessment. It is a real teaching session used to understand level, readiness, goals and the most suitable program and lesson length.'],
     ['q' => 'What is the difference between Foundation and Development?', 'a' => $programs['foundation']['frequency'] . ' in Foundation, with more independent practice between lessons. ' . $programs['development']['frequency'] . ' in Development, with closer accountability, regular reporting and stronger AMEB preparation support where appropriate.'],
     ['q' => 'Are AMEB exams compulsory?', 'a' => 'No. AMEB preparation is available where it suits the student\'s goals and readiness. Recitals, musicianship, technique and repertoire remain meaningful forms of progress without a fixed examination timeline.'],
-    ['q' => 'Where are lessons taught?', 'a' => 'Lessons are available at the Wentworth Point studio and at students\' homes across selected surrounding suburbs, subject to teacher, schedule and travel availability. Travel fees start from $15 per visit.'],
+    ['q' => 'Where are lessons taught?', 'a' => 'Lessons are available at the Wentworth Point studio and at students\' homes across selected surrounding suburbs, subject to teacher, schedule and travel availability. Any travel fee is quoted and confirmed before booking.'],
 ];
 $reviews = academy_reviews();
 
@@ -233,7 +233,7 @@ render_header('/');
                     <h2 id="locations-title">At the studio or on the student's own piano.</h2>
                     <div class="fa-location-pair">
                         <article><span>Studio / 2127</span><h3>Wentworth Point</h3><p>A focused studio environment with the piano and teaching setup ready for each session.</p><a href="/piano-lessons-wentworth-point">Studio details</a></article>
-                        <article><span>Selected suburbs</span><h3>Lessons at home</h3><p>At-home lessons are subject to teacher and travel availability. Fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit for the return journey from Wentworth Point.</p><a href="/contact">Request a travel quote</a></article>
+                        <article><span>Selected suburbs</span><h3>Lessons at home</h3><p>At-home lessons are subject to teacher and travel availability. Any travel fee is quoted and confirmed before booking.</p><a href="/contact">Request a travel quote</a></article>
                     </div>
                 </div>
             </div>
@@ -273,8 +273,8 @@ render_header('/');
                     <li>Wentworth Point studio or at home</li>
                     <li>Program and lesson-length recommendation</li>
                     <li>Next-step outline within 24 hours</li>
-                    <li><?= e(money($pricing['setup'])) ?> Program Setup only if continuing</li>
-                    <li>At-home travel from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit</li>
+                    <li>Program Setup only if continuing</li>
+                    <li>At-home travel quoted before booking</li>
                 </ul>
                 <a class="fa-button fa-button--light" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'home', 'cta_position' => 'admissions', 'cta_label' => 'Request an Assessment']) ?>>Request an Assessment <span aria-hidden="true">&rarr;</span></a>
             </div>

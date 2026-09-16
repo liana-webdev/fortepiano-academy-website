@@ -28,7 +28,7 @@ $page = [
 ];
 $faqs = [
     ['q' => 'Are at-home lessons available in ' . $local['faq_area'] . '?', 'a' => 'At-home lessons may be available in ' . $local['faq_area'] . ', subject to teacher, schedule and travel availability. Studio lessons are also available in Wentworth Point.'],
-    ['q' => 'What is the travel fee for ' . $local['faq_area'] . '?', 'a' => 'Travel fees start from $15 per visit and cover the return journey from Wentworth Point. The exact fee is confirmed from your suburb and nearest cross street before booking.'],
+    ['q' => 'How is travel arranged for ' . $local['faq_area'] . '?', 'a' => 'Provide your suburb and nearest cross street. Any travel fee is quoted and confirmed before booking.'],
     ['q' => 'Do students from ' . $local['faq_area'] . ' prepare for AMEB?', 'a' => 'Yes. AMEB-aligned preparation is available where it suits the student goals and readiness.'],
     ['q' => 'How do families from ' . $local['faq_area'] . ' begin?', 'a' => 'Begin with the Initial Assessment so the academy can recommend the right pathway and lesson length.'],
 ];

@@ -178,7 +178,7 @@ function render_footer(): void
         </div>
         <nav class="footer__nav" aria-label="Footer">
             <a href="/programs">Programs</a>
-            <a href="/pricing">Pricing</a>
+            <a href="/pricing">Tuition</a>
             <a href="/faculty">Faculty</a>
             <a href="/results">Results</a>
             <a href="/blog">Journal</a>
@@ -275,7 +275,7 @@ function render_contact_form(string $pageType, string $submitLabel = 'Send Enqui
             <option value="">Choose one</option>
             <option>Initial assessment</option>
             <option>Program enquiry</option>
-            <option>Pricing question</option>
+            <option>Tuition question</option>
             <option>General contact</option>
         </select>
     </label>

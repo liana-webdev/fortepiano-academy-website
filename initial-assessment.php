@@ -12,7 +12,7 @@ $faqs = [
     ['q' => 'Do we need prior experience?', 'a' => 'No. Beginners are welcome.'],
     ['q' => 'Will we get a recommendation afterwards?', 'a' => 'Yes. You receive a recommended program, lesson length and next step within 24 hours.'],
     ['q' => 'Do we need to enrol on the day?', 'a' => 'No. The assessment comes first so you can decide with clarity.'],
-    ['q' => 'Can the Initial Assessment take place at our home?', 'a' => 'Yes, subject to availability. An at-home assessment includes a travel fee starting from $15, quoted for the return journey from Wentworth Point.'],
+    ['q' => 'Can the Initial Assessment take place at our home?', 'a' => 'Yes, subject to availability. Any travel fee for an at-home assessment is quoted and confirmed before booking.'],
 ];
 render_head($page);
 render_header('/initial-assessment');
@@ -45,9 +45,9 @@ render_header('/initial-assessment');
                 <div class="assessment-enrolment__copy stack gap-s">
                     <p class="article-meta">If continuing</p>
                     <h2>Program Setup and enrolment</h2>
-                    <p>Program Setup is <?= e(money($pricing['setup'])) ?> only if you continue. It covers enrolment setup, terms, and preparation of an individual term plan.</p>
+                    <p>Program Setup applies only if you continue. It covers enrolment setup, terms, and preparation of an individual term plan.</p>
                     <p>A clear beginning makes everything easier: enquiry, Initial Assessment, recommendation, Program Setup, individual term plan, then lessons begin.</p>
-                    <p>For an at-home assessment, provide your suburb and nearest cross street for a travel quote. Travel fees start from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> and apply to the assessment visit.</p>
+                    <p>For an at-home assessment, provide your suburb and nearest cross street. Any travel fee is quoted and confirmed before booking.</p>
                     <div class="program-frequency-summary" aria-label="Program lesson frequency comparison">
                         <div><strong>Foundation</strong><span><?= e($programs['foundation']['frequency']) ?></span><p><?= e($programs['foundation']['benefit']) ?></p></div>
                         <div><strong>Development</strong><span><?= e($programs['development']['frequency']) ?></span><p><?= e($programs['development']['benefit']) ?></p></div>

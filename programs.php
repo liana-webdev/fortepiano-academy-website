@@ -21,7 +21,7 @@ render_header('/programs');
                 <p>You do not need to choose a program before starting. The Initial Assessment is used to understand the student&rsquo;s level, goals and recommended lesson pathway.</p>
                 <div class="actions">
                     <a class="btn btn--primary" href="/initial-assessment#book"<?= tracking_attrs('book_assessment_click', ['page_type' => 'programs', 'cta_position' => 'hero', 'cta_label' => 'Book Initial Assessment']) ?>>Book Initial Assessment</a>
-                    <a class="btn btn--ghost" href="/pricing"<?= tracking_attrs('view_pricing', ['page_type' => 'programs']) ?>>View Detailed Pricing</a>
+                    <a class="btn btn--ghost" href="/pricing"<?= tracking_attrs('view_pricing', ['page_type' => 'programs']) ?>>Tuition Information</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@ render_header('/programs');
         <div class="section__content container">
             <div class="card card--glass">
                 <h2>Choose studio or at-home lessons</h2>
-                <p>Both programs are available at the Wentworth Point studio or at your home in a listed surrounding suburb, subject to availability. At-home lessons include a travel fee starting from <?= e(money(HOME_LESSON_TRAVEL_FEE)) ?> per visit.</p>
+                <p>Both programs are available at the Wentworth Point studio or at your home in a listed surrounding suburb, subject to availability. Any travel fee for at-home lessons is quoted and confirmed before booking.</p>
             </div>
         </div>
     </section>
@@ -74,6 +74,6 @@ render_header('/programs');
             <article class="card"><h2>AMEB pathway</h2><p>AMEB work is recommended when it supports the student rather than becoming pressure for its own sake.</p></article>
         </div>
     </section>
-    <?php render_cta_band('Start with the right pathway', 'The assessment allows the academy to recommend the program and lesson length that actually fits.', 'Book Initial Assessment', '/initial-assessment#book', 'View Detailed Pricing', '/pricing', 'programs'); ?>
+    <?php render_cta_band('Start with the right pathway', 'The assessment allows the academy to recommend the program and lesson length that actually fits.', 'Book Initial Assessment', '/initial-assessment#book', 'Tuition Information', '/pricing', 'programs'); ?>
 </main>
 <?php render_footer(); ?>
