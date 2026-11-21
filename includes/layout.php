@@ -195,7 +195,7 @@ function render_footer(): void
         </div>
     </div>
 </footer>
-<script src="/scripts/script.js?v=7"></script>
+<script src="/scripts/script.js?v=8"></script>
 </body>
 </html>
 <?php
@@ -257,6 +257,7 @@ function render_faqs(array $faqs): void
 
 function render_contact_form(string $pageType, string $submitLabel = 'Send Enquiry', string $suburb = ''): void
 {
+    $assessment = $pageType === 'assessment';
     ?>
 <form id="book" class="card form" action="/send_mail.php" method="POST" data-form-type="<?= e($pageType) ?>">
     <input type="hidden" name="page_type" value="<?= e($pageType) ?>">
@@ -269,6 +270,9 @@ function render_contact_form(string $pageType, string $submitLabel = 'Send Enqui
         <span>Phone / Email</span>
         <input type="text" name="contact" required autocomplete="email">
     </label>
+    <?php if ($assessment): ?>
+    <input type="hidden" name="enquiry_type" value="Initial assessment">
+    <?php else: ?>
     <label class="field">
         <span>Enquiry Type</span>
         <select name="enquiry_type" required>
@@ -279,6 +283,7 @@ function render_contact_form(string $pageType, string $submitLabel = 'Send Enqui
             <option>General contact</option>
         </select>
     </label>
+    <?php endif; ?>
     <label class="field">
         <span>Preferred Lesson Location</span>
         <select name="lesson_location" required>
@@ -288,6 +293,15 @@ function render_contact_form(string $pageType, string $submitLabel = 'Send Enqui
             <option>Not sure yet</option>
         </select>
     </label>
+    <label class="field">
+        <span>Availability</span>
+        <input type="text" name="availability" placeholder="Preferred days or times">
+    </label>
+    <?php if ($assessment): ?>
+    <details data-assessment-home>
+        <summary>At-home lesson details</summary>
+        <div class="stack gap-s">
+    <?php endif; ?>
     <label class="field">
         <span>Home Suburb / Nearest Cross Street</span>
         <input type="text" name="home_location" placeholder="For an at-home lesson travel quote">
@@ -302,6 +316,13 @@ function render_contact_form(string $pageType, string $submitLabel = 'Send Enqui
             <option>Not applicable - studio lessons</option>
         </select>
     </label>
+    <?php if ($assessment): ?>
+        </div>
+    </details>
+    <details>
+        <summary>Student details and questions (optional)</summary>
+        <div class="stack gap-s">
+    <?php endif; ?>
     <label class="field">
         <span>Student Age / Level</span>
         <input type="text" name="age" autocomplete="off">
@@ -311,13 +332,13 @@ function render_contact_form(string $pageType, string $submitLabel = 'Send Enqui
         <input type="text" name="goals" placeholder="AMEB, beginner, confidence, technique...">
     </label>
     <label class="field">
-        <span>Availability</span>
-        <input type="text" name="availability" placeholder="Preferred days or times">
-    </label>
-    <label class="field">
         <span>Message</span>
-        <textarea name="message" rows="4" required></textarea>
+        <textarea name="message" rows="4"<?= $assessment ? '' : ' required' ?>></textarea>
     </label>
+    <?php if ($assessment): ?>
+        </div>
+    </details>
+    <?php endif; ?>
     <p class="muted form-note">By submitting this form, you agree to the <a href="/privacy-policy.html">Privacy Policy</a>.</p>
     <button class="btn btn--primary" type="submit"><?= e($submitLabel) ?></button>
 </form>

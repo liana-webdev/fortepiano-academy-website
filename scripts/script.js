@@ -1,5 +1,16 @@
 // scripts/script.js
 
+// Expand the travel questions when a family requests an at-home assessment.
+document.querySelectorAll("form[data-form-type='assessment']").forEach((form) => {
+  const location = form.elements.namedItem("lesson_location");
+  const home = form.querySelector("[data-assessment-home]");
+  if (!location || !home) return;
+  const update = () => { home.open = location.value === "At my home"; };
+  location.addEventListener("change", update);
+  window.addEventListener("pageshow", update);
+  update();
+});
+
 // GA4 interaction hooks
 (() => {
   const sendEvent = (eventName, params = {}) => {
@@ -496,6 +507,8 @@
         "Name": "Tên",
         "Phone / Email": "Điện thoại / Email",
         "Child’s Age / Level": "Tuổi / trình độ của trẻ",
+        "At-home lesson details": "Thông tin lớp học tại nhà",
+        "Student details and questions (optional)": "Thông tin học viên và câu hỏi (không bắt buộc)",
         "Message": "Tin nhắn",
         "Send": "Gửi",
         "By submitting this form, you agree to our": "Bằng cách gửi biểu mẫu này, bạn đồng ý với",
@@ -691,6 +704,8 @@
                 "Name": "姓名",
                 "Phone / Email": "电话 / 邮箱",
                 "Child’s Age / Level": "孩子年龄 / 水平",
+                "At-home lesson details": "上门课程信息",
+                "Student details and questions (optional)": "学生信息及问题（选填）",
                 "Message": "留言",
                 "Send": "发送",
                 "By submitting this form, you agree to our": "提交此表格即表示您同意我们的",

@@ -23,7 +23,8 @@ $lessonLocation = trim((string) ($_POST['lesson_location'] ?? ''));
 $homeLocation = trim((string) ($_POST['home_location'] ?? ''));
 $homePiano = trim((string) ($_POST['home_piano'] ?? ''));
 
-if ($name === '' || $contact === '' || $enquiryType === '' || $lessonLocation === '' || $message === '') {
+$assessment = $pageType === 'assessment' && $enquiryType === 'Initial assessment';
+if ($name === '' || $contact === '' || $enquiryType === '' || $lessonLocation === '' || (!$assessment && $message === '')) {
     http_response_code(400);
     echo 'Please fill in all required fields.';
     exit;
